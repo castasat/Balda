@@ -17,14 +17,15 @@ public class Game extends AppCompatActivity
   {
     super.onCreate(savedInstanceState);
     this.setContentView(R.layout.game_layout);
-  
-    FieldFragment fieldFragment = new FieldFragment();
-    
+          
     // during initial program start
     if (savedInstanceState == null)
     {
       FragmentManager     fragmentManager = getSupportFragmentManager();
       FragmentTransaction transaction     = fragmentManager.beginTransaction();
+      
+      FieldFragment       fieldFragment   = new FieldFragment();
+      
       transaction.add(R.id.gameFrame, fieldFragment, TAG_FIELD);
       transaction.commit();
     }
