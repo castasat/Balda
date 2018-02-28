@@ -2,58 +2,66 @@ package com.openyogaland.denis.balda;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewManager;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import android.view.ViewGroup.LayoutParams;
+import android.widget.LinearLayout.LayoutParams;
 
 public class FieldFragment extends Fragment
 {
-  private static final int   NUM_OF_LINES  = 5;
-  private static final int   NUM_OF_CELLS  = 5;
-  private static final float BUTTON_WEIGHT = 1.0F;
+  private Game game;
+  
+  private static final int   NUM_OF_ROWS    = 5;
+  private static final int   NUM_OF_COLUMNS = 5;
+  private static final float CELL_WEIGHT    = 1.0F;
+  
   
   @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+  public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
   {
     View view = inflater.inflate(R.layout.field_fragment, container, false);
-    LinearLayout fieldLayout = view.findViewById(R.id.fieldLayout);
-    createGameField(fieldLayout);
+    LinearLayout linearLayout = view.findViewById(R.id.linearLayout);
+  
+    LinearLayout[]   line = new LinearLayout[NUM_OF_ROWS];
+    SquareButton[][] cell = new SquareButton[NUM_OF_ROWS][NUM_OF_COLUMNS];
+  
+    LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,
+        LayoutParams.WRAP_CONTENT, CELL_WEIGHT);
+    
+    for (int row = 0; row < NUM_OF_ROWS; row++)
+    {
+      line[row] = new LinearLayout(getContext());
+      line[row].setOrientation(LinearLayout.HORIZONTAL);
+      linearLayout.addView(line[row]);
+      
+      for(int column = 0; column < NUM_OF_COLUMNS; column++)
+      {
+        cell[row][column] = new SquareButton(getContext());
+        cell[row][column].setLayoutParams(params);
+        line[row].addView(cell[row][column]);
+      }
+    }
+    
     return view;
   }
   
-  private void createGameField(ViewManager viewManager)
-  {
-    LinearLayout[] line = new LinearLayout[NUM_OF_LINES];
-    LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
     
-    Context context = getActivity().getApplicationContext();
   
-    for(int i = 0; i < NUM_OF_LINES; i++)
+  @Override
+  public void onAttach(Context context)
+  {
+    super.onAttach(context);
+    
+    try
     {
-      line[i] = new LinearLayout(context);
-      line[i].setOrientation(LinearLayout.HORIZONTAL);
-      addCells(line[i]);
-      viewManager.addView(line[i], layoutParams);
+      game = (Game) context;
+    }
+    catch(ClassCastException e)
+    {
+      throw new ClassCastException(context.toString() + e);
     }
   }
-  
-  private void addCells(ViewGroup viewGroup)
-  {
-    Button[] button = new Button[NUM_OF_CELLS];
-    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
-        LayoutParams.WRAP_CONTENT, BUTTON_WEIGHT);
-    
-    for (int i = 0; i < NUM_OF_CELLS; i++)
-    {
-      button[i] = new Button(getContext());
-      button[i].setLayoutParams(layoutParams);
-      viewGroup.addView(button[i]);
-    }
-  }
-  
 }
