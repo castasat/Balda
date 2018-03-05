@@ -22,22 +22,6 @@ public class SquareButton extends AppCompatButton
   }
   
   @Override
-  public void setWidth(int pixels)
-  {
-    int height = getHeight();
-    int size   = (pixels > height) ? height : pixels;
-    super.setWidth(size);
-  }
-  
-  @Override
-  public void setHeight(int pixels)
-  {
-    int width = getWidth();
-    int size = (width < pixels) ? width : pixels;
-    super.setHeight(size);
-  }
-  
-  @Override
   protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
   {
     super.onMeasure(widthMeasureSpec, heightMeasureSpec);

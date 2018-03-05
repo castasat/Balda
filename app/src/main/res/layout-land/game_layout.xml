@@ -9,9 +9,9 @@
 
     <FrameLayout
         android:id="@+id/gameFrame"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         tools:context="com.openyogaland.denis.balda.Game"/>
 
 </RelativeLayout>

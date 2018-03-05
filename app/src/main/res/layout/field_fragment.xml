@@ -1,9 +1,287 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linearLayout"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-</LinearLayout>
+    <!-- Line 00 -->
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_00"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cell_01"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cell_10"/>
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_01"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_00"
+        app:layout_constraintEnd_toStartOf="@id/cell_02"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cell_11"/>
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_02"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_01"
+        app:layout_constraintEnd_toStartOf="@id/cell_03"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cell_12"/>
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_03"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_02"
+        app:layout_constraintEnd_toStartOf="@id/cell_04"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cell_13"/>
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_04"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_03"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cell_14"/>
+
+    <!-- / Line 00 -->
+
+    <!-- Line 01 -->
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_10"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cell_11"
+        app:layout_constraintTop_toBottomOf="@id/cell_00"
+        app:layout_constraintBottom_toTopOf="@id/cell_20"/>
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_11"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_10"
+        app:layout_constraintEnd_toStartOf="@id/cell_12"
+        app:layout_constraintTop_toBottomOf="@id/cell_01"
+        app:layout_constraintBottom_toTopOf="@id/cell_21"/>
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_12"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_11"
+        app:layout_constraintEnd_toStartOf="@id/cell_13"
+        app:layout_constraintTop_toBottomOf="@id/cell_02"
+        app:layout_constraintBottom_toTopOf="@id/cell_22"/>
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_13"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_12"
+        app:layout_constraintEnd_toStartOf="@id/cell_14"
+        app:layout_constraintTop_toBottomOf="@id/cell_03"
+        app:layout_constraintBottom_toTopOf="@id/cell_23"/>
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_14"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cell_04"
+        app:layout_constraintBottom_toTopOf="@id/cell_24"/>
+
+    <!-- / Line 01 -->
+
+    <!-- Line 02 -->
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_20"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toStartOf="@id/cell_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cell_10"
+        app:layout_constraintBottom_toTopOf="@id/cell_30"/>
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_21"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_20"
+        app:layout_constraintEnd_toStartOf="@id/cell_22"
+        app:layout_constraintTop_toBottomOf="@id/cell_11"
+        app:layout_constraintBottom_toTopOf="@id/cell_31"/>
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_22"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_21"
+        app:layout_constraintEnd_toStartOf="@id/cell_23"
+        app:layout_constraintTop_toBottomOf="@id/cell_12"
+        app:layout_constraintBottom_toTopOf="@id/cell_32"/>
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_23"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_22"
+        app:layout_constraintEnd_toStartOf="@id/cell_24"
+        app:layout_constraintTop_toBottomOf="@id/cell_13"
+        app:layout_constraintBottom_toTopOf="@id/cell_33"/>
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_24"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_23"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cell_14"
+        app:layout_constraintBottom_toTopOf="@id/cell_34"/>
+
+    <!-- / Line 02 -->
+
+    <!-- Line 03 -->
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_30"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cell_20"
+        app:layout_constraintEnd_toStartOf="@id/cell_31"
+        app:layout_constraintBottom_toTopOf="@id/cell_40"/>
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_31"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_30"
+        app:layout_constraintEnd_toStartOf="@id/cell_32"
+        app:layout_constraintTop_toBottomOf="@id/cell_21"
+        app:layout_constraintBottom_toTopOf="@id/cell_41"
+        />
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_32"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_31"
+        app:layout_constraintEnd_toStartOf="@id/cell_33"
+        app:layout_constraintTop_toBottomOf="@id/cell_22"
+        app:layout_constraintBottom_toTopOf="@id/cell_42"
+        />
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_33"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_32"
+        app:layout_constraintEnd_toStartOf="@id/cell_34"
+        app:layout_constraintTop_toBottomOf="@id/cell_23"
+        app:layout_constraintBottom_toTopOf="@id/cell_43"
+        />
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_34"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_33"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cell_24"
+        app:layout_constraintBottom_toTopOf="@id/cell_44"/>
+
+    <!-- / Line 03 -->
+
+    <!-- Line 04 -->
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_40"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cell_30"
+        app:layout_constraintEnd_toStartOf="@id/cell_41"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_41"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_40"
+        app:layout_constraintEnd_toStartOf="@id/cell_42"
+        app:layout_constraintTop_toBottomOf="@id/cell_31"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_42"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_41"
+        app:layout_constraintEnd_toStartOf="@id/cell_43"
+        app:layout_constraintTop_toBottomOf="@id/cell_32"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_43"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_42"
+        app:layout_constraintEnd_toStartOf="@id/cell_44"
+        app:layout_constraintTop_toBottomOf="@id/cell_33"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.openyogaland.denis.balda.SquareButton
+        android:id="@+id/cell_44"
+        style="@style/SquareButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toEndOf="@id/cell_43"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cell_34"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <!-- / Line 04 -->
+
+</android.support.constraint.ConstraintLayout>

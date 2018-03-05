@@ -8,4 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Balda" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:buttonStyle">@style/SquareButton</item>
+    </style>
+
+    <style name="SquareButton" parent="Base.Widget.AppCompat.Button">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/font_size</item>
+        <item name="android:textAlignment">center</item>
+    </style>
 </resources>
