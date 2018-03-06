@@ -10,12 +10,15 @@ import android.view.ViewGroup;
 
 public class FieldFragment extends Fragment implements OnClickListener
 {
-  private static final int    NUM_OF_ROWS    = 5;
-  private static final int    NUM_OF_COLUMNS = 5;
+  private static final int    NUM_OF_ROWS            = 5;
+  private static final int    NUM_OF_COLUMNS         = 5;
   
-  private static final String CELL_NAME_PREFIX = "cell_";
-  private static final String ID_RESOURCE_TIPE = "id";
-  private static final String PACKAGE_NAME     = "com.openyogaland.denis.balda";
+  private static final int    INITIAL_WORD_ROW_INDEX = 2;
+  private static final String INITIAL_WORD           = "балда";
+  
+  private static final String CELL_NAME_PREFIX       = "cell_";
+  private static final String ID_RESOURCE_TIPE       = "id";
+  private static final String PACKAGE_NAME           = "com.openyogaland.denis.balda";
   
   private final SquareButton[][] cell   = new SquareButton[NUM_OF_ROWS][NUM_OF_COLUMNS];
   private final String[][]       matrix = new String[NUM_OF_ROWS][NUM_OF_COLUMNS];
@@ -40,10 +43,12 @@ public class FieldFragment extends Fragment implements OnClickListener
         int cell_id = getResources().getIdentifier(CELL_NAME_PREFIX + cellIndex, ID_RESOURCE_TIPE, PACKAGE_NAME);
         cell[row][column] = view.findViewById(cell_id);
         
+        if (row == INITIAL_WORD_ROW_INDEX)
+        {
+          writeInitialWord(column);
+        }
+        
         String cellText = (String) cell[row][column].getText();
-        
-        matrix[row][column] = "А";
-        
         if(cellText.isEmpty())
         {
           // restore saved value
@@ -57,6 +62,12 @@ public class FieldFragment extends Fragment implements OnClickListener
       }
     }
     return view;
+  }
+  
+  private void writeInitialWord(int column)
+  {
+    String letterToWrite = INITIAL_WORD.substring(column, column + 1);
+    cell[INITIAL_WORD_ROW_INDEX][column].setText(letterToWrite);
   }
   
   @Override
