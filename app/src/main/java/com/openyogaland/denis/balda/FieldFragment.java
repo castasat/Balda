@@ -1,12 +1,16 @@
 package com.openyogaland.denis.balda;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 
 public class FieldFragment extends Fragment implements OnClickListener
 {
@@ -42,13 +46,14 @@ public class FieldFragment extends Fragment implements OnClickListener
         String cellIndex = String.valueOf(row) + String.valueOf(column);
         int cell_id = getResources().getIdentifier(CELL_NAME_PREFIX + cellIndex, ID_RESOURCE_TIPE, PACKAGE_NAME);
         cell[row][column] = view.findViewById(cell_id);
+        cell[row][column].setOnClickListener(this);
         
         if (row == INITIAL_WORD_ROW_INDEX)
         {
           writeInitialWord(column);
         }
         
-        String cellText = (String) cell[row][column].getText();
+        String cellText = cell[row][column].getText().toString();
         if(cellText.isEmpty())
         {
           // restore saved value
@@ -67,11 +72,32 @@ public class FieldFragment extends Fragment implements OnClickListener
   private void writeInitialWord(int column)
   {
     String letterToWrite = INITIAL_WORD.substring(column, column + 1);
-    cell[INITIAL_WORD_ROW_INDEX][column].setText(letterToWrite);
+    SquareButton currentCell = cell[INITIAL_WORD_ROW_INDEX][column];
+    currentCell.setText(letterToWrite);
+    currentCell.setClickable(false);
   }
   
   @Override
   public void onClick(View view)
   {
+    if (view instanceof SquareButton)
+    {
+      SquareButton currentCell = (SquareButton) view;
+  
+      if(getContext() != null)
+      {
+        InputMethodManager inputMethodManager = (InputMethodManager)
+            getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (inputMethodManager != null)
+        {
+          currentCell.setFocusable(true);
+          currentCell.setFocusableInTouchMode(true);
+          currentCell.requestFocus();
+          inputMethodManager.showSoftInput(currentCell, InputMethodManager.SHOW_IMPLICIT);
+        }
+      }
+      
+      currentCell.setClickable(false);
+    }
   }
 }

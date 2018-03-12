@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Balda</string>
+    <string name="quit_dialog_message">Exit: Are you sure?</string>
+    <string name="positive_button_text">Yes</string>
+    <string name="negative_button_text">No</string>
+    <string name="allowed_characters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
 </resources>

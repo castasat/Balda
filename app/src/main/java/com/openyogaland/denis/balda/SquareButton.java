@@ -4,6 +4,10 @@ import android.content.Context;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 
+
+/**
+ * SquareButton is a descendant of TextView so it has ways to set text via IME (soft inpuut method)
+ */
 public class SquareButton extends AppCompatButton
 {
   public SquareButton(Context context)

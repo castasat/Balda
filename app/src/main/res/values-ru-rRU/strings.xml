@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Балда</string>
+    <string name="quit_dialog_message">Выход: Вы уверены?</string>
+    <string name="positive_button_text">Да</string>
+    <string name="negative_button_text">Нет</string>
+    <string name="allowed_characters">АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ</string>
 </resources>

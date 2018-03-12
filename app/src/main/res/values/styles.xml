@@ -19,5 +19,8 @@
         <item name="android:textAlignment">center</item>
         <item name="android:layout_width">@dimen/button_size</item>
         <item name="android:layout_height">@dimen/button_size</item>
+        <item name="android:digits">@string/allowed_characters</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:inputType">textPersonName</item>
     </style>
 </resources>
