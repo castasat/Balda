@@ -1,16 +1,13 @@
 package com.openyogaland.denis.balda;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.TextView;
 
 public class FieldFragment extends Fragment implements OnClickListener
 {
@@ -34,8 +31,9 @@ public class FieldFragment extends Fragment implements OnClickListener
     setRetainInstance(true);
   }
   
-  @Override
-  public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+  @Nullable @Override
+  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
+      Bundle savedInstanceState)
   {
     View view = inflater.inflate(R.layout.field_fragment, container, false);
         
@@ -71,10 +69,12 @@ public class FieldFragment extends Fragment implements OnClickListener
   
   private void writeInitialWord(int column)
   {
+    // TODO check language
+    
     String letterToWrite = INITIAL_WORD.substring(column, column + 1);
     SquareButton currentCell = cell[INITIAL_WORD_ROW_INDEX][column];
     currentCell.setText(letterToWrite);
-    currentCell.setClickable(false);
+    disableButton(currentCell);
   }
   
   @Override
@@ -83,21 +83,17 @@ public class FieldFragment extends Fragment implements OnClickListener
     if (view instanceof SquareButton)
     {
       SquareButton currentCell = (SquareButton) view;
-  
-      if(getContext() != null)
-      {
-        InputMethodManager inputMethodManager = (InputMethodManager)
-            getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (inputMethodManager != null)
-        {
-          currentCell.setFocusable(true);
-          currentCell.setFocusableInTouchMode(true);
-          currentCell.requestFocus();
-          inputMethodManager.showSoftInput(currentCell, InputMethodManager.SHOW_IMPLICIT);
-        }
-      }
       
-      currentCell.setClickable(false);
+      // TODO make custom keyboard
+      
+      
+      disableButton(currentCell);
     }
+  }
+  
+  private static void disableButton(SquareButton currentCell)
+  {
+    currentCell.setClickable(false);
+    currentCell.setFocusable(false);
   }
 }

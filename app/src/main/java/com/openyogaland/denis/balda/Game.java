@@ -14,7 +14,8 @@ import android.view.KeyEvent;
  */
 public class Game extends AppCompatActivity implements OnClickListener
 {
-  private static final String TAG_FIELD = "field_fragment_tag";
+  private static final String TAG_FIELD    = "field_fragment_tag";
+  private static final String TAG_KEYBOARD = "keyboard_fragment_tag";
   
   @Override
   protected void onCreate(Bundle savedInstanceState)
@@ -25,12 +26,14 @@ public class Game extends AppCompatActivity implements OnClickListener
     // during initial program start
     if (savedInstanceState == null)
     {
-      FragmentManager     fragmentManager = getSupportFragmentManager();
-      FragmentTransaction transaction     = fragmentManager.beginTransaction();
+      FragmentManager     fragmentManager  = getSupportFragmentManager();
+      FragmentTransaction transaction      = fragmentManager.beginTransaction();
       
-      FieldFragment       fieldFragment   = new FieldFragment();
+      FieldFragment       fieldFragment    = new FieldFragment();
+      KeyboardFragment    keyboardFragment = new KeyboardFragment();
       
-      transaction.add(R.id.gameFrame, fieldFragment, TAG_FIELD);
+      transaction.add(R.id.fieldFragmentFrame, fieldFragment, TAG_FIELD);
+      transaction.add(R.id.switchableFragmentFrame, keyboardFragment, TAG_KEYBOARD);
       transaction.commit();
     }
   }

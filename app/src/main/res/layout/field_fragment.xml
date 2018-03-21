@@ -5,14 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:showIn="@layout/game_layout"
+    tools:context=".Game">
 
     <!-- Line 00 -->
 
     <com.openyogaland.denis.balda.SquareButton
         android:id="@+id/cell_00"
         style="@style/SquareButton"
-        android:defaultFocusHighlightEnabled="false"
         app:layout_constraintBottom_toTopOf="@id/cell_10"
         app:layout_constraintEnd_toStartOf="@id/cell_01"
         app:layout_constraintStart_toStartOf="parent"

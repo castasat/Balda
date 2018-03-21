@@ -1,17 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Balda</string>
-    <string name="quit_dialog_message">Exit: Are you sure?</string>
-    <string name="positive_button_text">Yes</string>
-    <string name="negative_button_text">No</string>
-    <string name="allowed_characters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="a">A</string>
-    <string name="b">B</string>
     <string name="c">C</string>
     <string name="d">D</string>
     <string name="e">E</string>
     <string name="f">F</string>
     <string name="g">G</string>
-    <string name="h">H</string>
     <string name="i">I</string>
     <string name="j">J</string>
     <string name="k">K</string>

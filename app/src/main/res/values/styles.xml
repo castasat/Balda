@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -10,17 +10,31 @@
 
     <style name="Balda" parent="AppTheme">
         <!-- Customize your theme here. -->
-        <item name="android:buttonStyle">@style/SquareButton</item>
     </style>
 
     <style name="SquareButton" parent="Base.Widget.AppCompat.Button">
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">@dimen/font_size</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:layout_width">@dimen/button_size</item>
-        <item name="android:layout_height">@dimen/button_size</item>
         <item name="android:digits">@string/allowed_characters</item>
         <item name="android:maxLength">1</item>
-        <item name="android:inputType">textPersonName</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
     </style>
+
+    <style name="DarkButton" parent="Base.Widget.AppCompat.Button">
+        <item name="android:background">@drawable/dark_button_background</item>
+        <item name="android:textColor">@color/darkButtonText</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/keyboard_font_size</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="KeyboardButton" parent="DarkButton">
+        <item name="android:digits">@string/allowed_characters</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:maxLength">1</item>
+    </style>
+
 </resources>
