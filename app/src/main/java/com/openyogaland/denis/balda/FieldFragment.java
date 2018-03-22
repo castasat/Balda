@@ -1,5 +1,6 @@
 package com.openyogaland.denis.balda;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,6 +24,8 @@ public class FieldFragment extends Fragment implements OnClickListener
   
   private final SquareButton[][] cell   = new SquareButton[NUM_OF_ROWS][NUM_OF_COLUMNS];
   private final String[][]       matrix = new String[NUM_OF_ROWS][NUM_OF_COLUMNS];
+  
+  private OnCellPressedListener onCellPressedListener;
   
   @Override
   public void onCreate(Bundle savedInstanceState)
@@ -82,12 +85,24 @@ public class FieldFragment extends Fragment implements OnClickListener
   {
     if (view instanceof SquareButton)
     {
-      SquareButton currentCell = (SquareButton) view;
-      
-      // TODO make custom keyboard
-      
-      
-      disableButton(currentCell);
+      onCellPressedListener.onCellPressed( (SquareButton) view);
+    }
+  }
+  
+  // метод прикрепления фрагмента к контексту (активности)
+  @Override
+  public void onAttach(Context context)
+  {
+    super.onAttach(context);
+    
+    try
+    {
+      onCellPressedListener = (OnCellPressedListener) context;
+    }
+    catch(ClassCastException e)
+    {
+      throw new ClassCastException(e + context.toString() +
+                                   " should implement OnCellPressedListener interface");
     }
   }
   

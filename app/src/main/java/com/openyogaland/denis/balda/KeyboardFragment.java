@@ -8,16 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 public class KeyboardFragment extends Fragment implements OnClickListener
 {
-  @Override
-  public void onCreate(Bundle savedInstanceState)
-  {
-    super.onCreate(savedInstanceState);
-    setRetainInstance(true);
-  }
-  
   @Nullable @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState)
@@ -29,5 +23,10 @@ public class KeyboardFragment extends Fragment implements OnClickListener
   @Override
   public void onClick(View view)
   {
+    if(view instanceof Button)
+    {
+      Button keyboardButton = (Button) view;
+      
+    }
   }
 }

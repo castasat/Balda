@@ -27,6 +27,7 @@
         <item name="android:textColor">@color/darkButtonText</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">@dimen/keyboard_font_size</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
     </style>

@@ -3,7 +3,6 @@ package com.openyogaland.denis.balda;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,28 +11,37 @@ import android.view.KeyEvent;
 /**
  * Main activity class Game
  */
-public class Game extends AppCompatActivity implements OnClickListener
+public class Game extends AppCompatActivity implements OnClickListener, OnCellPressedListener
 {
+  // constants
   private static final String TAG_FIELD    = "field_fragment_tag";
   private static final String TAG_KEYBOARD = "keyboard_fragment_tag";
+  
+  // fragments to insert
+  private FieldFragment    fieldFragment;
+  private KeyboardFragment keyboardFragment;
+  
+  // fragment transaction
+  private FragmentTransaction transaction;
+  
+  // current cell
+  private SquareButton currentCell;
   
   @Override
   protected void onCreate(Bundle savedInstanceState)
   {
     super.onCreate(savedInstanceState);
     this.setContentView(R.layout.game_layout);
-          
-    // during initial program start
+    
+    // create new instance of fragment
+    fieldFragment    = new FieldFragment();
+    
+    // during the first program start
     if (savedInstanceState == null)
     {
-      FragmentManager     fragmentManager  = getSupportFragmentManager();
-      FragmentTransaction transaction      = fragmentManager.beginTransaction();
-      
-      FieldFragment       fieldFragment    = new FieldFragment();
-      KeyboardFragment    keyboardFragment = new KeyboardFragment();
-      
+      transaction = getSupportFragmentManager().beginTransaction();
       transaction.add(R.id.fieldFragmentFrame, fieldFragment, TAG_FIELD);
-      transaction.add(R.id.switchableFragmentFrame, keyboardFragment, TAG_KEYBOARD);
+      //TODO show only if needed // transaction.add(R.id.switchableFragmentFrame,keyboardFragment,TAG_KEYBOARD);
       transaction.commit();
     }
   }
@@ -46,9 +54,6 @@ public class Game extends AppCompatActivity implements OnClickListener
       openQuitDialog();
       return true;
     }
-    
-    // TODO обработать события hardware клавиатуры - onKeyDown() в Game.java
-  
     return super.onKeyDown(keyCode, event);
   }
   
@@ -74,7 +79,7 @@ public class Game extends AppCompatActivity implements OnClickListener
   
   
   @Override
-  public void onClick(DialogInterface dialogInterface, int which)
+  public void onClick(DialogInterface dialogInstance, int which)
   {
     if (which == DialogInterface.BUTTON_POSITIVE)
     {
@@ -82,7 +87,28 @@ public class Game extends AppCompatActivity implements OnClickListener
     }
     else if(which == DialogInterface.BUTTON_NEGATIVE)
     {
-      dialogInterface.dismiss();
+      dialogInstance.dismiss();
+    }
+  }
+  
+  @Override
+  public void onCellPressed(SquareButton cell)
+  {
+    this.currentCell = cell;
+    
+    keyboardFragment = (KeyboardFragment) getSupportFragmentManager()
+        .findFragmentByTag(TAG_KEYBOARD);
+    
+    if(keyboardFragment == null)
+    {
+      this.keyboardFragment = new KeyboardFragment();
+      transaction = getSupportFragmentManager().beginTransaction();
+      transaction.add(R.id.switchableFragmentFrame, this.keyboardFragment, TAG_KEYBOARD);
+      transaction.commit();
+    }
+    else
+    {
+      // keyboardFragment уже загружен
     }
   }
 }
