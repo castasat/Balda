@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.widget.Button;
 
 /**
  * Main activity class Game
@@ -25,7 +26,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   private FragmentTransaction transaction;
   
   // current cell
-  private SquareButton currentCell;
+  private Button currentCell;
   
   @Override
   protected void onCreate(Bundle savedInstanceState)
@@ -92,7 +93,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   }
   
   @Override
-  public void onCellPressed(SquareButton cell)
+  public void onCellPressed(Button cell)
   {
     this.currentCell = cell;
     

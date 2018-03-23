@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="darkButtonBackground">#555555</color>
     <color name="darkButtonText">#CCCCCC</color>
+    <color name="zoom_keyboard_button_text">#555555</color>
+    <color name="zoom_keyboard_button_background">#CCCCCC</color>
 </resources>

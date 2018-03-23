@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- Base application theme. -->
@@ -15,16 +16,25 @@
     <style name="SquareButton" parent="Base.Widget.AppCompat.Button">
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">@dimen/font_size</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:includeFontPadding">false</item>
         <item name="android:digits">@string/allowed_characters</item>
         <item name="android:maxLength">1</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
+        <item name="android:background">@drawable/cell_background</item>
+        <item name="android:textColor">@drawable/cell_pressed_text_color</item>
+        <item name="layout_constraintDimensionRatio">=1:1</item>
+        <item name="android:longClickable">false</item>
     </style>
 
     <style name="DarkButton" parent="Base.Widget.AppCompat.Button">
         <item name="android:background">@drawable/dark_button_background</item>
         <item name="android:textColor">@color/darkButtonText</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:longClickable">false</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">@dimen/keyboard_font_size</item>
         <item name="android:textStyle">bold</item>
@@ -34,7 +44,18 @@
 
     <style name="KeyboardButton" parent="DarkButton">
         <item name="android:digits">@string/allowed_characters</item>
-        <item name="android:textAllCaps">true</item>
+        <item name="android:maxLength">1</item>
+    </style>
+
+    <style name="ZoomDarkButton" parent="DarkButton">
+        <item name="android:visibility">invisible</item>
+        <item name="android:textSize">@dimen/font_size</item>
+        <item name="android:background">@drawable/zoom_keyboard_button_background</item>
+        <item name="android:textColor">@color/zoom_keyboard_button_text</item>
+    </style>
+
+    <style name="ZoomKeyboardButton" parent="ZoomDarkButton">
+        <item name="android:digits">@string/allowed_characters</item>
         <item name="android:maxLength">1</item>
     </style>
 

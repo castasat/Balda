@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 public class FieldFragment extends Fragment implements OnClickListener
 {
@@ -22,8 +23,8 @@ public class FieldFragment extends Fragment implements OnClickListener
   private static final String ID_RESOURCE_TIPE       = "id";
   private static final String PACKAGE_NAME           = "com.openyogaland.denis.balda";
   
-  private final SquareButton[][] cell   = new SquareButton[NUM_OF_ROWS][NUM_OF_COLUMNS];
-  private final String[][]       matrix = new String[NUM_OF_ROWS][NUM_OF_COLUMNS];
+  private final Button[][] cell   = new Button[NUM_OF_ROWS][NUM_OF_COLUMNS];
+  private final String[][] matrix = new String[NUM_OF_ROWS][NUM_OF_COLUMNS];
   
   private OnCellPressedListener onCellPressedListener;
   
@@ -75,7 +76,7 @@ public class FieldFragment extends Fragment implements OnClickListener
     // TODO check language
     
     String letterToWrite = INITIAL_WORD.substring(column, column + 1);
-    SquareButton currentCell = cell[INITIAL_WORD_ROW_INDEX][column];
+    Button currentCell = cell[INITIAL_WORD_ROW_INDEX][column];
     currentCell.setText(letterToWrite);
     disableButton(currentCell);
   }
@@ -83,9 +84,9 @@ public class FieldFragment extends Fragment implements OnClickListener
   @Override
   public void onClick(View view)
   {
-    if (view instanceof SquareButton)
+    if (view instanceof Button)
     {
-      onCellPressedListener.onCellPressed( (SquareButton) view);
+      onCellPressedListener.onCellPressed( (Button) view);
     }
   }
   
@@ -106,7 +107,7 @@ public class FieldFragment extends Fragment implements OnClickListener
     }
   }
   
-  private static void disableButton(SquareButton currentCell)
+  private static void disableButton(Button currentCell)
   {
     currentCell.setClickable(false);
     currentCell.setFocusable(false);
