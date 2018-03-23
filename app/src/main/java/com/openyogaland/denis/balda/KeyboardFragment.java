@@ -12,7 +12,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.Button;
-
 import java.util.Locale;
 
 public class KeyboardFragment extends Fragment implements OnClickListener, Interpolator

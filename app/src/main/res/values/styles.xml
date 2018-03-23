@@ -47,16 +47,4 @@
         <item name="android:maxLength">1</item>
     </style>
 
-    <style name="ZoomDarkButton" parent="DarkButton">
-        <item name="android:visibility">invisible</item>
-        <item name="android:textSize">@dimen/font_size</item>
-        <item name="android:background">@drawable/zoom_keyboard_button_background</item>
-        <item name="android:textColor">@color/zoom_keyboard_button_text</item>
-    </style>
-
-    <style name="ZoomKeyboardButton" parent="ZoomDarkButton">
-        <item name="android:digits">@string/allowed_characters</item>
-        <item name="android:maxLength">1</item>
-    </style>
-
 </resources>
