@@ -78,7 +78,6 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     quitDialog.show();
   }
   
-  
   @Override
   public void onClick(DialogInterface dialogInstance, int which)
   {

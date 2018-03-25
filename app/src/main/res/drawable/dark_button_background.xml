@@ -5,5 +5,5 @@
     <solid android:color="@color/darkButtonBackground" />
     <stroke
         android:width="1dip"
-        android:color="@color/darkButtonText" />
+        android:color="@color/lightButtonBackground" />
 </shape>
