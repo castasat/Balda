@@ -4,31 +4,67 @@
     <string name="positive_button_text">Yes</string>
     <string name="negative_button_text">No</string>
     <string name="allowed_characters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
-    <string name="a">A</string>
-    <string name="b">B</string>
-    <string name="c">C</string>
-    <string name="d">D</string>
-    <string name="e">E</string>
-    <string name="f">F</string>
-    <string name="g">G</string>
-    <string name="h">H</string>
-    <string name="i">I</string>
-    <string name="j">J</string>
-    <string name="k">K</string>
-    <string name="l">L</string>
-    <string name="m">M</string>
-    <string name="n">N</string>
-    <string name="o">O</string>
-    <string name="p">P</string>
-    <string name="q">Q</string>
-    <string name="r">R</string>
-    <string name="s">S</string>
-    <string name="t">T</string>
-    <string name="u">U</string>
-    <string name="v">V</string>
-    <string name="w">W</string>
-    <string name="x">X</string>
-    <string name="y">Y</string>
-    <string name="z">Z</string>
-    <string name="delete">DELETE</string>
+    <string name="a" translatable="false">A</string>
+    <string name="b" translatable="false">B</string>
+    <string name="c" translatable="false">C</string>
+    <string name="d" translatable="false">D</string>
+    <string name="e" translatable="false">E</string>
+    <string name="f" translatable="false">F</string>
+    <string name="g" translatable="false">G</string>
+    <string name="h" translatable="false">H</string>
+    <string name="i" translatable="false">I</string>
+    <string name="j" translatable="false">J</string>
+    <string name="k" translatable="false">K</string>
+    <string name="l" translatable="false">L</string>
+    <string name="m" translatable="false">M</string>
+    <string name="n" translatable="false">N</string>
+    <string name="o" translatable="false">O</string>
+    <string name="p" translatable="false">P</string>
+    <string name="q" translatable="false">Q</string>
+    <string name="r" translatable="false">R</string>
+    <string name="s" translatable="false">S</string>
+    <string name="t" translatable="false">T</string>
+    <string name="u" translatable="false">U</string>
+    <string name="v" translatable="false">V</string>
+    <string name="w" translatable="false">W</string>
+    <string name="x" translatable="false">X</string>
+    <string name="y" translatable="false">Y</string>
+    <string name="z" translatable="false">Z</string>
+    <string name="delete" translatable="false">DELETE</string>
+    <string name="done" translatable="false">DONE</string>
+    <string name="ru_A">А</string>
+    <string name="ru_Be">Б</string>
+    <string name="ru_Ve">В</string>
+    <string name="ru_Ge">Г</string>
+    <string name="ru_De">Д</string>
+    <string name="ru_Ye">Е</string>
+    <string name="ru_Yo">Ё</string>
+    <string name="ru_Je">Ж</string>
+    <string name="ru_Ze">З</string>
+    <string name="ru_I">И</string>
+    <string name="ru_Iy">Й</string>
+    <string name="ru_Ka">К</string>
+    <string name="ru_El">Л</string>
+    <string name="ru_Em">М</string>
+    <string name="ru_En">Н</string>
+    <string name="ru_O">О</string>
+    <string name="ru_Pe">П</string>
+    <string name="ru_Er">Р</string>
+    <string name="ru_Es">С</string>
+    <string name="ru_Te">Т</string>
+    <string name="ru_U">У</string>
+    <string name="ru_Ef">Ф</string>
+    <string name="ru_Ha">Х</string>
+    <string name="ru_Tce">Ц</string>
+    <string name="ru_Cha">Ч</string>
+    <string name="ru_Sha">Ш</string>
+    <string name="ru_Shcha">Щ</string>
+    <string name="ru_Soft_Symbol">Ь</string>
+    <string name="ru_Iii">Ы</string>
+    <string name="ru_Hard_Symbol">Ъ</string>
+    <string name="ru_Ee">Э</string>
+    <string name="ru_Yu">Ю</string>
+    <string name="ru_Ya">Я</string>
+    <string name="ru_Delete">УДАЛИТЬ</string>
+    <string name="ru_Done">ВВОД</string>
 </resources>

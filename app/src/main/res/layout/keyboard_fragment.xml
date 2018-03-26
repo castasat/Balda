@@ -7,85 +7,166 @@
 
     <!-- Набор вертикальных гайдлайнов делит экран на 8 вертикальных полос -->
 
-    <!-- Вертикальный guideline с относительным отступом 12.5% -->
+    <!-- Вертикальный guideline с относительным отступом 12.4% -->
     <android.support.constraint.Guideline
-        android:id="@+id/line_12v5"
+        android:id="@+id/line_12v4"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.125"
+        app:layout_constraintGuide_percent="0.124"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <!-- Вертикальный guideline с относительным отступом 25% -->
+    <!-- Вертикальный guideline с относительным отступом 12.6% -->
     <android.support.constraint.Guideline
-        android:id="@+id/line_25v"
+        android:id="@+id/line_12v6"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.25"
+        app:layout_constraintGuide_percent="0.126"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <!-- Вертикальный guideline с относительным отступом 37.5% -->
+    <!-- Вертикальный guideline с относительным отступом 24.9% -->
     <android.support.constraint.Guideline
-        android:id="@+id/line_37v5"
+        android:id="@+id/line_24v9"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.375"
+        app:layout_constraintGuide_percent="0.249"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <!-- Вертикальный guideline с относительным отступом 50% -->
+    <!-- Вертикальный guideline с относительным отступом 25.1% -->
     <android.support.constraint.Guideline
-        android:id="@+id/line_50v"
+        android:id="@+id/line_25v1"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintGuide_percent="0.251"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <!-- Вертикальный guideline с относительным отступом 62.5% -->
+    <!-- Вертикальный guideline с относительным отступом 37.4% -->
     <android.support.constraint.Guideline
-        android:id="@+id/line_62v5"
+        android:id="@+id/line_37v4"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.625"
+        app:layout_constraintGuide_percent="0.374"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <!-- Вертикальный guideline с относительным отступом 75% -->
+    <!-- Вертикальный guideline с относительным отступом 37.6% -->
     <android.support.constraint.Guideline
-        android:id="@+id/line_75v"
+        android:id="@+id/line_37v6"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.75"
+        app:layout_constraintGuide_percent="0.376"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <!-- Вертикальный guideline с относительным отступом 87.5% -->
+    <!-- Вертикальный guideline с относительным отступом 49.9% -->
     <android.support.constraint.Guideline
-        android:id="@+id/line_87v5"
+        android:id="@+id/line_49v9"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.875"
+        app:layout_constraintGuide_percent="0.499"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <!-- Вертикальный guideline с относительным отступом 50.1% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_50v1"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.501"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Вертикальный guideline с относительным отступом 62.4% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_62v4"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.624"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Вертикальный guideline с относительным отступом 62.6% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_62v6"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.626"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Вертикальный guideline с относительным отступом 74.9% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_74v9"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.749"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Вертикальный guideline с относительным отступом 75.1% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_75v1"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.751"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Вертикальный guideline с относительным отступом 87.4% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_87v4"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.874"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Вертикальный guideline с относительным отступом 87.6% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_87v6"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.876"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 
     <!-- Набор горизонтальных гайдлайнов делит экран на 4 горизонтальных полосы -->
 
-    <!-- Горизонтальный guideline с относительным отступом 25% -->
+    <!-- Горизонтальный guideline с относительным отступом 24.9% -->
     <android.support.constraint.Guideline
-        android:id="@+id/line_25h"
+        android:id="@+id/line_24h9"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25"
+        app:layout_constraintGuide_percent="0.249"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <!-- Горизонтальный guideline с относительным отступом 50% -->
+    <!-- Горизонтальный guideline с относительным отступом 25.1% -->
     <android.support.constraint.Guideline
-        android:id="@+id/line_50h"
+        android:id="@+id/line_25h1"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintGuide_percent="0.251"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <!-- Горизонтальный guideline с относительным отступом 75% -->
+    <!-- Горизонтальный guideline с относительным отступом 49.9% -->
     <android.support.constraint.Guideline
-        android:id="@+id/line_75h"
+        android:id="@+id/line_49h9"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75"
+        app:layout_constraintGuide_percent="0.499"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Горизонтальный guideline с относительным отступом 50.2% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_50h2"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.502"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Горизонтальный guideline с относительным отступом 74.9% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_74h9"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.749"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Горизонтальный guideline с относительным отступом 75.1% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_75h1"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.751"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -99,71 +180,71 @@
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="@id/line_12v5"
-        app:layout_constraintBottom_toBottomOf="@id/line_25h"/>
+        app:layout_constraintRight_toRightOf="@id/line_12v4"
+        app:layout_constraintBottom_toBottomOf="@id/line_24h9"/>
 
     <Button
         android:id="@+id/B"
         android:text="@string/b"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/line_12v5"
-        app:layout_constraintRight_toRightOf="@id/line_25v"
-        app:layout_constraintBottom_toBottomOf="@id/line_25h"/>
+        app:layout_constraintLeft_toLeftOf="@id/line_12v6"
+        app:layout_constraintRight_toRightOf="@id/line_24v9"
+        app:layout_constraintBottom_toBottomOf="@id/line_24h9"/>
 
     <Button
         android:id="@+id/C"
         android:text="@string/c"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/line_25v"
-        app:layout_constraintRight_toRightOf="@id/line_37v5"
-        app:layout_constraintBottom_toBottomOf="@id/line_25h"/>
+        app:layout_constraintLeft_toLeftOf="@id/line_25v1"
+        app:layout_constraintRight_toRightOf="@id/line_37v4"
+        app:layout_constraintBottom_toBottomOf="@id/line_24h9"/>
 
     <Button
         android:id="@+id/D"
         android:text="@string/d"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/line_37v5"
-        app:layout_constraintRight_toRightOf="@id/line_50v"
-        app:layout_constraintBottom_toBottomOf="@id/line_25h" />
+        app:layout_constraintLeft_toLeftOf="@id/line_37v6"
+        app:layout_constraintRight_toRightOf="@id/line_49v9"
+        app:layout_constraintBottom_toBottomOf="@id/line_24h9" />
 
     <Button
         android:id="@+id/E"
         android:text="@string/e"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/line_50v"
-        app:layout_constraintRight_toRightOf="@id/line_62v5"
-        app:layout_constraintBottom_toBottomOf="@id/line_25h"/>
+        app:layout_constraintLeft_toLeftOf="@id/line_50v1"
+        app:layout_constraintRight_toRightOf="@id/line_62v4"
+        app:layout_constraintBottom_toBottomOf="@id/line_24h9"/>
 
     <Button
         android:id="@+id/F"
         android:text="@string/f"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/line_62v5"
-        app:layout_constraintRight_toRightOf="@id/line_75v"
-        app:layout_constraintBottom_toBottomOf="@id/line_25h"/>
+        app:layout_constraintLeft_toLeftOf="@id/line_62v6"
+        app:layout_constraintRight_toRightOf="@id/line_74v9"
+        app:layout_constraintBottom_toBottomOf="@id/line_24h9"/>
 
     <Button
         android:id="@+id/G"
         android:text="@string/g"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/line_75v"
-        app:layout_constraintRight_toRightOf="@id/line_87v5"
-        app:layout_constraintBottom_toBottomOf="@id/line_25h"/>
+        app:layout_constraintLeft_toLeftOf="@id/line_75v1"
+        app:layout_constraintRight_toRightOf="@id/line_87v4"
+        app:layout_constraintBottom_toBottomOf="@id/line_24h9"/>
 
     <Button
         android:id="@+id/H"
         android:text="@string/h"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/line_87v5"
+        app:layout_constraintLeft_toLeftOf="@id/line_87v6"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/line_25h"/>
+        app:layout_constraintBottom_toBottomOf="@id/line_24h9"/>
 
     <!-- / Первый ряд кнопок -->
 
@@ -173,73 +254,73 @@
         android:id="@+id/I"
         android:text="@string/i"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_25h"
+        app:layout_constraintTop_toTopOf="@id/line_25h1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="@id/line_12v5"
-        app:layout_constraintBottom_toBottomOf="@id/line_50h" />
+        app:layout_constraintRight_toRightOf="@id/line_12v4"
+        app:layout_constraintBottom_toBottomOf="@id/line_49h9" />
 
     <Button
         android:id="@+id/J"
         android:text="@string/j"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_25h"
-        app:layout_constraintLeft_toLeftOf="@id/line_12v5"
-        app:layout_constraintRight_toRightOf="@id/line_25v"
-        app:layout_constraintBottom_toBottomOf="@id/line_50h" />
+        app:layout_constraintTop_toTopOf="@id/line_25h1"
+        app:layout_constraintLeft_toLeftOf="@id/line_12v6"
+        app:layout_constraintRight_toRightOf="@id/line_24v9"
+        app:layout_constraintBottom_toBottomOf="@id/line_49h9" />
 
     <Button
         android:id="@+id/K"
         android:text="@string/k"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_25h"
-        app:layout_constraintLeft_toLeftOf="@id/line_25v"
-        app:layout_constraintRight_toRightOf="@id/line_37v5"
-        app:layout_constraintBottom_toBottomOf="@id/line_50h" />
+        app:layout_constraintTop_toTopOf="@id/line_25h1"
+        app:layout_constraintLeft_toLeftOf="@id/line_25v1"
+        app:layout_constraintRight_toRightOf="@id/line_37v4"
+        app:layout_constraintBottom_toBottomOf="@id/line_49h9" />
 
     <Button
         android:id="@+id/L"
         android:text="@string/l"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_25h"
-        app:layout_constraintLeft_toLeftOf="@id/line_37v5"
-        app:layout_constraintRight_toRightOf="@id/line_50v"
-        app:layout_constraintBottom_toBottomOf="@id/line_50h" />
+        app:layout_constraintTop_toTopOf="@id/line_25h1"
+        app:layout_constraintLeft_toLeftOf="@id/line_37v6"
+        app:layout_constraintRight_toRightOf="@id/line_49v9"
+        app:layout_constraintBottom_toBottomOf="@id/line_49h9" />
 
     <Button
         android:id="@+id/M"
         android:text="@string/m"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_25h"
-        app:layout_constraintLeft_toLeftOf="@id/line_50v"
-        app:layout_constraintRight_toRightOf="@id/line_62v5"
-        app:layout_constraintBottom_toBottomOf="@id/line_50h" />
+        app:layout_constraintTop_toTopOf="@id/line_25h1"
+        app:layout_constraintLeft_toLeftOf="@id/line_50v1"
+        app:layout_constraintRight_toRightOf="@id/line_62v4"
+        app:layout_constraintBottom_toBottomOf="@id/line_49h9" />
 
     <Button
         android:id="@+id/N"
         android:text="@string/n"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_25h"
-        app:layout_constraintLeft_toLeftOf="@id/line_62v5"
-        app:layout_constraintRight_toRightOf="@id/line_75v"
-        app:layout_constraintBottom_toBottomOf="@id/line_50h" />
+        app:layout_constraintTop_toTopOf="@id/line_25h1"
+        app:layout_constraintLeft_toLeftOf="@id/line_62v6"
+        app:layout_constraintRight_toRightOf="@id/line_74v9"
+        app:layout_constraintBottom_toBottomOf="@id/line_49h9" />
 
     <Button
         android:id="@+id/O"
         android:text="@string/o"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_25h"
-        app:layout_constraintLeft_toLeftOf="@id/line_75v"
-        app:layout_constraintRight_toRightOf="@id/line_87v5"
-        app:layout_constraintBottom_toBottomOf="@id/line_50h" />
+        app:layout_constraintTop_toTopOf="@id/line_25h1"
+        app:layout_constraintLeft_toLeftOf="@id/line_75v1"
+        app:layout_constraintRight_toRightOf="@id/line_87v4"
+        app:layout_constraintBottom_toBottomOf="@id/line_49h9" />
 
     <Button
         android:id="@+id/P"
         android:text="@string/p"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_25h"
-        app:layout_constraintLeft_toLeftOf="@id/line_87v5"
+        app:layout_constraintTop_toTopOf="@id/line_25h1"
+        app:layout_constraintLeft_toLeftOf="@id/line_87v6"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/line_50h" />
+        app:layout_constraintBottom_toBottomOf="@id/line_49h9" />
 
     <!-- / Второй ряд кнопок -->
 
@@ -249,73 +330,73 @@
         android:id="@+id/Q"
         android:text="@string/q"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_50h"
+        app:layout_constraintTop_toTopOf="@id/line_50h2"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="@id/line_12v5"
-        app:layout_constraintBottom_toBottomOf="@id/line_75h" />
+        app:layout_constraintRight_toRightOf="@id/line_12v4"
+        app:layout_constraintBottom_toBottomOf="@id/line_74h9" />
 
     <Button
         android:id="@+id/R"
         android:text="@string/r"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_50h"
-        app:layout_constraintLeft_toLeftOf="@id/line_12v5"
-        app:layout_constraintRight_toRightOf="@id/line_25v"
-        app:layout_constraintBottom_toBottomOf="@id/line_75h" />
+        app:layout_constraintTop_toTopOf="@id/line_50h2"
+        app:layout_constraintLeft_toLeftOf="@id/line_12v6"
+        app:layout_constraintRight_toRightOf="@id/line_24v9"
+        app:layout_constraintBottom_toBottomOf="@id/line_74h9" />
 
     <Button
         android:id="@+id/S"
         android:text="@string/s"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_50h"
-        app:layout_constraintLeft_toLeftOf="@id/line_25v"
-        app:layout_constraintRight_toRightOf="@id/line_37v5"
-        app:layout_constraintBottom_toBottomOf="@id/line_75h" />
+        app:layout_constraintTop_toTopOf="@id/line_50h2"
+        app:layout_constraintLeft_toLeftOf="@id/line_25v1"
+        app:layout_constraintRight_toRightOf="@id/line_37v4"
+        app:layout_constraintBottom_toBottomOf="@id/line_74h9" />
 
     <Button
         android:id="@+id/T"
         android:text="@string/t"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_50h"
-        app:layout_constraintLeft_toLeftOf="@id/line_37v5"
-        app:layout_constraintRight_toRightOf="@id/line_50v"
-        app:layout_constraintBottom_toBottomOf="@id/line_75h" />
+        app:layout_constraintTop_toTopOf="@id/line_50h2"
+        app:layout_constraintLeft_toLeftOf="@id/line_37v6"
+        app:layout_constraintRight_toRightOf="@id/line_49v9"
+        app:layout_constraintBottom_toBottomOf="@id/line_74h9" />
 
     <Button
         android:id="@+id/U"
         android:text="@string/u"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_50h"
-        app:layout_constraintLeft_toLeftOf="@id/line_50v"
-        app:layout_constraintRight_toRightOf="@id/line_62v5"
-        app:layout_constraintBottom_toBottomOf="@id/line_75h" />
+        app:layout_constraintTop_toTopOf="@id/line_50h2"
+        app:layout_constraintLeft_toLeftOf="@id/line_50v1"
+        app:layout_constraintRight_toRightOf="@id/line_62v4"
+        app:layout_constraintBottom_toBottomOf="@id/line_74h9" />
 
     <Button
         android:id="@+id/V"
         android:text="@string/v"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_50h"
-        app:layout_constraintLeft_toLeftOf="@id/line_62v5"
-        app:layout_constraintRight_toRightOf="@id/line_75v"
-        app:layout_constraintBottom_toBottomOf="@id/line_75h" />
+        app:layout_constraintTop_toTopOf="@id/line_50h2"
+        app:layout_constraintLeft_toLeftOf="@id/line_62v6"
+        app:layout_constraintRight_toRightOf="@id/line_74v9"
+        app:layout_constraintBottom_toBottomOf="@id/line_74h9" />
 
     <Button
         android:id="@+id/W"
         android:text="@string/w"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_50h"
-        app:layout_constraintLeft_toLeftOf="@id/line_75v"
-        app:layout_constraintRight_toRightOf="@id/line_87v5"
-        app:layout_constraintBottom_toBottomOf="@id/line_75h" />
+        app:layout_constraintTop_toTopOf="@id/line_50h2"
+        app:layout_constraintLeft_toLeftOf="@id/line_75v1"
+        app:layout_constraintRight_toRightOf="@id/line_87v4"
+        app:layout_constraintBottom_toBottomOf="@id/line_74h9" />
 
     <Button
         android:id="@+id/X"
         android:text="@string/x"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_50h"
-        app:layout_constraintLeft_toLeftOf="@id/line_87v5"
+        app:layout_constraintTop_toTopOf="@id/line_50h2"
+        app:layout_constraintLeft_toLeftOf="@id/line_87v6"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/line_75h" />
+        app:layout_constraintBottom_toBottomOf="@id/line_74h9" />
 
     <!-- / Третий ряд кнопок -->
 
@@ -325,26 +406,35 @@
         android:id="@+id/Y"
         android:text="@string/y"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_75h"
+        app:layout_constraintTop_toTopOf="@id/line_75h1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="@id/line_12v5"
+        app:layout_constraintRight_toRightOf="@id/line_12v4"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
         android:id="@+id/Z"
         android:text="@string/z"
         style="@style/KeyboardButton"
-        app:layout_constraintTop_toTopOf="@id/line_75h"
-        app:layout_constraintLeft_toLeftOf="@id/line_12v5"
-        app:layout_constraintRight_toRightOf="@id/line_25v"
+        app:layout_constraintTop_toTopOf="@id/line_75h1"
+        app:layout_constraintLeft_toLeftOf="@id/line_12v6"
+        app:layout_constraintRight_toRightOf="@id/line_24v9"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
         android:id="@+id/delete"
         android:text="@string/delete"
         style="@style/DarkButton"
-        app:layout_constraintTop_toTopOf="@id/line_75h"
-        app:layout_constraintLeft_toLeftOf="@id/line_25v"
+        app:layout_constraintTop_toTopOf="@id/line_75h1"
+        app:layout_constraintLeft_toLeftOf="@id/line_25v1"
+        app:layout_constraintRight_toRightOf="@id/line_62v4"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/done"
+        android:text="@string/done"
+        style="@style/DarkButton"
+        app:layout_constraintTop_toTopOf="@id/line_75h1"
+        app:layout_constraintLeft_toLeftOf="@id/line_62v6"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
