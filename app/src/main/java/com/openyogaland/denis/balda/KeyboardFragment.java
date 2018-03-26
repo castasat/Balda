@@ -1,5 +1,7 @@
 package com.openyogaland.denis.balda;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,8 +18,28 @@ import java.util.Locale;
 
 public class KeyboardFragment extends Fragment implements OnClickListener, Interpolator
 {
+  private static final String[] RU_KEY_IDS = new String[]
+      {
+          "A", "Be", "Ve", "Ge", "De", "Ye", "Yo", "Je",
+          "Ze", "I", "Iy", "Ka", "El", "Em", "En", "O",
+          "Pe", "Er", "Es", "Te", "U", "Ef", "Ha", "Tce",
+          "Cha", "Sha", "Shcha", "SoftSymbol", "Iii", "HardSymbol", "Ee", "Yu",
+          "Ya", "Delete", "Done"
+      };
+  
+  private static final String[] EN_KEY_IDS = new String[]
+      {
+          "A", "B", "C", "D", "E", "F", "G", "H",
+          "I", "J", "K", "L", "M", "N", "O", "P",
+          "Q", "R", "S", "T", "U", "V", "W", "X",
+          "Y", "Z", "delete", "done"
+      };
+  
   private static final double INTERPOLATOR_AMPLITUDE = 0.2;
   private static final double INTERPOLATOR_FREQUENCY = 2.0;
+  
+  private Animation   keyZoomAnimation;
+  private AnimatorSet keyColorAnimatorSet;
   
   @Nullable @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -25,152 +47,59 @@ public class KeyboardFragment extends Fragment implements OnClickListener, Inter
   {
     View view = inflater.inflate(R.layout.keyboard_fragment, container, false);
     
+    keyZoomAnimation    = AnimationUtils.loadAnimation(getContext(), R.anim.animate_key_zoom);
+    keyColorAnimatorSet = (AnimatorSet) 
+        AnimatorInflater.loadAnimator(getContext(), R.animator.animate_key_color);
+    
     String language = Locale.getDefault().getDisplayLanguage();
-    
-    if (language.equalsIgnoreCase("English"))
+    if ("English".equalsIgnoreCase(language))
     {
-      Button buttonA      = view.findViewById(R.id.A);
-      Button buttonB      = view.findViewById(R.id.B);
-      Button buttonC      = view.findViewById(R.id.C);
-      Button buttonD      = view.findViewById(R.id.D);
-      Button buttonE      = view.findViewById(R.id.E);
-      Button buttonF      = view.findViewById(R.id.F);
-      Button buttonG      = view.findViewById(R.id.G);
-      Button buttonH      = view.findViewById(R.id.H);
-      Button buttonI      = view.findViewById(R.id.I);
-      Button buttonJ      = view.findViewById(R.id.J);
-      Button buttonK      = view.findViewById(R.id.K);
-      Button buttonL      = view.findViewById(R.id.L);
-      Button buttonM      = view.findViewById(R.id.M);
-      Button buttonN      = view.findViewById(R.id.N);
-      Button buttonO      = view.findViewById(R.id.O);
-      Button buttonP      = view.findViewById(R.id.P);
-      Button buttonQ      = view.findViewById(R.id.Q);
-      Button buttonR      = view.findViewById(R.id.R);
-      Button buttonS      = view.findViewById(R.id.S);
-      Button buttonT      = view.findViewById(R.id.T);
-      Button buttonU      = view.findViewById(R.id.U);
-      Button buttonV      = view.findViewById(R.id.V);
-      Button buttonW      = view.findViewById(R.id.W);
-      Button buttonX      = view.findViewById(R.id.X);
-      Button buttonY      = view.findViewById(R.id.Y);
-      Button buttonZ      = view.findViewById(R.id.Z);
-      Button buttonDelete = view.findViewById(R.id.delete);
-      buttonA.setOnClickListener(this);
-      buttonB.setOnClickListener(this);
-      buttonC.setOnClickListener(this);
-      buttonD.setOnClickListener(this);
-      buttonE.setOnClickListener(this);
-      buttonF.setOnClickListener(this);
-      buttonG.setOnClickListener(this);
-      buttonH.setOnClickListener(this);
-      buttonI.setOnClickListener(this);
-      buttonJ.setOnClickListener(this);
-      buttonK.setOnClickListener(this);
-      buttonL.setOnClickListener(this);
-      buttonM.setOnClickListener(this);
-      buttonN.setOnClickListener(this);
-      buttonO.setOnClickListener(this);
-      buttonP.setOnClickListener(this);
-      buttonQ.setOnClickListener(this);
-      buttonR.setOnClickListener(this);
-      buttonS.setOnClickListener(this);
-      buttonT.setOnClickListener(this);
-      buttonU.setOnClickListener(this);
-      buttonV.setOnClickListener(this);
-      buttonW.setOnClickListener(this);
-      buttonX.setOnClickListener(this);
-      buttonY.setOnClickListener(this);
-      buttonZ.setOnClickListener(this);
-      buttonDelete.setOnClickListener(this);
+      for(String en_id_string : EN_KEY_IDS)
+      {
+        Button key = view.findViewById(getIdByStringValue(en_id_string));
+        if (key != null)
+        {
+          key.setOnClickListener(this);
+        }
+      }
     }
-    
-    else if (language.equalsIgnoreCase("Русский"))
+    else if ("Русский".equalsIgnoreCase(language))
     {
-      Button button_ru_A          = view.findViewById(R.id.ruA);
-      Button button_ru_Be         = view.findViewById(R.id.ruBe);
-      Button button_ru_Ve         = view.findViewById(R.id.ruVe);
-      Button button_ru_Ge         = view.findViewById(R.id.ruGe);
-      Button button_ru_De         = view.findViewById(R.id.ruDe);
-      Button button_ru_Ye         = view.findViewById(R.id.ruYe);
-      Button button_ru_Yo         = view.findViewById(R.id.ruYo);
-      Button button_ru_Je         = view.findViewById(R.id.ruJe);
-      Button button_ru_Ze         = view.findViewById(R.id.ruZe);
-      Button button_ru_I          = view.findViewById(R.id.ruI);
-      Button button_ru_Iy         = view.findViewById(R.id.ruIy);
-      Button button_ru_Ka         = view.findViewById(R.id.ruKa);
-      Button button_ru_El         = view.findViewById(R.id.ruEl);
-      Button button_ru_Em         = view.findViewById(R.id.ruEm);
-      Button button_ru_En         = view.findViewById(R.id.ruEn);
-      Button button_ru_O          = view.findViewById(R.id.ruO);
-      Button button_ru_Pe         = view.findViewById(R.id.ruPe);
-      Button button_ru_Er         = view.findViewById(R.id.ruEr);
-      Button button_ru_Es         = view.findViewById(R.id.ruEs);
-      Button button_ru_Te         = view.findViewById(R.id.ruTe);
-      Button button_ru_U          = view.findViewById(R.id.ruU);
-      Button button_ru_Ef         = view.findViewById(R.id.ruEf);
-      Button button_ru_Ha         = view.findViewById(R.id.ruHа);
-      Button button_ru_Tce        = view.findViewById(R.id.ruTce);
-      Button button_ru_Cha        = view.findViewById(R.id.ruCha);
-      Button button_ru_Sha        = view.findViewById(R.id.ruSha);
-      Button button_ru_Shcha      = view.findViewById(R.id.ruShcha);
-      Button button_ru_SoftSymbol = view.findViewById(R.id.ruSoftSymbol);
-      Button button_ru_Iii        = view.findViewById(R.id.ruIii);
-      Button button_ru_HardSymbol = view.findViewById(R.id.ruHardSymbol);
-      Button button_ru_Ee         = view.findViewById(R.id.ruEe);
-      Button button_ru_Yu         = view.findViewById(R.id.ruYu);
-      Button button_ru_Ya         = view.findViewById(R.id.ruYa);
-      Button button_ru_Delete     = view.findViewById(R.id.ruDelete);
-      button_ru_A.setOnClickListener(this);
-      button_ru_Be.setOnClickListener(this);
-      button_ru_Ve.setOnClickListener(this);
-      button_ru_Ge.setOnClickListener(this);
-      button_ru_De.setOnClickListener(this);
-      button_ru_Ye.setOnClickListener(this);
-      button_ru_Yo.setOnClickListener(this);
-      button_ru_Je.setOnClickListener(this);
-      button_ru_Ze.setOnClickListener(this);
-      button_ru_I.setOnClickListener(this);
-      button_ru_Iy.setOnClickListener(this);
-      button_ru_Ka.setOnClickListener(this);
-      button_ru_El.setOnClickListener(this);
-      button_ru_Em.setOnClickListener(this);
-      button_ru_En.setOnClickListener(this);
-      button_ru_O.setOnClickListener(this);
-      button_ru_Pe.setOnClickListener(this);
-      button_ru_Er.setOnClickListener(this);
-      button_ru_Es.setOnClickListener(this);
-      button_ru_Te.setOnClickListener(this);
-      button_ru_U.setOnClickListener(this);
-      button_ru_Ef.setOnClickListener(this);
-      button_ru_Ha.setOnClickListener(this);
-      button_ru_Tce.setOnClickListener(this);
-      button_ru_Cha.setOnClickListener(this);
-      button_ru_Sha.setOnClickListener(this);
-      button_ru_Shcha.setOnClickListener(this);
-      button_ru_SoftSymbol.setOnClickListener(this);
-      button_ru_Iii.setOnClickListener(this);
-      button_ru_HardSymbol.setOnClickListener(this);
-      button_ru_Ee.setOnClickListener(this);
-      button_ru_Yu.setOnClickListener(this);
-      button_ru_Ya.setOnClickListener(this);
-      button_ru_Delete.setOnClickListener(this);
+      for (String ru_id_string : RU_KEY_IDS)
+      {
+        Button key = view.findViewById(getIdByStringValue("ru" + ru_id_string));
+        if(key != null)
+        {
+          key.setOnClickListener(this);
+        }
+      }
     }
-    
     return view;
   }
-
+  
+  private int getIdByStringValue(String id_string)
+  {
+    if(getContext() != null)
+    {
+      return getResources().getIdentifier(id_string, "id", getContext().getPackageName());
+    }
+    return -1;
+  }
+  
   @Override
   public void onClick(View view)
   {
     if(view instanceof Button)
     {
       Button keyboardButton = (Button) view;
-      
-      final Animation zoomButtonAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.zoom);
       keyboardButton.bringToFront();
-      zoomButtonAnimation.setInterpolator(this);
-      keyboardButton.startAnimation(zoomButtonAnimation);
+      
+      keyColorAnimatorSet.setTarget(keyboardButton);
+      keyColorAnimatorSet.setInterpolator(this);
+      keyZoomAnimation.setInterpolator(this);
+      
+      keyColorAnimatorSet.start();
+      keyboardButton.startAnimation(keyZoomAnimation);
     }
   }
   
@@ -187,7 +116,7 @@ public class KeyboardFragment extends Fragment implements OnClickListener, Inter
   public float getInterpolation(float time)
   {
     
-    return (float) ((-1.0 * Math.pow(Math.E, -time / INTERPOLATOR_AMPLITUDE) *
-                     Math.cos(INTERPOLATOR_FREQUENCY * time)) + 1);
+    return (float) ((-1.0 * Math.pow(Math.E, (double) -time / INTERPOLATOR_AMPLITUDE) *
+                     Math.cos(INTERPOLATOR_FREQUENCY * (double) time)) + 1.0);
   }
 }

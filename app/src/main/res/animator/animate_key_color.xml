@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:ordering="sequentially">
+
+    <set android:ordering="together">
+
+        <objectAnimator
+            android:propertyName="backgroundTint"
+            android:duration="250"
+            android:valueFrom="@color/darkButtonBackground"
+            android:valueTo="@color/lightButtonBackground" />
+
+        <objectAnimator
+            android:propertyName="textColor"
+            android:duration="250"
+            android:valueFrom="@color/darkButtonText"
+            android:valueTo="@color/lightButtonText" />
+    </set>
+
+    <set android:ordering="together">
+        <objectAnimator
+            android:propertyName="backgroundTint"
+            android:duration="50"
+            android:valueFrom="@color/lightButtonBackground"
+            android:valueTo="@color/darkButtonBackground" />
+
+        <objectAnimator
+            android:propertyName="textColor"
+            android:duration="50"
+            android:valueFrom="@color/lightButtonText"
+            android:valueTo="@color/darkButtonText" />
+    </set>
+    
+</set>
