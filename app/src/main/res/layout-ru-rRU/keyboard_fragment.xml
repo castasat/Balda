@@ -191,8 +191,8 @@
     <!-- Первый ряд кнопок -->
 
     <Button
-        android:id="@+id/ruA"
-        android:text="@string/ru_A"
+        android:id="@+id/a"
+        android:text="@string/a"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -200,8 +200,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_19h9" />
 
     <Button
-        android:id="@+id/ruBe"
-        android:text="@string/ru_Be"
+        android:id="@+id/b"
+        android:text="@string/b"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/line_12v6"
@@ -209,8 +209,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_19h9" />
 
     <Button
-        android:id="@+id/ruVe"
-        android:text="@string/ru_Ve"
+        android:id="@+id/v"
+        android:text="@string/v"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/line_25v1"
@@ -218,8 +218,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_19h9" />
 
     <Button
-        android:id="@+id/ruGe"
-        android:text="@string/ru_Ge"
+        android:id="@+id/g"
+        android:text="@string/g"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/line_37v6"
@@ -227,8 +227,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_19h9" />
 
     <Button
-        android:id="@+id/ruDe"
-        android:text="@string/ru_De"
+        android:id="@+id/d"
+        android:text="@string/d"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/line_50v1"
@@ -236,8 +236,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_19h9" />
 
     <Button
-        android:id="@+id/ruYe"
-        android:text="@string/ru_Ye"
+        android:id="@+id/e"
+        android:text="@string/e"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/line_62v6"
@@ -245,8 +245,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_19h9" />
 
     <Button
-        android:id="@+id/ruYo"
-        android:text="@string/ru_Yo"
+        android:id="@+id/yo"
+        android:text="@string/yo"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/line_75v1"
@@ -254,8 +254,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_19h9" />
 
     <Button
-        android:id="@+id/ruJe"
-        android:text="@string/ru_Je"
+        android:id="@+id/j"
+        android:text="@string/j"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/line_87v6"
@@ -267,8 +267,8 @@
     <!-- Второй ряд кнопок -->
 
     <Button
-        android:id="@+id/ruZe"
-        android:text="@string/ru_Ze"
+        android:id="@+id/z"
+        android:text="@string/z"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_20h1"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -276,8 +276,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_39h9" />
 
     <Button
-        android:id="@+id/ruI"
-        android:text="@string/ru_I"
+        android:id="@+id/i"
+        android:text="@string/i"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_20h1"
         app:layout_constraintLeft_toLeftOf="@id/line_12v6"
@@ -285,8 +285,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_39h9" />
 
     <Button
-        android:id="@+id/ruIy"
-        android:text="@string/ru_Iy"
+        android:id="@+id/y"
+        android:text="@string/y"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_20h1"
         app:layout_constraintLeft_toLeftOf="@id/line_25v1"
@@ -294,8 +294,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_39h9" />
 
     <Button
-        android:id="@+id/ruKa"
-        android:text="@string/ru_Ka"
+        android:id="@+id/k"
+        android:text="@string/k"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_20h1"
         app:layout_constraintLeft_toLeftOf="@id/line_37v6"
@@ -303,8 +303,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_39h9" />
 
     <Button
-        android:id="@+id/ruEl"
-        android:text="@string/ru_El"
+        android:id="@+id/l"
+        android:text="@string/l"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_20h1"
         app:layout_constraintLeft_toLeftOf="@id/line_50v1"
@@ -312,8 +312,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_39h9" />
 
     <Button
-        android:id="@+id/ruEm"
-        android:text="@string/ru_Em"
+        android:id="@+id/m"
+        android:text="@string/m"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_20h1"
         app:layout_constraintLeft_toLeftOf="@id/line_62v6"
@@ -321,8 +321,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_39h9" />
 
     <Button
-        android:id="@+id/ruEn"
-        android:text="@string/ru_En"
+        android:id="@+id/n"
+        android:text="@string/n"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_20h1"
         app:layout_constraintLeft_toLeftOf="@id/line_75v1"
@@ -330,8 +330,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_39h9" />
 
     <Button
-        android:id="@+id/ruO"
-        android:text="@string/ru_O"
+        android:id="@+id/o"
+        android:text="@string/o"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_20h1"
         app:layout_constraintLeft_toLeftOf="@id/line_87v6"
@@ -343,8 +343,8 @@
     <!-- Третий ряд кнопок -->
 
     <Button
-        android:id="@+id/ruPe"
-        android:text="@string/ru_Pe"
+        android:id="@+id/p"
+        android:text="@string/p"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_40h1"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -352,8 +352,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_59h9" />
 
     <Button
-        android:id="@+id/ruEr"
-        android:text="@string/ru_Er"
+        android:id="@+id/r"
+        android:text="@string/r"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_40h1"
         app:layout_constraintLeft_toLeftOf="@id/line_12v6"
@@ -361,8 +361,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_59h9" />
 
     <Button
-        android:id="@+id/ruEs"
-        android:text="@string/ru_Es"
+        android:id="@+id/s"
+        android:text="@string/s"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_40h1"
         app:layout_constraintLeft_toLeftOf="@id/line_25v1"
@@ -370,8 +370,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_59h9" />
 
     <Button
-        android:id="@+id/ruTe"
-        android:text="@string/ru_Te"
+        android:id="@+id/t"
+        android:text="@string/t"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_40h1"
         app:layout_constraintLeft_toLeftOf="@id/line_37v6"
@@ -379,8 +379,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_59h9" />
 
     <Button
-        android:id="@+id/ruU"
-        android:text="@string/ru_U"
+        android:id="@+id/u"
+        android:text="@string/u"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_40h1"
         app:layout_constraintLeft_toLeftOf="@id/line_50v1"
@@ -388,8 +388,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_59h9" />
 
     <Button
-        android:id="@+id/ruEf"
-        android:text="@string/ru_Ef"
+        android:id="@+id/f"
+        android:text="@string/f"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_40h1"
         app:layout_constraintLeft_toLeftOf="@id/line_62v6"
@@ -397,8 +397,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_59h9" />
 
     <Button
-        android:id="@+id/ruHa"
-        android:text="@string/ru_Ha"
+        android:id="@+id/h"
+        android:text="@string/h"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_40h1"
         app:layout_constraintLeft_toLeftOf="@id/line_75v1"
@@ -406,8 +406,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_59h9" />
 
     <Button
-        android:id="@+id/ruTce"
-        android:text="@string/ru_Tce"
+        android:id="@+id/c"
+        android:text="@string/c"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_40h1"
         app:layout_constraintLeft_toLeftOf="@id/line_87v6"
@@ -419,8 +419,8 @@
     <!-- Четвёртый ряд кнопок -->
 
     <Button
-        android:id="@+id/ruCha"
-        android:text="@string/ru_Cha"
+        android:id="@+id/cha"
+        android:text="@string/cha"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_60h1"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -428,8 +428,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_79h9" />
 
     <Button
-        android:id="@+id/ruSha"
-        android:text="@string/ru_Sha"
+        android:id="@+id/sha"
+        android:text="@string/sha"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_60h1"
         app:layout_constraintLeft_toLeftOf="@id/line_12v6"
@@ -437,8 +437,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_79h9" />
 
     <Button
-        android:id="@+id/ruShcha"
-        android:text="@string/ru_Shcha"
+        android:id="@+id/shcha"
+        android:text="@string/shcha"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_60h1"
         app:layout_constraintLeft_toLeftOf="@id/line_25v1"
@@ -446,8 +446,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_79h9" />
 
     <Button
-        android:id="@+id/ruSoftSymbol"
-        android:text="@string/ru_Soft_Symbol"
+        android:id="@+id/soft"
+        android:text="@string/soft"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_60h1"
         app:layout_constraintLeft_toLeftOf="@id/line_37v6"
@@ -455,8 +455,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_79h9" />
 
     <Button
-        android:id="@+id/ruIii"
-        android:text="@string/ru_Iii"
+        android:id="@+id/iii"
+        android:text="@string/iii"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_60h1"
         app:layout_constraintLeft_toLeftOf="@id/line_50v1"
@@ -464,8 +464,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_79h9" />
 
     <Button
-        android:id="@+id/ruHardSymbol"
-        android:text="@string/ru_Hard_Symbol"
+        android:id="@+id/hard"
+        android:text="@string/hard"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_60h1"
         app:layout_constraintLeft_toLeftOf="@id/line_62v6"
@@ -473,8 +473,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_79h9" />
 
     <Button
-        android:id="@+id/ruEe"
-        android:text="@string/ru_Ee"
+        android:id="@+id/eee"
+        android:text="@string/eee"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_60h1"
         app:layout_constraintLeft_toLeftOf="@id/line_75v1"
@@ -482,8 +482,8 @@
         app:layout_constraintBottom_toBottomOf="@id/line_79h9" />
 
     <Button
-        android:id="@+id/ruYu"
-        android:text="@string/ru_Yu"
+        android:id="@+id/yu"
+        android:text="@string/yu"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_60h1"
         app:layout_constraintLeft_toLeftOf="@id/line_87v6"
@@ -495,8 +495,8 @@
     <!-- Пятый ряд кнопок -->
 
     <Button
-        android:id="@+id/ruYa"
-        android:text="@string/ru_Ya"
+        android:id="@+id/ya"
+        android:text="@string/ya"
         style="@style/KeyboardButton"
         app:layout_constraintTop_toTopOf="@id/line_80h1"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -504,8 +504,8 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
-        android:id="@+id/ruDelete"
-        android:text="@string/ru_Delete"
+        android:id="@+id/delete"
+        android:text="@string/delete"
         style="@style/DarkButton"
         app:layout_constraintTop_toTopOf="@id/line_80h1"
         app:layout_constraintLeft_toLeftOf="@id/line_12v6"
@@ -513,8 +513,8 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
-        android:id="@+id/ruDone"
-        android:text="@string/ru_Done"
+        android:id="@+id/done"
+        android:text="@string/done"
         style="@style/DarkButton"
         app:layout_constraintTop_toTopOf="@id/line_80h1"
         app:layout_constraintLeft_toLeftOf="@id/line_62v6"

@@ -48,9 +48,9 @@ public class FieldFragment extends Fragment implements OnClickListener
         
         if (getContext() != null)
         {
-          int cell_id = getResources().getIdentifier(CELL_NAME_PREFIX + cellIndex,
+          int cellId = getResources().getIdentifier(CELL_NAME_PREFIX + cellIndex,
             ID_RESOURCE_TIPE, getContext().getPackageName());
-          cell[row][column] = view.findViewById(cell_id);
+          cell[row][column] = view.findViewById(cellId);
           cell[row][column].setOnClickListener(this);
         }
         
@@ -94,7 +94,8 @@ public class FieldFragment extends Fragment implements OnClickListener
     {
       Button cellPressed = (Button) view;
       // TODO get cellPressed id
-      onCellPressedListener.onCellPressed(cellPressed);
+      int cellPressedId = cellPressed.getId();
+      onCellPressedListener.onCellPressed(cellPressedId);
     }
   }
   

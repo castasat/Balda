@@ -14,27 +14,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.Button;
-import java.util.Locale;
 
 public class KeyboardFragment extends Fragment implements OnClickListener, Interpolator
 {
-  private static final String[] RU_KEY_IDS = new String[]
-      {
-          "A", "Be", "Ve", "Ge", "De", "Ye", "Yo", "Je",
-          "Ze", "I", "Iy", "Ka", "El", "Em", "En", "O",
-          "Pe", "Er", "Es", "Te", "U", "Ef", "Ha", "Tce",
-          "Cha", "Sha", "Shcha", "SoftSymbol", "Iii", "HardSymbol", "Ee", "Yu",
-          "Ya", "Delete", "Done"
-      };
-  
-  private static final String[] EN_KEY_IDS = new String[]
-      {
-          "A", "B", "C", "D", "E", "F", "G", "H",
-          "I", "J", "K", "L", "M", "N", "O", "P",
-          "Q", "R", "S", "T", "U", "V", "W", "X",
-          "Y", "Z", "delete", "done"
-      };
-  
   private static final double INTERPOLATOR_AMPLITUDE = 0.2;
   private static final double INTERPOLATOR_FREQUENCY = 2.0;
   
@@ -48,40 +30,28 @@ public class KeyboardFragment extends Fragment implements OnClickListener, Inter
     View view = inflater.inflate(R.layout.keyboard_fragment, container, false);
     
     keyZoomAnimation    = AnimationUtils.loadAnimation(getContext(), R.anim.animate_key_zoom);
-    keyColorAnimatorSet = (AnimatorSet) 
+    keyColorAnimatorSet = (AnimatorSet)
         AnimatorInflater.loadAnimator(getContext(), R.animator.animate_key_color);
+  
+    String[] keyIDs = getResources().getStringArray(R.array.key_ids);
     
-    String language = Locale.getDefault().getDisplayLanguage();
-    if ("English".equalsIgnoreCase(language))
+    for(String idString : keyIDs)
     {
-      for(String en_id_string : EN_KEY_IDS)
+      Button key = view.findViewById(getIdByStringValue(idString));
+      if(key != null)
       {
-        Button key = view.findViewById(getIdByStringValue(en_id_string));
-        if (key != null)
-        {
-          key.setOnClickListener(this);
-        }
+        key.setOnClickListener(this);
       }
     }
-    else if ("Русский".equalsIgnoreCase(language))
-    {
-      for (String ru_id_string : RU_KEY_IDS)
-      {
-        Button key = view.findViewById(getIdByStringValue("ru" + ru_id_string));
-        if(key != null)
-        {
-          key.setOnClickListener(this);
-        }
-      }
-    }
+  
     return view;
   }
   
-  private int getIdByStringValue(String id_string)
+  private int getIdByStringValue(String idString)
   {
     if(getContext() != null)
     {
-      return getResources().getIdentifier(id_string, "id", getContext().getPackageName());
+      return getResources().getIdentifier(idString, "id", getContext().getPackageName());
     }
     return -1;
   }

@@ -4,5 +4,5 @@ import android.widget.Button;
 
 public interface OnCellPressedListener
 {
-  void onCellPressed(Button cell);
+  void onCellPressed(int cellPressedId);
 }

@@ -26,7 +26,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   private FragmentTransaction transaction;
   
   // current cell
-  private Button cellPressed;
+  private int cellPressedId;
   
   @Override
   protected void onCreate(Bundle savedInstanceState)
@@ -73,8 +73,8 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   {
     Builder quitDialog = new Builder(this);
     quitDialog.setTitle(R.string.quit_dialog_message);
-    quitDialog.setPositiveButton(R.string.positive_button_text, this);
-    quitDialog.setNegativeButton(R.string.negative_button_text, this);
+    quitDialog.setPositiveButton(R.string.exit_yes, this);
+    quitDialog.setNegativeButton(R.string.exit_no, this);
     quitDialog.show();
   }
   
@@ -92,9 +92,9 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   }
   
   @Override
-  public void onCellPressed(Button cellPressed)
+  public void onCellPressed(int cellPressedId)
   {
-    this.cellPressed = cellPressed;
+    this.cellPressedId = cellPressedId;
     showKeyboard();
   }
   
