@@ -91,6 +91,8 @@ public class KeyboardFragment extends Fragment implements OnClickListener, Inter
   {
     if(view instanceof Button)
     {
+      
+      // make animation
       Button keyboardButton = (Button) view;
       keyboardButton.bringToFront();
       
@@ -100,6 +102,13 @@ public class KeyboardFragment extends Fragment implements OnClickListener, Inter
       
       keyColorAnimatorSet.start();
       keyboardButton.startAnimation(keyZoomAnimation);
+      
+      // TODO get key button id
+      // TODO add String keyPressedText
+      // TODO if done pressed and keyPressedText isEmpty(), hide keyboard
+      // TODO elseif not empty hide keyboard and send keyPressedText to Game
+      // TODO if delete pressed set keyPressedText to empty and send to Game
+      
     }
   }
   

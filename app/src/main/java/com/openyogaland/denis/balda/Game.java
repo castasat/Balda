@@ -26,7 +26,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   private FragmentTransaction transaction;
   
   // current cell
-  private Button currentCell;
+  private Button cellPressed;
   
   @Override
   protected void onCreate(Bundle savedInstanceState)
@@ -92,23 +92,22 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   }
   
   @Override
-  public void onCellPressed(Button cell)
+  public void onCellPressed(Button cellPressed)
   {
-    this.currentCell = cell;
-    
-    keyboardFragment = (KeyboardFragment) getSupportFragmentManager()
-        .findFragmentByTag(TAG_KEYBOARD);
-    
+    this.cellPressed = cellPressed;
+    showKeyboard();
+  }
+  
+  private void showKeyboard()
+  {
+    keyboardFragment = (KeyboardFragment) getSupportFragmentManager().findFragmentByTag(TAG_KEYBOARD);
+  
     if(keyboardFragment == null)
     {
       this.keyboardFragment = new KeyboardFragment();
       transaction = getSupportFragmentManager().beginTransaction();
       transaction.add(R.id.switchableFragmentFrame, this.keyboardFragment, TAG_KEYBOARD);
       transaction.commit();
-    }
-    else
-    {
-      // keyboardFragment уже загружен
     }
   }
 }

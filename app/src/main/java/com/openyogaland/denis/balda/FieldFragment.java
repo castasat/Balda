@@ -21,7 +21,6 @@ public class FieldFragment extends Fragment implements OnClickListener
   
   private static final String CELL_NAME_PREFIX       = "cell_";
   private static final String ID_RESOURCE_TIPE       = "id";
-  private static final String PACKAGE_NAME           = "com.openyogaland.denis.balda";
   
   private final Button[][] cell   = new Button[NUM_OF_ROWS][NUM_OF_COLUMNS];
   private final String[][] matrix = new String[NUM_OF_ROWS][NUM_OF_COLUMNS];
@@ -46,10 +45,16 @@ public class FieldFragment extends Fragment implements OnClickListener
       for (int column = 0; column < NUM_OF_COLUMNS; column++)
       {
         String cellIndex = String.valueOf(row) + String.valueOf(column);
-        int cell_id = getResources().getIdentifier(CELL_NAME_PREFIX + cellIndex, ID_RESOURCE_TIPE, PACKAGE_NAME);
-        cell[row][column] = view.findViewById(cell_id);
-        cell[row][column].setOnClickListener(this);
         
+        if (getContext() != null)
+        {
+          int cell_id = getResources().getIdentifier(CELL_NAME_PREFIX + cellIndex,
+            ID_RESOURCE_TIPE, getContext().getPackageName());
+          cell[row][column] = view.findViewById(cell_id);
+          cell[row][column].setOnClickListener(this);
+        }
+        
+        // TODO check
         if (row == INITIAL_WORD_ROW_INDEX)
         {
           writeInitialWord(column);
@@ -74,6 +79,7 @@ public class FieldFragment extends Fragment implements OnClickListener
   private void writeInitialWord(int column)
   {
     // TODO check language
+    // TODO get a random word from dictionary
     
     String letterToWrite = INITIAL_WORD.substring(column, column + 1);
     Button currentCell = cell[INITIAL_WORD_ROW_INDEX][column];
@@ -86,7 +92,9 @@ public class FieldFragment extends Fragment implements OnClickListener
   {
     if (view instanceof Button)
     {
-      onCellPressedListener.onCellPressed( (Button) view);
+      Button cellPressed = (Button) view;
+      // TODO get cellPressed id
+      onCellPressedListener.onCellPressed(cellPressed);
     }
   }
   
