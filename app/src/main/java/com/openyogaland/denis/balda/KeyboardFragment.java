@@ -2,6 +2,7 @@ package com.openyogaland.denis.balda;
 
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,6 +20,8 @@ public class KeyboardFragment extends Fragment implements OnClickListener, Inter
 {
   private static final double INTERPOLATOR_AMPLITUDE = 0.2;
   private static final double INTERPOLATOR_FREQUENCY = 2.0;
+  
+  private OnKeyPressedListener onKeyPressedListener;
   
   private Animation   keyZoomAnimation;
   private AnimatorSet keyColorAnimatorSet;
@@ -51,7 +54,8 @@ public class KeyboardFragment extends Fragment implements OnClickListener, Inter
   {
     if(getContext() != null)
     {
-      return getResources().getIdentifier(idString, "id", getContext().getPackageName());
+      String idResourceType = getString(R.string.id);
+      return getResources().getIdentifier(idString, idResourceType, getContext().getPackageName());
     }
     return -1;
   }
@@ -61,24 +65,34 @@ public class KeyboardFragment extends Fragment implements OnClickListener, Inter
   {
     if(view instanceof Button)
     {
+      Button keyPressed = (Button) view;
+      int keyPressdId = keyPressed.getId();
+      onKeyPressedListener.onKeyPressed(keyPressdId);
       
       // make animation
-      Button keyboardButton = (Button) view;
-      keyboardButton.bringToFront();
-      
-      keyColorAnimatorSet.setTarget(keyboardButton);
+      keyPressed.bringToFront();
+      keyColorAnimatorSet.setTarget(keyPressed);
       keyColorAnimatorSet.setInterpolator(this);
       keyZoomAnimation.setInterpolator(this);
-      
       keyColorAnimatorSet.start();
-      keyboardButton.startAnimation(keyZoomAnimation);
-      
-      // TODO get key button id
-      // TODO add String keyPressedText
-      // TODO if done pressed and keyPressedText isEmpty(), hide keyboard
-      // TODO elseif not empty hide keyboard and send keyPressedText to Game
-      // TODO if delete pressed set keyPressedText to empty and send to Game
-      
+      keyPressed.startAnimation(keyZoomAnimation);
+    }
+  }
+  
+  // метод прикрепления фрагмента к контексту (активности)
+  @Override
+  public void onAttach(Context context)
+  {
+    super.onAttach(context);
+    
+    try
+    {
+      onKeyPressedListener = (OnKeyPressedListener) context;
+    }
+    catch(ClassCastException e)
+    {
+      throw new ClassCastException(e + context.toString() +
+                                   " should implement OnKeyPressedListener interface");
     }
   }
   
@@ -94,7 +108,6 @@ public class KeyboardFragment extends Fragment implements OnClickListener, Inter
   @Override
   public float getInterpolation(float time)
   {
-    
     return (float) ((-1.0 * Math.pow(Math.E, (double) -time / INTERPOLATOR_AMPLITUDE) *
                      Math.cos(INTERPOLATOR_FREQUENCY * (double) time)) + 1.0);
   }

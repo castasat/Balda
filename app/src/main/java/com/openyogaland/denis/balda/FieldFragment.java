@@ -20,7 +20,7 @@ public class FieldFragment extends Fragment implements OnClickListener
   private static final String INITIAL_WORD           = "балда";
   
   private static final String CELL_NAME_PREFIX       = "cell_";
-  private static final String ID_RESOURCE_TIPE       = "id";
+  private static final String ID_RESOURCE_TYPE       = "id";
   
   private final Button[][] cell   = new Button[NUM_OF_ROWS][NUM_OF_COLUMNS];
   private final String[][] matrix = new String[NUM_OF_ROWS][NUM_OF_COLUMNS];
@@ -49,7 +49,7 @@ public class FieldFragment extends Fragment implements OnClickListener
         if (getContext() != null)
         {
           int cellId = getResources().getIdentifier(CELL_NAME_PREFIX + cellIndex,
-            ID_RESOURCE_TIPE, getContext().getPackageName());
+            ID_RESOURCE_TYPE, getContext().getPackageName());
           cell[row][column] = view.findViewById(cellId);
           cell[row][column].setOnClickListener(this);
         }
@@ -84,7 +84,7 @@ public class FieldFragment extends Fragment implements OnClickListener
     String letterToWrite = INITIAL_WORD.substring(column, column + 1);
     Button currentCell = cell[INITIAL_WORD_ROW_INDEX][column];
     currentCell.setText(letterToWrite);
-    disableButton(currentCell);
+    // disableButton(currentCell);
   }
   
   @Override
@@ -93,9 +93,10 @@ public class FieldFragment extends Fragment implements OnClickListener
     if (view instanceof Button)
     {
       Button cellPressed = (Button) view;
-      // TODO get cellPressed id
       int cellPressedId = cellPressed.getId();
       onCellPressedListener.onCellPressed(cellPressedId);
+      
+      // TODO disable all other cells
     }
   }
   
@@ -116,7 +117,7 @@ public class FieldFragment extends Fragment implements OnClickListener
     }
   }
   
-  private static void disableButton(Button currentCell)
+  static void disableButton(Button currentCell)
   {
     currentCell.setClickable(false);
     currentCell.setFocusable(false);

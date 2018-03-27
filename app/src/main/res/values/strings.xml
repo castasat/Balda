@@ -43,4 +43,5 @@
     <string name="done">DONE</string>
     <string name="yo" translatable="false">Ё</string>
     <string name="cha" translatable="false">Ч</string>
+    <string name="id">id</string>
 </resources>

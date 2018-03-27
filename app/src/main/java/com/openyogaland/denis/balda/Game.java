@@ -12,7 +12,7 @@ import android.widget.Button;
 /**
  * Main activity class Game
  */
-public class Game extends AppCompatActivity implements OnClickListener, OnCellPressedListener
+public class Game extends AppCompatActivity implements OnClickListener, OnCellPressedListener, OnKeyPressedListener
 {
   // constants
   private static final String TAG_FIELD    = "field_fragment_tag";
@@ -25,8 +25,10 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   // fragment transaction
   private FragmentTransaction transaction;
   
-  // current cell
+  /** cell pressed in FieldFragment id **/
   private int cellPressedId;
+  /** key pressed in KeyboardFragment id **/
+  private int keyPressedId;
   
   @Override
   protected void onCreate(Bundle savedInstanceState)
@@ -42,7 +44,6 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     {
       transaction = getSupportFragmentManager().beginTransaction();
       transaction.add(R.id.fieldFragmentFrame, fieldFragment, TAG_FIELD);
-      //TODO show only if needed // transaction.add(R.id.switchableFragmentFrame,keyboardFragment,TAG_KEYBOARD);
       transaction.commit();
     }
   }
@@ -65,7 +66,6 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   @Override
   public void onBackPressed()
   {
-    // super.onBackPressed();
     openQuitDialog();
   }
   
@@ -108,6 +108,65 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
       transaction = getSupportFragmentManager().beginTransaction();
       transaction.add(R.id.switchableFragmentFrame, this.keyboardFragment, TAG_KEYBOARD);
       transaction.commit();
+    }
+  }
+  
+  @Override
+  public void onKeyPressed(int keyPressedId)
+  {
+    // TODO check delete and done
+    
+    Button cell = findViewById(cellPressedId);
+    
+    // check if cell to set text is here
+    if (cell != null)
+    {
+      // if the user pressed delete on keyboard
+      if(keyPressedId == R.id.delete)
+      {
+        // empty cell text
+        cell.setText("");
+        // очищаем id
+        this.keyPressedId = 0;
+      }
+      // if the user pressed done on keyboard
+      else if(keyPressedId == R.id.done)
+      {
+        // if previous key was not delete key
+        if (this.keyPressedId != 0)
+        {
+          // find a key by previous memorized keyPressedId
+          Button key = findViewById(this.keyPressedId);
+          // if the key was found
+          if(key != null)
+          {
+            // set the text of the cell equal to the text on the previous key (not done key)
+            cell.setText(key.getText());
+            // TODO call waitForWord()
+            // TODO disable button
+          }
+        }
+        // if previous key was delete
+        else
+        {
+          // empty cell text
+          cell.setText("");
+        }
+      }
+      // letter key pressed
+      else
+      {
+        // memorize key id
+        this.keyPressedId = keyPressedId;
+        // find a key by id
+        Button key = findViewById(this.keyPressedId);
+        // if the key was found
+        if (key != null)
+        {
+          // set the text of the cell equal to the text on the key
+          cell.setText(key.getText());
+        }
+      }
     }
   }
 }
