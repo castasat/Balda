@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#212eae</color>
-    <color name="colorPrimaryDark">#111964</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="darkButtonText">#CCCCCC</color>
-    <color name="darkButtonBackground">#555555</color>
-    <color name="lightButtonText">#555555</color>
-    <color name="lightButtonBackground">#CCCCCC</color>
+    <color name="colorPrimary">#2935aa</color>
+    <color name="colorPrimaryDark">#151c5a</color>
+    <color name="colorAccent">#e31a13</color>
+
+    <color name="colorLight">#FFF</color>
+    <color name="colorDark">#555</color>
+
+    <color name="darkButtonText">@color/colorDark</color>
+    <color name="darkButtonBackground">@color/colorDark</color>
+    <color name="darkButtonStroke">@color/colorDark</color>
+
+    <color name="lightButtonText">@color/colorLight</color>
+    <color name="lightButtonBackground">@color/colorLight</color>
+    <color name="lightButtonStroke">@color/colorLight</color>
+
+    <color name="activatedButtonStroke">@color/colorAccent</color>
+    <color name="activatedButtonText">@color/colorPrimary</color>
+    <color name="activatedButtonBackground">@color/colorPrimaryDark</color>
 </resources>

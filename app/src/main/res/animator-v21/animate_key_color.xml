@@ -14,8 +14,8 @@
         <objectAnimator
             android:propertyName="textColor"
             android:duration="250"
-            android:valueFrom="@color/darkButtonText"
-            android:valueTo="@color/lightButtonText" />
+            android:valueFrom="@color/lightButtonText"
+            android:valueTo="@color/darkButtonText" />
     </set>
 
     <set android:ordering="together">
@@ -28,8 +28,8 @@
         <objectAnimator
             android:propertyName="textColor"
             android:duration="50"
-            android:valueFrom="@color/lightButtonText"
-            android:valueTo="@color/darkButtonText" />
+            android:valueFrom="@color/darkButtonText"
+            android:valueTo="@color/lightButtonText" />
     </set>
 
 </set>
