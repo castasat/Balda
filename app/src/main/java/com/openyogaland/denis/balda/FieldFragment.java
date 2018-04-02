@@ -16,16 +16,14 @@ public class FieldFragment extends Fragment implements OnClickListener
   private static final int    NUM_OF_ROWS            = 5;
   private static final int    NUM_OF_COLUMNS         = 5;
   
-  private static final int    INITIAL_WORD_ROW_INDEX = 2;
-  private static final String INITIAL_WORD           = "балда";
-  
-  private static final String CELL_NAME_PREFIX       = "cell_";
-  private static final String ID_RESOURCE_TYPE       = "id";
-  
   private final Button[][] cell   = new Button[NUM_OF_ROWS][NUM_OF_COLUMNS];
   private final String[][] matrix = new String[NUM_OF_ROWS][NUM_OF_COLUMNS];
   
+  private static final int    INITIAL_WORD_ROW_INDEX = 2;
+  private static final String INITIAL_WORD           = "балда";
+  
   private OnCellPressedListener onCellPressedListener;
+  private GameState gameState;
   
   @Override
   public void onCreate(Bundle savedInstanceState)
@@ -48,8 +46,11 @@ public class FieldFragment extends Fragment implements OnClickListener
         
         if (getContext() != null)
         {
-          int cellId = getResources().getIdentifier(CELL_NAME_PREFIX + cellIndex,
-            ID_RESOURCE_TYPE, getContext().getPackageName());
+          String idResourceType = getString(R.string.id);
+          String cellNamePrefix = getString(R.string.cell_name_prefix);
+          
+          int cellId = getResources().getIdentifier(cellNamePrefix + cellIndex,
+              idResourceType, getContext().getPackageName());
           cell[row][column] = view.findViewById(cellId);
           cell[row][column].setOnClickListener(this);
         }
@@ -90,17 +91,31 @@ public class FieldFragment extends Fragment implements OnClickListener
   @Override
   public void onClick(View view)
   {
-    if (view instanceof Button)
+    if(gameState.isPlayerSelectedCell())
     {
-      Button cellPressed = (Button) view;
-      int cellPressedId = cellPressed.getId();
-      onCellPressedListener.onCellPressed(cellPressedId);
-      
+    
+    }
+    // if player has not selected cell yet
+    else
+    {
+      if(view instanceof Button)
+      {
+        Button cellPressed   = (Button) view;
+        cellPressed.setSelected(true);
+        gameState.setPlayerSelectedCell(true);
+        int    cellPressedId = cellPressed.getId();
+        onCellPressedListener.onCellPressed(cellPressedId);
+      }
       // TODO disable all other cells
     }
+    
+    
   }
   
-  // метод прикрепления фрагмента к контексту (активности)
+  /**
+   * Method to attach the fragment to it's context (activity)
+   * @param context - context to attach the fragment
+   **/
   @Override
   public void onAttach(Context context)
   {
@@ -115,11 +130,15 @@ public class FieldFragment extends Fragment implements OnClickListener
       throw new ClassCastException(e + context.toString() +
                                    " should implement OnCellPressedListener interface");
     }
-  }
   
-  static void disableButton(Button currentCell)
-  {
-    currentCell.setClickable(false);
-    currentCell.setFocusable(false);
+    try
+    {
+      gameState = (GameState) context;
+    }
+    catch(ClassCastException e)
+    {
+      throw new ClassCastException(
+          e + context.toString() + " should implement GameState interface");
+    }
   }
 }

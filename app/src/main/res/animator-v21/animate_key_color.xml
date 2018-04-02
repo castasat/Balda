@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:ordering="sequentially">
 
     <set android:ordering="together">
@@ -8,28 +7,28 @@
         <objectAnimator
             android:propertyName="backgroundColor"
             android:duration="250"
-            android:valueFrom="@color/darkButtonBackground"
-            android:valueTo="@color/lightButtonBackground" />
+            android:valueFrom="@color/colorBackgroundKeyNormal"
+            android:valueTo="@color/colorBackgroundKeyPressed" />
 
         <objectAnimator
             android:propertyName="textColor"
             android:duration="250"
-            android:valueFrom="@color/lightButtonText"
-            android:valueTo="@color/darkButtonText" />
+            android:valueFrom="@color/colorTextKeyNormal"
+            android:valueTo="@color/colorTextKeyPressed" />
     </set>
 
     <set android:ordering="together">
         <objectAnimator
             android:propertyName="backgroundColor"
             android:duration="50"
-            android:valueFrom="@color/lightButtonBackground"
-            android:valueTo="@color/darkButtonBackground" />
+            android:valueFrom="@color/colorBackgroundKeyPressed"
+            android:valueTo="@color/colorBackgroundKeyNormal" />
 
         <objectAnimator
             android:propertyName="textColor"
             android:duration="50"
-            android:valueFrom="@color/darkButtonText"
-            android:valueTo="@color/lightButtonText" />
+            android:valueFrom="@color/colorTextKeyPressed"
+            android:valueTo="@color/colorTextKeyNormal" />
     </set>
 
 </set>

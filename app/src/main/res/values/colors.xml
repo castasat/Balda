@@ -1,21 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2935aa</color>
-    <color name="colorPrimaryDark">#151c5a</color>
-    <color name="colorAccent">#e31a13</color>
 
-    <color name="colorLight">#FFF</color>
-    <color name="colorDark">#555</color>
+  <!-- Holo android:color colors -->
+    <color name="blueBright">@android:color/holo_blue_bright</color>
+    <color name="blueDark">@android:color/holo_blue_dark</color>
+    <color name="blueLight">@android:color/holo_blue_light</color>
+    <color name="greenDark">@android:color/holo_green_dark</color>
+    <color name="greenLight">@android:color/holo_green_light</color>
+    <color name="orangeDark">@android:color/holo_orange_dark</color>
+    <color name="orangeLight">@android:color/holo_orange_light</color>
+    <color name="purple">@android:color/holo_purple</color>
+    <color name="redDark">@android:color/holo_red_dark</color>
+    <color name="redLight">@android:color/holo_red_light</color>
+    <color name="black">@android:color/black</color>
+    <color name="white">@android:color/white</color>
+  <!-- / Holo android:color colors -->
 
-    <color name="darkButtonText">@color/colorDark</color>
-    <color name="darkButtonBackground">@color/colorDark</color>
-    <color name="darkButtonStroke">@color/colorDark</color>
 
-    <color name="lightButtonText">@color/colorLight</color>
-    <color name="lightButtonBackground">@color/colorLight</color>
-    <color name="lightButtonStroke">@color/colorLight</color>
+  <!-- App Theme colors -->
+    <color name="colorPrimary">@android:color/holo_green_light</color>
+    <color name="colorPrimaryDark">@android:color/holo_green_dark</color>
+    <color name="colorAccent">@android:color/holo_red_dark</color>
+  <!-- / App Theme colors -->
 
-    <color name="activatedButtonStroke">@color/colorAccent</color>
-    <color name="activatedButtonText">@color/colorPrimary</color>
-    <color name="activatedButtonBackground">@color/colorPrimaryDark</color>
+
+  <!-- Cell colors -->
+    <!-- normal -->
+    <color name="colorBackgroundCellNormal">@android:color/white</color>
+    <color name="colorTextCellNormal">@android:color/black</color>
+    <color name="colorStrokeCellNormal">@android:color/black</color> 
+    <!-- / normal --> 
+    
+    <!-- pressed -->
+    <color name="colorBackgroundCellPressed">@android:color/holo_blue_dark</color>
+    <color name="colorTextCellPressed">@android:color/black</color>
+    <color name="colorStrokeCellPressed">@android:color/white</color>
+    <!-- / pressed -->
+
+    <!-- selected -->
+    <color name="colorBackgroundCellSelected">@android:color/holo_blue_light</color>
+    <color name="colorTextCellSelected">@android:color/white</color>
+    <color name="colorStrokeCellSelected">@android:color/holo_green_dark</color>
+    <!-- / selected -->
+  <!-- / Cell colors -->
+
+
+  <!-- Key colors -->
+    <!-- normal -->
+    <color name="colorBackgroundKeyNormal">@android:color/black</color>
+    <color name="colorTextKeyNormal">@android:color/white</color>
+    <color name="colorStrokeKeyNormal">@android:color/white</color>
+    <!-- / normal -->
+
+    <!-- pressed -->
+    <color name="colorBackgroundKeyPressed">@android:color/white</color>
+    <color name="colorTextKeyPressed">@android:color/black</color>
+    <color name="colorStrokeKeyPressed">@android:color/black</color>
+    <!-- / pressed-->
+  <!-- / Key colors -->
+
 </resources>

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
-    <solid android:color="@color/darkButtonBackground" />
+    <solid android:color="@color/colorBackgroundCellPressed" />
 
     <corners android:radius="@dimen/cell_corner_radius" />
 
     <stroke
         android:width="@dimen/cell_stroke_width"
-        android:color="@color/lightButtonStroke" />
+        android:color="@color/colorStrokeCellPressed" />
 
 </shape>

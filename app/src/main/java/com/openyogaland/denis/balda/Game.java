@@ -12,17 +12,19 @@ import android.widget.Button;
 /**
  * Main activity class Game
  */
-public class Game extends AppCompatActivity implements OnClickListener, OnCellPressedListener, OnKeyPressedListener
+public class Game extends AppCompatActivity implements OnClickListener, OnCellPressedListener,
+                                                       OnKeyPressedListener, GameState
 {
-  // constants
+  /** constants **/
   private static final String TAG_FIELD    = "field_fragment_tag";
   private static final String TAG_KEYBOARD = "keyboard_fragment_tag";
   
-  // fragments to insert
-  private FieldFragment    fieldFragment;
-  private KeyboardFragment keyboardFragment;
+  /** game state variables **/
+  private boolean playerSelectedCell;
+  private boolean playerEnteredLetter;
+  private boolean playerEnteredWord;
   
-  // fragment transaction
+  /** fragment transaction **/
   private FragmentTransaction transaction;
   
   /** cell pressed in FieldFragment id **/
@@ -37,7 +39,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     this.setContentView(R.layout.game_layout);
     
     // create new instance of fragment
-    fieldFragment    = new FieldFragment();
+    FieldFragment fieldFragment = new FieldFragment();
     
     // during the first program start
     if (savedInstanceState == null)
@@ -100,13 +102,14 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   
   private void showKeyboard()
   {
-    keyboardFragment = (KeyboardFragment) getSupportFragmentManager().findFragmentByTag(TAG_KEYBOARD);
+    KeyboardFragment keyboardFragment =
+        (KeyboardFragment) getSupportFragmentManager().findFragmentByTag(TAG_KEYBOARD);
   
     if(keyboardFragment == null)
     {
-      this.keyboardFragment = new KeyboardFragment();
+      KeyboardFragment fragment = new KeyboardFragment();
       transaction = getSupportFragmentManager().beginTransaction();
-      transaction.add(R.id.switchableFragmentFrame, this.keyboardFragment, TAG_KEYBOARD);
+      transaction.add(R.id.switchableFragmentFrame, fragment, TAG_KEYBOARD);
       transaction.commit();
     }
   }
@@ -114,11 +117,9 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   @Override
   public void onKeyPressed(int keyPressedId)
   {
-    // TODO check delete and done
-    
     Button cell = findViewById(cellPressedId);
     
-    // check if cell to set text is here
+    // check if cell to set text is not null
     if (cell != null)
     {
       // if the user pressed delete on keyboard
@@ -132,8 +133,14 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
       // if the user pressed done on keyboard
       else if(keyPressedId == R.id.done)
       {
+        // if previous key was delete key
+        if(this.keyPressedId == 0)
+        {
+          // empty cell text
+          cell.setText("");
+        }
         // if previous key was not delete key
-        if (this.keyPressedId != 0)
+        else
         {
           // find a key by previous memorized keyPressedId
           Button key = findViewById(this.keyPressedId);
@@ -142,15 +149,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
           {
             // set the text of the cell equal to the text on the previous key (not done key)
             cell.setText(key.getText());
-            // TODO call waitForWord()
-            // TODO disable button
           }
-        }
-        // if previous key was delete
-        else
-        {
-          // empty cell text
-          cell.setText("");
         }
       }
       // letter key pressed
@@ -168,5 +167,41 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
         }
       }
     }
+  }
+  
+  @Override
+  public boolean isPlayerSelectedCell()
+  {
+    return playerSelectedCell;
+  }
+  
+  @Override
+  public void setPlayerSelectedCell(boolean playerSelectedCell)
+  {
+    this.playerSelectedCell = playerSelectedCell;
+  }
+  
+  @Override
+  public boolean isPlayerEnteredLetter()
+  {
+    return playerEnteredLetter;
+  }
+  
+  @Override
+  public void setPlayerEnteredLetter(boolean playerEnteredLetter)
+  {
+    this.playerEnteredLetter = playerEnteredLetter;
+  }
+  
+  @Override
+  public boolean isPlayerEnteredWord()
+  {
+    return playerEnteredWord;
+  }
+  
+  @Override
+  public void setPlayerEnteredWord(boolean playerEnteredWord)
+  {
+    this.playerEnteredWord = playerEnteredWord;
   }
 }
