@@ -94,23 +94,39 @@
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/playerScrollView"
+        android:fillViewport="true"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintTop_toTopOf="@id/line_20h"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="@id/line_48v5"
         app:layout_constraintBottom_toBottomOf="parent">
 
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/playerScoreLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"/>
+
     </android.support.v4.widget.NestedScrollView>
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/opponentScrollView"
+        android:fillViewport="true"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintTop_toTopOf="@id/line_20h"
         app:layout_constraintStart_toStartOf="@id/line_51v5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/opponentScoreLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
 
     </android.support.v4.widget.NestedScrollView>
 

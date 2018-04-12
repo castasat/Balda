@@ -5,4 +5,6 @@
     <dimen name="keyboard_font_size">22sp</dimen>
     <dimen name="cell_corner_radius">5dp</dimen>
     <dimen name="cell_stroke_width">3dp</dimen>
+    <dimen name="scoreItemMarginSide">5dp</dimen>
+    <dimen name="score_item_font_size">20sp</dimen>
 </resources>
