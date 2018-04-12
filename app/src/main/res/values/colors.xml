@@ -24,8 +24,9 @@
   <!-- / App Theme colors -->
 
   <!-- Score colors -->
-    <color name="colorPlayerScore">@android:color/holo_red_dark</color>
-    <color name="colorOpponentScore">@android:color/holo_blue_dark</color>
+    <color name="colorPlayerScore">@android:color/holo_green_dark</color>
+    <color name="colorOpponentScore">@android:color/holo_red_dark</color>
+    <color name="colorScoreText">@color/black</color>
   <!-- / Score colors -->
 
   <!-- Cell colors -->

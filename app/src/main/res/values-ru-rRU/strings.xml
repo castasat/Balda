@@ -33,4 +33,6 @@
     <string name="player_image">изображение игрока</string>
     <string name="opponent_image">изображение противника</string>
     <string name="score">Счёт</string>
+    <string name="player_label">Игрок</string>
+    <string name="opponent">Оппонент</string>
 </resources>

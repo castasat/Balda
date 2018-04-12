@@ -14,25 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <!-- / Горизонтальный guideline с относительным отступом 20% -->
-
-    <!-- Вертикальный guideline с относительным отступом 33,3% -->
-    <android.support.constraint.Guideline
-        android:id="@+id/line_33v3"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.333"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <!-- Вертикальный guideline с относительным отступом 33,3% -->
-
-    <!-- Вертикальный guideline с относительным отступом 66,7% -->
-    <android.support.constraint.Guideline
-        android:id="@+id/line_66v7"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.667"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <!-- Вертикальный guideline с относительным отступом 66,7% -->
-
+        
     <!-- Вертикальный guideline с относительным отступом 48,5% -->
     <android.support.constraint.Guideline
         android:id="@+id/line_48v5"
@@ -51,46 +33,75 @@
         android:layout_height="wrap_content" />
     <!-- / Вертикальный guideline с относительным отступом 51,5% -->
 
-    <TextView
-        android:id="@+id/playerScore"
+    <FrameLayout
+        android:id="@+id/scoreFrame"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:gravity="center"
-        android:textSize="@dimen/font_size"
-        android:textStyle="bold"
-        android:textColor="@color/colorPlayerScore"
-        android:text="@string/zeroScore"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/line_33v3"
-        app:layout_constraintBottom_toBottomOf="@id/line_20h" />
-
-    <TextView
-        android:id="@+id/scoreText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:textSize="@dimen/font_size"
-        android:textStyle="bold"
-        android:text="@string/score"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="@id/line_33v3"
-        app:layout_constraintEnd_toEndOf="@id/line_66v7"
-        app:layout_constraintBottom_toBottomOf="@id/line_20h"/>
-
-    <TextView
-        android:id="@+id/opponentScore"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:textSize="@dimen/font_size"
-        android:textStyle="bold"
-        android:textColor="@color/colorOpponentScore"
-        android:text="@string/zeroScore"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="@id/line_66v7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/line_20h" />
+        app:layout_constraintBottom_toBottomOf="@id/line_20h">
+
+        <TextView
+            android:id="@+id/playerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="top|start"
+            android:layout_margin="@dimen/score_frame_margin"
+            android:textSize="@dimen/font_size"
+            android:textStyle="bold"
+            android:textColor="@color/colorPlayerScore"
+            android:text="@string/player_label" />
+
+        <TextView
+            android:id="@+id/playerScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="@dimen/score_frame_margin"
+            android:textSize="@dimen/font_size"
+            android:textStyle="bold"
+            android:textColor="@color/colorPlayerScore"
+            android:text="@string/zeroScore"/>
+
+        <TextView
+            android:id="@+id/scoreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="@dimen/font_size"
+            android:textStyle="bold"
+            android:textColor="@color/colorScoreText"
+            android:text="@string/score"/>
+
+        <TextView
+            android:id="@+id/opponentLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="top|end"
+            android:layout_margin="@dimen/score_frame_margin"
+            android:textSize="@dimen/font_size"
+            android:textStyle="bold"
+            android:textColor="@color/colorOpponentScore"
+            android:text="@string/opponent" />
+
+        <TextView
+            android:id="@+id/opponentScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/score_frame_margin"
+            android:textSize="@dimen/font_size"
+            android:textStyle="bold"
+            android:textColor="@color/colorOpponentScore"
+            android:text="@string/zeroScore"/>
+
+    </FrameLayout>
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/playerScrollView"

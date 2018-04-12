@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|start"
         android:layout_marginStart="@dimen/scoreItemMarginSide"
+        android:textColor="@color/colorScoreText"
         android:textSize="@dimen/score_item_font_size"
         android:textStyle="bold"
         tools:text="Word" />
