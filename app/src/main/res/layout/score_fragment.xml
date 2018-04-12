@@ -5,51 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Game">
+     
+    <!-- Вертикальный guideline с относительным отступом 47% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_47v"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.47"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!-- / Вертикальный guideline с относительным отступом 47% -->
+
+    <!-- Вертикальный guideline с относительным отступом 53% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_53v"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.53"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!-- / Вертикальный guideline с относительным отступом 53% -->
 
     <!-- Горизонтальный guideline с относительным отступом 20% -->
     <android.support.constraint.Guideline
         android:id="@+id/line_20h"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.20"
+        app:layout_constraintGuide_percent="0.2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <!-- / Горизонтальный guideline с относительным отступом 20% -->
-        
-    <!-- Вертикальный guideline с относительным отступом 48,5% -->
-    <android.support.constraint.Guideline
-        android:id="@+id/line_48v5"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.485"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <!-- / Вертикальный guideline с относительным отступом 48,5% -->
 
-    <!-- Вертикальный guideline с относительным отступом 51,5% -->
-    <android.support.constraint.Guideline
-        android:id="@+id/line_51v5"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.515"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <!-- / Вертикальный guideline с относительным отступом 51,5% -->
-
-    <FrameLayout
-        android:id="@+id/scoreFrame"
+    <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/player"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/line_47v"
         app:layout_constraintBottom_toBottomOf="@id/line_20h">
 
         <TextView
             android:id="@+id/playerLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/score_margin"
+            android:layout_margin="@dimen/score_margin"
             android:gravity="center"
-            android:layout_gravity="top|start"
-            android:layout_margin="@dimen/score_frame_margin"
-            android:textSize="@dimen/font_size"
+            android:textSize="@dimen/score_label_font_size"
             android:textStyle="bold"
             android:textColor="@color/colorPlayerScore"
             android:text="@string/player_label" />
@@ -58,33 +59,33 @@
             android:id="@+id/playerScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/score_margin"
+            android:layout_margin="@dimen/score_margin"
             android:gravity="center"
-            android:layout_gravity="bottom|start"
-            android:layout_margin="@dimen/score_frame_margin"
-            android:textSize="@dimen/font_size"
+            android:textSize="@dimen/score_label_font_size"
             android:textStyle="bold"
             android:textColor="@color/colorPlayerScore"
             android:text="@string/zeroScore"/>
 
-        <TextView
-            android:id="@+id/scoreText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:textSize="@dimen/font_size"
-            android:textStyle="bold"
-            android:textColor="@color/colorScoreText"
-            android:text="@string/score"/>
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/opponent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/line_53v"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/line_20h">
 
         <TextView
             android:id="@+id/opponentLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/score_margin"
             android:gravity="center"
-            android:layout_gravity="top|end"
-            android:layout_margin="@dimen/score_frame_margin"
-            android:textSize="@dimen/font_size"
+            android:textSize="@dimen/score_label_font_size"
             android:textStyle="bold"
             android:textColor="@color/colorOpponentScore"
             android:text="@string/opponent" />
@@ -93,25 +94,23 @@
             android:id="@+id/opponentScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/score_margin"
             android:gravity="center"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/score_frame_margin"
-            android:textSize="@dimen/font_size"
+            android:textSize="@dimen/score_label_font_size"
             android:textStyle="bold"
             android:textColor="@color/colorOpponentScore"
             android:text="@string/zeroScore"/>
 
-    </FrameLayout>
+    </android.support.v7.widget.LinearLayoutCompat>
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/playerScrollView"
         android:fillViewport="true"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toTopOf="@id/line_20h"
+        app:layout_constraintTop_toBottomOf="@id/line_20h"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/line_48v5"
+        app:layout_constraintEnd_toEndOf="@id/line_47v"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <android.support.v7.widget.LinearLayoutCompat
@@ -127,9 +126,8 @@
         android:fillViewport="true"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toTopOf="@id/line_20h"
-        app:layout_constraintStart_toStartOf="@id/line_51v5"
+        app:layout_constraintTop_toBottomOf="@id/line_20h"
+        app:layout_constraintStart_toStartOf="@id/line_53v"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 

@@ -5,7 +5,7 @@
     <dimen name="keyboard_font_size">22sp</dimen>
     <dimen name="cell_corner_radius">5dp</dimen>
     <dimen name="cell_stroke_width">3dp</dimen>
-    <dimen name="score_frame_margin">12dp</dimen>
-    <dimen name="scoreItemMarginSide">5dp</dimen>
-    <dimen name="score_item_font_size">18sp</dimen>
+    <dimen name="score_margin">5dp</dimen>
+    <dimen name="score_label_font_size">22sp</dimen>
+    <dimen name="score_font_size">18sp</dimen>
 </resources>
