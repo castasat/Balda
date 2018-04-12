@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Game">
+
+    <!-- Горизонтальный guideline с относительным отступом 20% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_20h"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!-- / Горизонтальный guideline с относительным отступом 20% -->
+
+    <!-- Вертикальный guideline с относительным отступом 33,3% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_33v3"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.333"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!-- Вертикальный guideline с относительным отступом 33,3% -->
+
+    <!-- Вертикальный guideline с относительным отступом 66,7% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_66v7"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.667"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!-- Вертикальный guideline с относительным отступом 66,7% -->
+
+    <!-- Вертикальный guideline с относительным отступом 48,5% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_48v5"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.485"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!-- / Вертикальный guideline с относительным отступом 48,5% -->
+
+    <!-- Вертикальный guideline с относительным отступом 51,5% -->
+    <android.support.constraint.Guideline
+        android:id="@+id/line_51v5"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.515"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!-- / Вертикальный guideline с относительным отступом 51,5% -->
+
+    <TextView
+        android:id="@+id/playerScore"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:textSize="@dimen/font_size"
+        android:textStyle="bold"
+        android:textColor="@color/colorPlayerScore"
+        android:text="@string/zeroScore"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/line_33v3"
+        app:layout_constraintBottom_toBottomOf="@id/line_20h" />
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:textSize="@dimen/font_size"
+        android:textStyle="bold"
+        android:text="@string/score"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/line_33v3"
+        app:layout_constraintEnd_toEndOf="@id/line_66v7"
+        app:layout_constraintBottom_toBottomOf="@id/line_20h"/>
+
+    <TextView
+        android:id="@+id/opponentScore"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:textSize="@dimen/font_size"
+        android:textStyle="bold"
+        android:textColor="@color/colorOpponentScore"
+        android:text="@string/zeroScore"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/line_66v7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/line_20h" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/playerScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@id/line_20h"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/line_48v5"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/opponentScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@id/line_20h"
+        app:layout_constraintStart_toStartOf="@id/line_51v5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>

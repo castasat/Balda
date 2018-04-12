@@ -23,6 +23,10 @@
     <color name="colorAccent">@android:color/holo_red_dark</color>
   <!-- / App Theme colors -->
 
+  <!-- Score colors -->
+    <color name="colorPlayerScore">@android:color/holo_red_dark</color>
+    <color name="colorOpponentScore">@android:color/holo_blue_dark</color>
+  <!-- / Score colors -->
 
   <!-- Cell colors -->
     <!-- normal -->

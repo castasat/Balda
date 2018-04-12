@@ -18,6 +18,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   /** constants **/
   private static final String TAG_FIELD    = "field_fragment_tag";
   private static final String TAG_KEYBOARD = "keyboard_fragment_tag";
+  private static final String TAG_SCORE    = "score_fragment_tag";
   
   /** game state variables **/
   private boolean playerSelectedCell;
@@ -38,14 +39,16 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     super.onCreate(savedInstanceState);
     this.setContentView(R.layout.game_layout);
     
-    // create new instance of fragment
+    // create new instance of fragments
     FieldFragment fieldFragment = new FieldFragment();
+    ScoreFragment scoreFragment = new ScoreFragment();
     
     // during the first program start
     if (savedInstanceState == null)
     {
       transaction = getSupportFragmentManager().beginTransaction();
       transaction.add(R.id.fieldFragmentFrame, fieldFragment, TAG_FIELD);
+      transaction.add(R.id.switchableFragmentFrame, scoreFragment, TAG_SCORE);
       transaction.commit();
     }
   }
@@ -114,6 +117,31 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     }
   }
   
+  private void hideKeyboard()
+  {
+    KeyboardFragment keyboardFragment = (KeyboardFragment)
+        getSupportFragmentManager().findFragmentByTag(TAG_KEYBOARD);
+    
+    ScoreFragment scoreFragment = (ScoreFragment)
+        getSupportFragmentManager().findFragmentByTag(TAG_SCORE);
+    
+    transaction = getSupportFragmentManager().beginTransaction();
+    if((keyboardFragment != null) && (scoreFragment != null))
+    {
+      transaction.replace(R.id.switchableFragmentFrame, scoreFragment, TAG_SCORE);
+    }
+    else if((keyboardFragment == null) && (scoreFragment != null))
+    {
+      transaction.add(R.id.switchableFragmentFrame, scoreFragment, TAG_SCORE);
+    }
+    else
+    {
+      ScoreFragment fragment = new ScoreFragment();
+      transaction.add(R.id.switchableFragmentFrame, fragment, TAG_SCORE);
+    }
+    transaction.commit();
+  }
+  
   @Override
   public void onKeyPressed(int keyPressedId)
   {
@@ -150,6 +178,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
             // set the text of the cell equal to the text on the previous key (not done key)
             cell.setText(key.getText());
           }
+          hideKeyboard();
         }
       }
       // letter key pressed
