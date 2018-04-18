@@ -47,4 +47,18 @@
         <item name="android:maxLength">1</item>
     </style>
 
+    <style name="ScoreHeader" parent="AppTheme">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/score_header_font_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PlayerScoreHeader" parent="ScoreHeader">
+        <item name="android:textColor">@color/colorPlayerScore</item>
+    </style>
+
+    <style name="OpponentScoreHeader" parent="ScoreHeader">
+        <item name="android:textColor">@color/colorOpponentScore</item>
+    </style>
+
 </resources>

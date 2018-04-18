@@ -47,7 +47,6 @@
     <string name="cell_name_prefix" translatable="false">cell_</string>
     <string name="player_image">player image</string>
     <string name="opponent_image">opponent image</string>
-    <string name="score">Score</string>
     <string name="zeroScore" translatable="false">0</string>
     <string name="player_label">Player</string>
     <string name="opponent">Opponent</string>
