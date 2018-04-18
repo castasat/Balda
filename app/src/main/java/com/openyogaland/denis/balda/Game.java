@@ -112,32 +112,32 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     {
       KeyboardFragment fragment = new KeyboardFragment();
       transaction = getSupportFragmentManager().beginTransaction();
-      transaction.add(R.id.switchableFragmentFrame, fragment, TAG_KEYBOARD);
+      transaction.replace(R.id.switchableFragmentFrame, fragment, TAG_KEYBOARD);
       transaction.commit();
     }
   }
   
   private void hideKeyboard()
   {
+    ScoreFragment scoreFragment = (ScoreFragment)
+        getSupportFragmentManager().findFragmentByTag(TAG_SCORE);
+        
     KeyboardFragment keyboardFragment = (KeyboardFragment)
         getSupportFragmentManager().findFragmentByTag(TAG_KEYBOARD);
     
-    ScoreFragment scoreFragment = (ScoreFragment)
-        getSupportFragmentManager().findFragmentByTag(TAG_SCORE);
-    
     transaction = getSupportFragmentManager().beginTransaction();
-    if((keyboardFragment != null) && (scoreFragment != null))
+    if (scoreFragment != null)
     {
       transaction.replace(R.id.switchableFragmentFrame, scoreFragment, TAG_SCORE);
     }
-    else if((keyboardFragment == null) && (scoreFragment != null))
-    {
-      transaction.add(R.id.switchableFragmentFrame, scoreFragment, TAG_SCORE);
-    }
     else
     {
-      ScoreFragment fragment = new ScoreFragment();
-      transaction.add(R.id.switchableFragmentFrame, fragment, TAG_SCORE);
+      scoreFragment = new ScoreFragment();
+      if (keyboardFragment != null)
+      {
+        transaction.remove(keyboardFragment);
+      }
+      transaction.add(R.id.switchableFragmentFrame, scoreFragment, TAG_SCORE);
     }
     transaction.commit();
   }
