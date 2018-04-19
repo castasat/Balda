@@ -20,27 +20,6 @@ class ScoreItem
   }
   
   /**
-   * setter
-   * @param word - score item to calculate it's score
-   */
-  public void setWord(@NonNull String word)
-  {
-    this.word = word;
-    score = calculateScore(word);
-  }
-  
-  /**
-   * Calculates score from given word
-   * @param word - String to calculate score
-   * @return String score
-   */
-  @NonNull
-  private String calculateScore(@NonNull String word)
-  {
-    return String.valueOf(word.length());
-  }
-  
-  /**
    * getter
    * @return String score
    */
@@ -58,5 +37,26 @@ class ScoreItem
   public String getWord()
   {
     return word;
+  }
+  
+  /**
+   * setter
+   * @param word - score item to calculate it's score
+   */
+  private void setWord(@NonNull String word)
+  {
+    this.word = word;
+    score = calculateScore(word);
+  }
+  
+  /**
+   * Calculates score from given word
+   * @param word - String to calculate score
+   * @return String score
+   */
+  @NonNull
+  private String calculateScore(@NonNull String word)
+  {
+    return String.valueOf(word.length());
   }
 }

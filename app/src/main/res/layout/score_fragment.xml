@@ -86,40 +86,40 @@
 
     </FrameLayout>
 
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/playerScrollView"
-        android:fillViewport="true"
+    <LinearLayout
+        android:id="@+id/playerScoreLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="@id/line_score_header"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="@id/line_45v"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <LinearLayout
-            android:id="@+id/playerScoreLayout"
+        <ListView
+            android:id="@+id/playerListView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"/>
+            android:layout_height="wrap_content"
+            android:divider="@color/white"/>
 
-    </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
 
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/opponentScrollView"
-        android:fillViewport="true"
+    <LinearLayout
+        android:id="@+id/opponentScoreLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="@id/line_score_header"
         app:layout_constraintStart_toStartOf="@id/line_55v"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <LinearLayout
-            android:id="@+id/opponentScoreLayout"
+        <ListView
+            android:id="@+id/opponentListView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" />
+            android:layout_height="wrap_content"
+            android:divider="@color/white"/>
 
-    </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
