@@ -22,7 +22,6 @@ public class ScoreFragment extends Fragment
     
     // TODO just for testing
     final String WORD = "Балда";
-    final String SCORE = String.valueOf(WORD.length());
     
     int colorPlayerScore   = ContextCompat.getColor(getContext(), R.color.colorPlayerScore);
     int colorOpponentScore = ContextCompat.getColor(getContext(), R.color.colorOpponentScore);
@@ -38,7 +37,7 @@ public class ScoreFragment extends Fragment
       
       // TODO just for testing
       playerWordTextView.setText(i+1 + ". "+ WORD);
-      playerWordScoreTextView.setText(SCORE);
+      playerWordScoreTextView.setText(String.valueOf(WORD.length()));
   
       playerItem.getLayoutParams().width = LayoutParams.MATCH_PARENT;
       playerScoreLayout.addView(playerItem);
@@ -52,10 +51,9 @@ public class ScoreFragment extends Fragment
       TextView opponentWordTextView = opponentItem.findViewById(R.id.wordTextView);
       TextView opponentWordScoreTextView = opponentItem.findViewById(R.id.wordScoreTextView);
       opponentWordScoreTextView.setTextColor(colorOpponentScore);
-  
-      // TODO just for testing
+      
       opponentWordTextView.setText(i+1 + ". " + WORD);
-      opponentWordScoreTextView.setText(SCORE);
+      opponentWordScoreTextView.setText(String.valueOf(WORD.length()));
   
       opponentItem.getLayoutParams().width = LayoutParams.MATCH_PARENT;
       opponentScoreLayout.addView(opponentItem);
