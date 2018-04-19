@@ -140,7 +140,7 @@ class ScoreAdapter extends BaseAdapter
     // fill View with data from ScoreItem class
     ScoreItem scoreItem = getScoreItem(position);
     wordTextView.setText(scoreItem.getWord());
-    wordScoreTextView.setText(scoreItem.getScore());
+    wordScoreTextView.setText(scoreItem.getScoreString());
     
     // set color depending on parameter
     if (whichPlayer == PLAYER)
@@ -155,5 +155,14 @@ class ScoreAdapter extends BaseAdapter
     return convertView;
   }
   
-  // TODO add method public addScoreItem(String word)
+  /**
+   * Adds new ScoreItem
+   * @param word - String word to calculate it's score
+   */
+  public void addScoreItem(String word)
+  {
+    int numberOfItems = getCount();
+    ScoreItem scoreItem = new ScoreItem(numberOfItems + 1 + ". " + word);
+    scoreItems.add(scoreItem);
+  }
 }

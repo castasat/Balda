@@ -8,7 +8,7 @@ class ScoreItem
    * fields
    */
   private String word;
-  private String score;
+  private String scoreString;
   
   /**
    * constructor
@@ -21,12 +21,12 @@ class ScoreItem
   
   /**
    * getter
-   * @return String score
+   * @return String scoreString
    */
   @NonNull
-  public String getScore()
+  public String getScoreString()
   {
-    return score;
+    return scoreString;
   }
   
   /**
@@ -45,18 +45,18 @@ class ScoreItem
    */
   private void setWord(@NonNull String word)
   {
-    this.word = word;
-    score = calculateScore(word);
+    this.word   = word;
+    int score   = getScore(word);
+    scoreString = String.valueOf(score);
   }
   
   /**
    * Calculates score from given word
    * @param word - String to calculate score
-   * @return String score
+   * @return int score
    */
-  @NonNull
-  private String calculateScore(@NonNull String word)
+  public int getScore(@NonNull String word)
   {
-    return String.valueOf(word.length());
+    return word.length();
   }
 }

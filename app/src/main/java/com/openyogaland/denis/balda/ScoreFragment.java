@@ -17,13 +17,8 @@ public class ScoreFragment extends Fragment
   /**
    * fields
    */
-  ArrayList<ScoreItem> playerList   = new ArrayList<>();
-  ArrayList<ScoreItem> opponentList = new ArrayList<>();
-  ScoreAdapter playerScoreAdapter;
-  ScoreAdapter opponentScoreAdapter;
-  
-  final String[] words = {"Ябеда", "Корябеда", "Корабль", "Дятел", "Балда", "Свобода", "Дар",
-      "Колода", "Колодец", "Барабан", "Победа", "Гантеля" };
+  private ArrayList<ScoreItem> playerList   = new ArrayList<>();
+  private ArrayList<ScoreItem> opponentList = new ArrayList<>();
   
   /**
    * Method onCreateView()
@@ -39,25 +34,24 @@ public class ScoreFragment extends Fragment
     View view = inflater.inflate(R.layout.score_fragment, container, false);
     Context context = getContext();
     
-    for(int i = 0; i < words.length; i++)
-    {
-      ScoreItem item = new ScoreItem(i + 1 + ". " + words[i]);
-      playerList.add(item);
-      opponentList.add(item);
-    }
     if(context != null)
     {
       // player score
-      playerScoreAdapter   = new ScoreAdapter(context, opponentList, ScoreAdapter.PLAYER);
+      ScoreAdapter playerScoreAdapter =
+          new ScoreAdapter(context, playerList, ScoreAdapter.PLAYER);
       ListView playerListView   = view.findViewById(R.id.playerListView);
       playerListView.setAdapter(playerScoreAdapter);
   
       // opponent score
-      opponentScoreAdapter = new ScoreAdapter(context, opponentList, ScoreAdapter.OPPONENT);
+      ScoreAdapter opponentScoreAdapter =
+          new ScoreAdapter(context, opponentList, ScoreAdapter.OPPONENT);
       ListView opponentListView = view.findViewById(R.id.opponentListView);
       opponentListView.setAdapter(opponentScoreAdapter);
+      
+      // TODO test
+      playerScoreAdapter.addScoreItem("Англия");
+      opponentScoreAdapter.addScoreItem("Германия");
     }
-    
     return view;
   }
 }
