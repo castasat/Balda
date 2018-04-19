@@ -7,4 +7,5 @@
     <dimen name="cell_stroke_width">3dp</dimen>
     <dimen name="score_header_font_size">20sp</dimen>
     <dimen name="score_item_font_size">18sp</dimen>
+    <item name="guideline_score_header" type="dimen" format="float">0.18</item>
 </resources>

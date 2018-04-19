@@ -5,11 +5,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.support.v7.widget.LinearLayoutCompat.LayoutParams;
+import android.widget.LinearLayout.LayoutParams;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ScoreFragment extends Fragment
@@ -29,10 +29,10 @@ public class ScoreFragment extends Fragment
     for(int i = 0; i < 10; i++)
     {
       // player score item
-      LinearLayoutCompat playerScoreLayout = view.findViewById(R.id.playerScoreLayout);
-      View playerItem = inflater.inflate(R.layout.score_item, playerScoreLayout, false);
-      TextView playerWordTextView      = playerItem.findViewById(R.id.wordTextView);
-      TextView playerWordScoreTextView = playerItem.findViewById(R.id.wordScoreTextView);
+      LinearLayout playerScoreLayout       = view.findViewById(R.id.playerScoreLayout);
+      View         playerItem              = inflater.inflate(R.layout.score_item, playerScoreLayout, false);
+      TextView     playerWordTextView      = playerItem.findViewById(R.id.wordTextView);
+      TextView     playerWordScoreTextView = playerItem.findViewById(R.id.wordScoreTextView);
       playerWordScoreTextView.setTextColor(colorPlayerScore);
       
       // TODO just for testing
@@ -46,7 +46,7 @@ public class ScoreFragment extends Fragment
     for (int i = 0; i < 10; i++)
     {
       // opponent score item
-      LinearLayoutCompat opponentScoreLayout = view.findViewById(R.id.opponentScoreLayout);
+      LinearLayout opponentScoreLayout = view.findViewById(R.id.opponentScoreLayout);
       View opponentItem = inflater.inflate(R.layout.score_item, opponentScoreLayout, false);
       TextView opponentWordTextView = opponentItem.findViewById(R.id.wordTextView);
       TextView opponentWordScoreTextView = opponentItem.findViewById(R.id.wordScoreTextView);

@@ -8,11 +8,11 @@
     android:padding="@dimen/padding"
     tools:context=".Game">
 
-    <!-- Горизонтальный guideline с относительным отступом 14% -->
+    <!-- Горизонтальный guideline line_score_header с относительным отступом -->
     <android.support.constraint.Guideline
-        android:id="@+id/line_14h"
+        android:id="@+id/line_score_header"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.14"
+        app:layout_constraintGuide_percent="@dimen/guideline_score_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
         
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="@id/line_45v"
-        app:layout_constraintBottom_toBottomOf="@id/line_14h">
+        app:layout_constraintBottom_toBottomOf="@id/line_score_header">
 
         <TextView
             android:id="@+id/playerLabel"
@@ -66,7 +66,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/line_55v"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/line_14h">
+        app:layout_constraintBottom_toBottomOf="@id/line_score_header">
 
         <TextView
             android:id="@+id/opponentLabel"
@@ -91,12 +91,12 @@
         android:fillViewport="true"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="@id/line_14h"
+        app:layout_constraintTop_toTopOf="@id/line_score_header"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="@id/line_45v"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <android.support.v7.widget.LinearLayoutCompat
+        <LinearLayout
             android:id="@+id/playerScoreLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -109,12 +109,12 @@
         android:fillViewport="true"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="@id/line_14h"
+        app:layout_constraintTop_toTopOf="@id/line_score_header"
         app:layout_constraintStart_toStartOf="@id/line_55v"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <android.support.v7.widget.LinearLayoutCompat
+        <LinearLayout
             android:id="@+id/opponentScoreLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
