@@ -26,10 +26,12 @@ class ScoreAdapter extends Adapter<ScoreViewHolder>
   /**
   * fields
   */
-  private Context              context;
-  private ArrayList<ScoreItem> scoreItems;
-  private boolean              whichPlayer;
-  private int                  colorPlayerScore, colorOpponentScore;
+  private Context                context;
+  private ArrayList<ScoreItem>   scoreItems;
+  private boolean                whichPlayer;
+  private int                    colorPlayerScore, colorOpponentScore;
+  private int                    totalScore = 0;
+  private OnScoreUpdatedListener onScoreUpdatedListener;
   
   /**
    * constructor
@@ -96,6 +98,7 @@ class ScoreAdapter extends Adapter<ScoreViewHolder>
     // create a new View
     LayoutInflater inflater             = LayoutInflater.from(parent.getContext());
     FrameLayout    scoreItemFrameLayout = (FrameLayout) inflater.inflate(R.layout.score_item, parent, false);
+    
     return new ScoreViewHolder(scoreItemFrameLayout);
   }
   
@@ -142,7 +145,6 @@ class ScoreAdapter extends Adapter<ScoreViewHolder>
       scoreViewHolder.wordScoreTextView.setTextColor(colorOpponentScore);
     }
   }
-  
   
   /**
    * @param position - position of item
@@ -211,5 +213,21 @@ class ScoreAdapter extends Adapter<ScoreViewHolder>
   {
     ScoreItem scoreItem = new ScoreItem(word);
     scoreItems.add(scoreItem);
+    totalScore = totalScore + scoreItem.getScore();
+    onScoreUpdatedListener.onScoreUpdated(totalScore, whichPlayer);
   }
+  
+  /**
+   * setter
+   * @param onScoreUpdatedListener - class implementing OnScoreUpdatedListener interface
+   */
+  public void setOnScoreUpdatedListener(@NonNull OnScoreUpdatedListener onScoreUpdatedListener)
+  {
+    this.onScoreUpdatedListener = onScoreUpdatedListener;
+  }
+}
+
+interface OnScoreUpdatedListener
+{
+  void onScoreUpdated(int totalScore, boolean whichPlayer);
 }

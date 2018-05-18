@@ -1,7 +1,6 @@
 package com.openyogaland.denis.balda;
 
 import android.support.annotation.NonNull;
-import org.jetbrains.annotations.NotNull;
 
 class ScoreItem
 {
@@ -47,16 +46,15 @@ class ScoreItem
   private void setWord(@NonNull String word)
   {
     this.word   = word;
-    int score   = getScore(word);
+    int score   = getScore();
     scoreString = String.valueOf(score);
   }
   
   /**
    * Calculates score from given word
-   * @param word - String to calculate score
    * @return int score
    */
-  private int getScore(@NonNull @NotNull String word)
+  int getScore()
   {
     return word.length();
   }

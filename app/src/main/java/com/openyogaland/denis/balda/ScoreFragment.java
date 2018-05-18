@@ -11,16 +11,19 @@ import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ScoreFragment extends Fragment
+public class ScoreFragment extends Fragment implements OnScoreUpdatedListener
 {
   /*
   * fields
   */
   private ArrayList<ScoreItem> playerList   = new ArrayList<>();
   private ArrayList<ScoreItem> opponentList = new ArrayList<>();
+  private TextView             playerScore;
+  private TextView             opponentScore;
   
   /**
    * Method onCreateView()
@@ -38,6 +41,9 @@ public class ScoreFragment extends Fragment
     
     if(context != null)
     {
+      playerScore = view.findViewById(R.id.playerScore);
+      opponentScore = view.findViewById(R.id.opponentScore);
+      
       // player score
       RecyclerView playerRecyclerView = view.findViewById(R.id.playerRecyclerView);
       // improve performance if changes in content do not change the layout size of the RecyclerView
@@ -47,6 +53,7 @@ public class ScoreFragment extends Fragment
       playerRecyclerView.setLayoutManager(playerLayoutManager);
       // set adapter
       ScoreAdapter playerScoreAdapter = new ScoreAdapter(playerList, context, ScoreAdapter.PLAYER);
+      playerScoreAdapter.setOnScoreUpdatedListener(this);
       playerRecyclerView.setAdapter(playerScoreAdapter);
   
       // opponent score
@@ -58,9 +65,9 @@ public class ScoreFragment extends Fragment
       opponentRecyclerView.setLayoutManager(opponentLayoutManager);
       // set adapter
       ScoreAdapter opponentScoreAdapter = new ScoreAdapter(opponentList, context, ScoreAdapter.OPPONENT);
+      opponentScoreAdapter.setOnScoreUpdatedListener(this);
       opponentRecyclerView.setAdapter(opponentScoreAdapter);
       
-      // TODO
       playerScoreAdapter.addScoreItem("Англия");
       playerScoreAdapter.addScoreItem("Англия");
       playerScoreAdapter.addScoreItem("Англия");
@@ -85,4 +92,18 @@ public class ScoreFragment extends Fragment
     }
     return view;
   }
+  
+  @Override
+  public void onScoreUpdated(int totalScore, boolean whichPlayer)
+  {
+    if (whichPlayer == ScoreAdapter.PLAYER)
+    {
+      playerScore.setText(String.valueOf(totalScore));
+    }
+    if (whichPlayer == ScoreAdapter.OPPONENT)
+    {
+      opponentScore.setText(String.valueOf(totalScore));
+    }
+  }
 }
+
