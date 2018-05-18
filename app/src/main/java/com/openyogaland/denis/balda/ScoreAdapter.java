@@ -23,9 +23,10 @@ class ScoreAdapter extends Adapter<ScoreViewHolder>
   public static final boolean PLAYER   = true;
   public static final boolean OPPONENT = false;
   
-  /*
+  /**
   * fields
   */
+  private Context              context;
   private ArrayList<ScoreItem> scoreItems;
   private boolean              whichPlayer;
   private int                  colorPlayerScore, colorOpponentScore;
@@ -39,8 +40,9 @@ class ScoreAdapter extends Adapter<ScoreViewHolder>
   ScoreAdapter(@NonNull ArrayList<ScoreItem> scoreItems, @NonNull Context context, boolean whichPlayer)
   {
     this(scoreItems);
-    this.whichPlayer = whichPlayer;
-    colorPlayerScore = ContextCompat.getColor(context, R.color.colorPlayerScore);
+    this. context      = context;
+    this.whichPlayer   = whichPlayer;
+    colorPlayerScore   = ContextCompat.getColor(context, R.color.colorPlayerScore);
     colorOpponentScore = ContextCompat.getColor(context, R.color.colorOpponentScore);
   }
   
@@ -123,7 +125,7 @@ class ScoreAdapter extends Adapter<ScoreViewHolder>
     
     // fill View with data from ScoreItem class
     ScoreItem scoreItem = getScoreItem(position);
-    scoreViewHolder.wordTextView.setText(scoreItem.getWord());
+    scoreViewHolder.wordTextView.setText(position + 1 + " " + scoreItem.getWord());
     scoreViewHolder.wordScoreTextView.setText(scoreItem.getScoreString());
   
     // set color depending on parameter
@@ -155,7 +157,7 @@ class ScoreAdapter extends Adapter<ScoreViewHolder>
   @Contract(" -> fail")
   private void throwListOverflowException()
   {
-    throw new IllegalArgumentException("List length overflow. Position shouldn't be greater than the size of the list");
+    throw new IllegalArgumentException(context.getString(R.string.list_overflow));
   }
   
   /**
@@ -203,8 +205,7 @@ class ScoreAdapter extends Adapter<ScoreViewHolder>
    */
   public void addScoreItem(String word)
   {
-    int numberOfItems = getItemCount();
-    ScoreItem scoreItem = new ScoreItem(numberOfItems + 1 + ". " + word);
+    ScoreItem scoreItem = new ScoreItem(word);
     scoreItems.add(scoreItem);
   }
 }

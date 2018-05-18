@@ -1,7 +1,6 @@
 package com.openyogaland.denis.balda;
 
 import android.support.annotation.NonNull;
-
 import org.jetbrains.annotations.NotNull;
 
 class ScoreItem
