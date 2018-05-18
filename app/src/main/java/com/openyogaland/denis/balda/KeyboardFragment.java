@@ -66,8 +66,8 @@ public class KeyboardFragment extends Fragment implements OnClickListener, Inter
     if(view instanceof Button)
     {
       Button keyPressed = (Button) view;
-      int keyPressdId = keyPressed.getId();
-      onKeyPressedListener.onKeyPressed(keyPressdId);
+      int keyPressedId = keyPressed.getId();
+      onKeyPressedListener.onKeyPressed(keyPressedId);
       
       // make animation
       keyPressed.bringToFront();
@@ -91,8 +91,7 @@ public class KeyboardFragment extends Fragment implements OnClickListener, Inter
     }
     catch(ClassCastException e)
     {
-      throw new ClassCastException(e + context.toString() +
-                                   " should implement OnKeyPressedListener interface");
+      throw new ClassCastException(e + context.toString() + getString(R.string.on_key_pressed_listener_warning));
     }
   }
   
@@ -111,4 +110,9 @@ public class KeyboardFragment extends Fragment implements OnClickListener, Inter
     return (float) ((-1.0 * Math.pow(Math.E, (double) -time / INTERPOLATOR_AMPLITUDE) *
                      Math.cos(INTERPOLATOR_FREQUENCY * (double) time)) + 1.0);
   }
+}
+
+interface OnKeyPressedListener
+{
+  void onKeyPressed(int keyPressedId);
 }

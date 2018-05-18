@@ -5,18 +5,20 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class ScoreFragment extends Fragment
 {
-  /**
-   * fields
-   */
+  /*
+  * fields
+  */
   private ArrayList<ScoreItem> playerList   = new ArrayList<>();
   private ArrayList<ScoreItem> opponentList = new ArrayList<>();
   
@@ -37,19 +39,48 @@ public class ScoreFragment extends Fragment
     if(context != null)
     {
       // player score
-      ScoreAdapter playerScoreAdapter =
-          new ScoreAdapter(context, playerList, ScoreAdapter.PLAYER);
-      ListView playerListView   = view.findViewById(R.id.playerListView);
-      playerListView.setAdapter(playerScoreAdapter);
+      RecyclerView playerRecyclerView = view.findViewById(R.id.playerRecyclerView);
+      // improve performance if changes in content do not change the layout size of the RecyclerView
+      playerRecyclerView.setHasFixedSize(true);
+      // set layout manager
+      LayoutManager playerLayoutManager = new LinearLayoutManager(context);
+      playerRecyclerView.setLayoutManager(playerLayoutManager);
+      // set adapter
+      ScoreAdapter playerScoreAdapter = new ScoreAdapter(playerList, context, ScoreAdapter.PLAYER);
+      playerRecyclerView.setAdapter(playerScoreAdapter);
   
       // opponent score
-      ScoreAdapter opponentScoreAdapter =
-          new ScoreAdapter(context, opponentList, ScoreAdapter.OPPONENT);
-      ListView opponentListView = view.findViewById(R.id.opponentListView);
-      opponentListView.setAdapter(opponentScoreAdapter);
+      RecyclerView opponentRecyclerView = view.findViewById(R.id.opponentRecyclerView);
+      // improve performance if changes in content do not change the layout size of the RecyclerView
+      opponentRecyclerView.setHasFixedSize(true);
+      // set layout manager
+      LayoutManager opponentLayoutManager = new LinearLayoutManager(context);
+      opponentRecyclerView.setLayoutManager(opponentLayoutManager);
+      // set adapter
+      ScoreAdapter opponentScoreAdapter = new ScoreAdapter(opponentList, context, ScoreAdapter.OPPONENT);
+      opponentRecyclerView.setAdapter(opponentScoreAdapter);
       
-      // TODO test
+      // TODO
       playerScoreAdapter.addScoreItem("Англия");
+      playerScoreAdapter.addScoreItem("Англия");
+      playerScoreAdapter.addScoreItem("Англия");
+      playerScoreAdapter.addScoreItem("Англия");
+      playerScoreAdapter.addScoreItem("Англия");
+      playerScoreAdapter.addScoreItem("Англия");
+      playerScoreAdapter.addScoreItem("Англия");
+      playerScoreAdapter.addScoreItem("Англия");
+      playerScoreAdapter.addScoreItem("Англия");
+      playerScoreAdapter.addScoreItem("Англия");
+      
+      opponentScoreAdapter.addScoreItem("Германия");
+      opponentScoreAdapter.addScoreItem("Германия");
+      opponentScoreAdapter.addScoreItem("Германия");
+      opponentScoreAdapter.addScoreItem("Германия");
+      opponentScoreAdapter.addScoreItem("Германия");
+      opponentScoreAdapter.addScoreItem("Германия");
+      opponentScoreAdapter.addScoreItem("Германия");
+      opponentScoreAdapter.addScoreItem("Германия");
+      opponentScoreAdapter.addScoreItem("Германия");
       opponentScoreAdapter.addScoreItem("Германия");
     }
     return view;

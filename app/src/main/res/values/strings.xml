@@ -50,4 +50,5 @@
     <string name="zeroScore" translatable="false">0</string>
     <string name="player_label">Player</string>
     <string name="opponent">Opponent</string>
+    <string name="on_key_pressed_listener_warning">" should implement OnKeyPressedListener interface"</string>
 </resources>

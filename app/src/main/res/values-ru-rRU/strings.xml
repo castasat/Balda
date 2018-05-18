@@ -34,4 +34,5 @@
     <string name="opponent_image">изображение противника</string>
     <string name="player_label">Игрок</string>
     <string name="opponent">Оппонент</string>
+    <string name="on_key_pressed_listener_warning">" нужно реализовать интерфейс OnKeyPressedListener"</string>
 </resources>

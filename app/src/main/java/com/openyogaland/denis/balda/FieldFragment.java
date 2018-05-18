@@ -142,3 +142,8 @@ public class FieldFragment extends Fragment implements OnClickListener
     }
   }
 }
+
+interface OnCellPressedListener
+{
+  void onCellPressed(int cellPressedId);
+}

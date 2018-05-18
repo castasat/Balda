@@ -234,3 +234,18 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     this.playerEnteredWord = playerEnteredWord;
   }
 }
+
+interface GameState
+{
+  boolean isPlayerSelectedCell();
+  
+  void setPlayerSelectedCell(boolean playerSelectedCell);
+  
+  boolean isPlayerEnteredLetter();
+  
+  void setPlayerEnteredLetter(boolean playerEnteredLetter);
+  
+  boolean isPlayerEnteredWord();
+  
+  void setPlayerEnteredWord(boolean playerEnteredWord);
+}
