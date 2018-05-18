@@ -91,7 +91,7 @@ public class FieldFragment extends Fragment implements OnClickListener
   @Override
   public void onClick(View view)
   {
-    if(gameState.isPlayerSelectedCell())
+    if(gameState.hasPlayerSelectedCell())
     {
     
     }
@@ -108,8 +108,6 @@ public class FieldFragment extends Fragment implements OnClickListener
       }
       // TODO disable all other cells
     }
-    
-    
   }
   
   /**
@@ -127,8 +125,7 @@ public class FieldFragment extends Fragment implements OnClickListener
     }
     catch(ClassCastException e)
     {
-      throw new ClassCastException(e + context.toString() +
-                                   " should implement OnCellPressedListener interface");
+      throw new ClassCastException(e + context.toString() + getString(R.string.on_cell_pressed_listener_warning));
     }
   
     try
@@ -137,8 +134,7 @@ public class FieldFragment extends Fragment implements OnClickListener
     }
     catch(ClassCastException e)
     {
-      throw new ClassCastException(
-          e + context.toString() + " should implement GameState interface");
+      throw new ClassCastException(e + context.toString() + getString(R.string.game_state_warning));
     }
   }
 }

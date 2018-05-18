@@ -23,6 +23,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   /** game state variables **/
   private boolean playerSelectedCell;
   private boolean playerEnteredLetter;
+  private boolean playerSelectedWord;
   private boolean playerEnteredWord;
   
   /** fragment transaction **/
@@ -105,8 +106,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   
   private void showKeyboard()
   {
-    KeyboardFragment keyboardFragment =
-        (KeyboardFragment) getSupportFragmentManager().findFragmentByTag(TAG_KEYBOARD);
+    KeyboardFragment keyboardFragment = (KeyboardFragment) getSupportFragmentManager().findFragmentByTag(TAG_KEYBOARD);
   
     if(keyboardFragment == null)
     {
@@ -146,6 +146,8 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   public void onKeyPressed(int keyPressedId)
   {
     Button cell = findViewById(cellPressedId);
+    
+    // TODO
     
     // check if cell to set text is not null
     if (cell != null)
@@ -199,7 +201,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   }
   
   @Override
-  public boolean isPlayerSelectedCell()
+  public boolean hasPlayerSelectedCell()
   {
     return playerSelectedCell;
   }
@@ -211,7 +213,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   }
   
   @Override
-  public boolean isPlayerEnteredLetter()
+  public boolean hasPlayerEnteredLetter()
   {
     return playerEnteredLetter;
   }
@@ -223,7 +225,19 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   }
   
   @Override
-  public boolean isPlayerEnteredWord()
+  public boolean hasPlayerSelectedWord()
+  {
+    return playerSelectedWord;
+  }
+  
+  @Override
+  public void setPlayerSelectedWord(boolean playerSelectedWord)
+  {
+    this.playerSelectedWord = playerSelectedWord;
+  }
+  
+  @Override
+  public boolean hasPlayerEnteredWord()
   {
     return playerEnteredWord;
   }
@@ -237,15 +251,15 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
 
 interface GameState
 {
-  boolean isPlayerSelectedCell();
+  boolean hasPlayerSelectedCell();
+  void    setPlayerSelectedCell(boolean playerSelectedCell);
   
-  void setPlayerSelectedCell(boolean playerSelectedCell);
+  boolean hasPlayerEnteredLetter();
+  void    setPlayerEnteredLetter(boolean playerEnteredLetter);
   
-  boolean isPlayerEnteredLetter();
+  boolean hasPlayerSelectedWord();
+  void    setPlayerSelectedWord(boolean playerSelectedWord);
   
-  void setPlayerEnteredLetter(boolean playerEnteredLetter);
-  
-  boolean isPlayerEnteredWord();
-  
-  void setPlayerEnteredWord(boolean playerEnteredWord);
+  boolean hasPlayerEnteredWord();
+  void    setPlayerEnteredWord(boolean playerEnteredWord);
 }

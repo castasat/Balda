@@ -50,7 +50,17 @@
     <string name="zeroScore" translatable="false">0</string>
     <string name="player_label">Player</string>
     <string name="opponent">Opponent</string>
-    <string name="on_key_pressed_listener_warning">" should implement OnKeyPressedListener interface"</string>
-    <string name="list_overflow">List length overflow. Position shouldn\'t be greater than the size of the list</string>
+    <string name="on_key_pressed_listener_warning" translatable="false">
+        " should implement OnKeyPressedListener interface"
+    </string>
+    <string name="list_overflow" translatable="false">
+        List length overflow. Position shouldn\'t be greater than the size of the list
+    </string>
     <string name="word_formatted" translatable="false">%1$d. %2$s</string>
+    <string name="on_cell_pressed_listener_warning" translatable="false">
+       " should implement OnCellPressedListener interface"
+    </string>
+    <string name="game_state_warning" translatable="false">
+       " should implement GameState interface"
+    </string>
 </resources>

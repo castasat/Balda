@@ -68,27 +68,22 @@ public class ScoreFragment extends Fragment implements OnScoreUpdatedListener
       opponentScoreAdapter.setOnScoreUpdatedListener(this);
       opponentRecyclerView.setAdapter(opponentScoreAdapter);
       
-      playerScoreAdapter.addScoreItem("Англия");
-      playerScoreAdapter.addScoreItem("Англия");
-      playerScoreAdapter.addScoreItem("Англия");
-      playerScoreAdapter.addScoreItem("Англия");
-      playerScoreAdapter.addScoreItem("Англия");
-      playerScoreAdapter.addScoreItem("Англия");
-      playerScoreAdapter.addScoreItem("Англия");
-      playerScoreAdapter.addScoreItem("Англия");
-      playerScoreAdapter.addScoreItem("Англия");
-      playerScoreAdapter.addScoreItem("Англия");
+      playerScoreAdapter.addScoreItem("ёж");
+      playerScoreAdapter.addScoreItem("жук");
+      playerScoreAdapter.addScoreItem("кожа");
+      playerScoreAdapter.addScoreItem("ружьё");
+      playerScoreAdapter.addScoreItem("жменя");
+      playerScoreAdapter.addScoreItem("ячмень");
+      playerScoreAdapter.addScoreItem("мяч");
+      playerScoreAdapter.addScoreItem("копьё");
       
-      opponentScoreAdapter.addScoreItem("Германия");
-      opponentScoreAdapter.addScoreItem("Германия");
-      opponentScoreAdapter.addScoreItem("Германия");
-      opponentScoreAdapter.addScoreItem("Германия");
-      opponentScoreAdapter.addScoreItem("Германия");
-      opponentScoreAdapter.addScoreItem("Германия");
-      opponentScoreAdapter.addScoreItem("Германия");
-      opponentScoreAdapter.addScoreItem("Германия");
-      opponentScoreAdapter.addScoreItem("Германия");
-      opponentScoreAdapter.addScoreItem("Германия");
+      opponentScoreAdapter.addScoreItem("кожух");
+      opponentScoreAdapter.addScoreItem("обжора");
+      opponentScoreAdapter.addScoreItem("обруч");
+      opponentScoreAdapter.addScoreItem("ручей");
+      opponentScoreAdapter.addScoreItem("часы");
+      opponentScoreAdapter.addScoreItem("сыч");
+      opponentScoreAdapter.addScoreItem("рука");
     }
     return view;
   }
