@@ -28,6 +28,7 @@
     <string name="v">В</string>
     <string name="y">Й</string>
     <string name="z">З</string>
+    <string name="back">НАЗАД</string>
     <string name="delete">УДАЛИТЬ</string>
     <string name="done">ВВОД</string>
     <string name="player_image">изображение игрока</string>

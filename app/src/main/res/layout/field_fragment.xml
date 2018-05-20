@@ -12,7 +12,7 @@
 
     <!-- Line 00 -->
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_00"
         style="@style/SquareButton"
         app:layout_constraintBottom_toTopOf="@id/cell_10"
@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_01"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_00"
@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/cell_11"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_02"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_01"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/cell_12"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_03"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_02"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/cell_13"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_04"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_03"
@@ -56,7 +56,7 @@
 
     <!-- Line 01 -->
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_10"
         style="@style/SquareButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,7 @@
         app:layout_constraintTop_toBottomOf="@id/cell_00"
         app:layout_constraintBottom_toTopOf="@id/cell_20"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_11"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_10"
@@ -72,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@id/cell_01"
         app:layout_constraintBottom_toTopOf="@id/cell_21"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_12"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_11"
@@ -80,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@id/cell_02"
         app:layout_constraintBottom_toTopOf="@id/cell_22"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_13"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_12"
@@ -88,7 +88,7 @@
         app:layout_constraintTop_toBottomOf="@id/cell_03"
         app:layout_constraintBottom_toTopOf="@id/cell_23"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_14"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_13"
@@ -100,7 +100,7 @@
 
     <!-- Line 02 -->
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_20"
         style="@style/SquareButton"
         app:layout_constraintEnd_toStartOf="@id/cell_21"
@@ -108,7 +108,7 @@
         app:layout_constraintTop_toBottomOf="@id/cell_10"
         app:layout_constraintBottom_toTopOf="@id/cell_30"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_21"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_20"
@@ -116,7 +116,7 @@
         app:layout_constraintTop_toBottomOf="@id/cell_11"
         app:layout_constraintBottom_toTopOf="@id/cell_31"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_22"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_21"
@@ -124,7 +124,7 @@
         app:layout_constraintTop_toBottomOf="@id/cell_12"
         app:layout_constraintBottom_toTopOf="@id/cell_32"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_23"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_22"
@@ -132,7 +132,7 @@
         app:layout_constraintTop_toBottomOf="@id/cell_13"
         app:layout_constraintBottom_toTopOf="@id/cell_33"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_24"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_23"
@@ -144,7 +144,7 @@
 
     <!-- Line 03 -->
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_30"
         style="@style/SquareButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -152,7 +152,7 @@
         app:layout_constraintEnd_toStartOf="@id/cell_31"
         app:layout_constraintBottom_toTopOf="@id/cell_40"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_31"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_30"
@@ -160,7 +160,7 @@
         app:layout_constraintTop_toBottomOf="@id/cell_21"
         app:layout_constraintBottom_toTopOf="@id/cell_41"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_32"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_31"
@@ -168,7 +168,7 @@
         app:layout_constraintTop_toBottomOf="@id/cell_22"
         app:layout_constraintBottom_toTopOf="@id/cell_42"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_33"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_32"
@@ -176,7 +176,7 @@
         app:layout_constraintTop_toBottomOf="@id/cell_23"
         app:layout_constraintBottom_toTopOf="@id/cell_43"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_34"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_33"
@@ -188,7 +188,7 @@
 
     <!-- Line 04 -->
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_40"
         style="@style/SquareButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -196,7 +196,7 @@
         app:layout_constraintEnd_toStartOf="@id/cell_41"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_41"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_40"
@@ -204,7 +204,7 @@
         app:layout_constraintTop_toBottomOf="@id/cell_31"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_42"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_41"
@@ -212,7 +212,7 @@
         app:layout_constraintTop_toBottomOf="@id/cell_32"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_43"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_42"
@@ -220,7 +220,7 @@
         app:layout_constraintTop_toBottomOf="@id/cell_33"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cell_44"
         style="@style/SquareButton"
         app:layout_constraintStart_toEndOf="@id/cell_43"

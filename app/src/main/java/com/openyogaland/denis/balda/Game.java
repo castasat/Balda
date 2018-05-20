@@ -13,18 +13,12 @@ import android.widget.Button;
  * Main activity class Game
  */
 public class Game extends AppCompatActivity implements OnClickListener, OnCellPressedListener,
-                                                       OnKeyPressedListener, GameState
+                                                       OnKeyPressedListener
 {
   /** constants **/
   private static final String TAG_FIELD    = "field_fragment_tag";
   private static final String TAG_KEYBOARD = "keyboard_fragment_tag";
   private static final String TAG_SCORE    = "score_fragment_tag";
-  
-  /** game state variables **/
-  private boolean playerSelectedCell;
-  private boolean playerEnteredLetter;
-  private boolean playerSelectedWord;
-  private boolean playerEnteredWord;
   
   /** fragment transaction **/
   private FragmentTransaction transaction;
@@ -147,14 +141,14 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   {
     Button cell = findViewById(cellPressedId);
     
-    // TODO
-    
-    // check if cell to set text is not null
+    // check if pressed field cell is not null
     if (cell != null)
     {
-      // if the user pressed delete on keyboard
+      // if the user pressed delete
       if(keyPressedId == R.id.delete)
       {
+        // TODO клетка не была уже занята до этого
+        
         // empty cell text
         cell.setText("");
         // очищаем id
@@ -199,67 +193,4 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
       }
     }
   }
-  
-  @Override
-  public boolean hasPlayerSelectedCell()
-  {
-    return playerSelectedCell;
-  }
-  
-  @Override
-  public void setPlayerSelectedCell(boolean playerSelectedCell)
-  {
-    this.playerSelectedCell = playerSelectedCell;
-  }
-  
-  @Override
-  public boolean hasPlayerEnteredLetter()
-  {
-    return playerEnteredLetter;
-  }
-  
-  @Override
-  public void setPlayerEnteredLetter(boolean playerEnteredLetter)
-  {
-    this.playerEnteredLetter = playerEnteredLetter;
-  }
-  
-  @Override
-  public boolean hasPlayerSelectedWord()
-  {
-    return playerSelectedWord;
-  }
-  
-  @Override
-  public void setPlayerSelectedWord(boolean playerSelectedWord)
-  {
-    this.playerSelectedWord = playerSelectedWord;
-  }
-  
-  @Override
-  public boolean hasPlayerEnteredWord()
-  {
-    return playerEnteredWord;
-  }
-  
-  @Override
-  public void setPlayerEnteredWord(boolean playerEnteredWord)
-  {
-    this.playerEnteredWord = playerEnteredWord;
-  }
-}
-
-interface GameState
-{
-  boolean hasPlayerSelectedCell();
-  void    setPlayerSelectedCell(boolean playerSelectedCell);
-  
-  boolean hasPlayerEnteredLetter();
-  void    setPlayerEnteredLetter(boolean playerEnteredLetter);
-  
-  boolean hasPlayerSelectedWord();
-  void    setPlayerSelectedWord(boolean playerSelectedWord);
-  
-  boolean hasPlayerEnteredWord();
-  void    setPlayerEnteredWord(boolean playerEnteredWord);
 }

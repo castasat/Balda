@@ -39,6 +39,7 @@
     <string name="eee" translatable="false">Э</string>
     <string name="yu" translatable="false">Ю</string>
     <string name="ya" translatable="false">Я</string>
+    <string name="back">BACK</string>
     <string name="delete">DELETE</string>
     <string name="done">DONE</string>
     <string name="yo" translatable="false">Ё</string>
@@ -59,8 +60,5 @@
     <string name="word_formatted" translatable="false">%1$d. %2$s</string>
     <string name="on_cell_pressed_listener_warning" translatable="false">
        " should implement OnCellPressedListener interface"
-    </string>
-    <string name="game_state_warning" translatable="false">
-       " should implement GameState interface"
     </string>
 </resources>

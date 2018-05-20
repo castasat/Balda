@@ -190,7 +190,7 @@
 
     <!-- Первый ряд кнопок -->
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/a"
         android:text="@string/a"
         style="@style/KeyboardButton"
@@ -199,7 +199,7 @@
         app:layout_constraintRight_toRightOf="@id/line_12v4"
         app:layout_constraintBottom_toBottomOf="@id/line_19h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/b"
         android:text="@string/b"
         style="@style/KeyboardButton"
@@ -208,7 +208,7 @@
         app:layout_constraintRight_toRightOf="@id/line_24v9"
         app:layout_constraintBottom_toBottomOf="@id/line_19h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/v"
         android:text="@string/v"
         style="@style/KeyboardButton"
@@ -217,7 +217,7 @@
         app:layout_constraintRight_toRightOf="@id/line_37v4"
         app:layout_constraintBottom_toBottomOf="@id/line_19h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/g"
         android:text="@string/g"
         style="@style/KeyboardButton"
@@ -226,7 +226,7 @@
         app:layout_constraintRight_toRightOf="@id/line_49v9"
         app:layout_constraintBottom_toBottomOf="@id/line_19h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/d"
         android:text="@string/d"
         style="@style/KeyboardButton"
@@ -235,7 +235,7 @@
         app:layout_constraintRight_toRightOf="@id/line_62v4"
         app:layout_constraintBottom_toBottomOf="@id/line_19h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/e"
         android:text="@string/e"
         style="@style/KeyboardButton"
@@ -244,7 +244,7 @@
         app:layout_constraintRight_toRightOf="@id/line_74v9"
         app:layout_constraintBottom_toBottomOf="@id/line_19h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/yo"
         android:text="@string/yo"
         style="@style/KeyboardButton"
@@ -253,7 +253,7 @@
         app:layout_constraintRight_toRightOf="@id/line_87v4"
         app:layout_constraintBottom_toBottomOf="@id/line_19h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/j"
         android:text="@string/j"
         style="@style/KeyboardButton"
@@ -266,7 +266,7 @@
 
     <!-- Второй ряд кнопок -->
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/z"
         android:text="@string/z"
         style="@style/KeyboardButton"
@@ -275,7 +275,7 @@
         app:layout_constraintRight_toRightOf="@id/line_12v4"
         app:layout_constraintBottom_toBottomOf="@id/line_39h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/i"
         android:text="@string/i"
         style="@style/KeyboardButton"
@@ -284,7 +284,7 @@
         app:layout_constraintRight_toRightOf="@id/line_24v9"
         app:layout_constraintBottom_toBottomOf="@id/line_39h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/y"
         android:text="@string/y"
         style="@style/KeyboardButton"
@@ -293,7 +293,7 @@
         app:layout_constraintRight_toRightOf="@id/line_37v4"
         app:layout_constraintBottom_toBottomOf="@id/line_39h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/k"
         android:text="@string/k"
         style="@style/KeyboardButton"
@@ -302,7 +302,7 @@
         app:layout_constraintRight_toRightOf="@id/line_49v9"
         app:layout_constraintBottom_toBottomOf="@id/line_39h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/l"
         android:text="@string/l"
         style="@style/KeyboardButton"
@@ -311,7 +311,7 @@
         app:layout_constraintRight_toRightOf="@id/line_62v4"
         app:layout_constraintBottom_toBottomOf="@id/line_39h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/m"
         android:text="@string/m"
         style="@style/KeyboardButton"
@@ -320,7 +320,7 @@
         app:layout_constraintRight_toRightOf="@id/line_74v9"
         app:layout_constraintBottom_toBottomOf="@id/line_39h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/n"
         android:text="@string/n"
         style="@style/KeyboardButton"
@@ -329,7 +329,7 @@
         app:layout_constraintRight_toRightOf="@id/line_87v4"
         app:layout_constraintBottom_toBottomOf="@id/line_39h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/o"
         android:text="@string/o"
         style="@style/KeyboardButton"
@@ -342,7 +342,7 @@
 
     <!-- Третий ряд кнопок -->
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/p"
         android:text="@string/p"
         style="@style/KeyboardButton"
@@ -351,7 +351,7 @@
         app:layout_constraintRight_toRightOf="@id/line_12v4"
         app:layout_constraintBottom_toBottomOf="@id/line_59h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/r"
         android:text="@string/r"
         style="@style/KeyboardButton"
@@ -360,7 +360,7 @@
         app:layout_constraintRight_toRightOf="@id/line_24v9"
         app:layout_constraintBottom_toBottomOf="@id/line_59h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/s"
         android:text="@string/s"
         style="@style/KeyboardButton"
@@ -369,7 +369,7 @@
         app:layout_constraintRight_toRightOf="@id/line_37v4"
         app:layout_constraintBottom_toBottomOf="@id/line_59h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/t"
         android:text="@string/t"
         style="@style/KeyboardButton"
@@ -378,7 +378,7 @@
         app:layout_constraintRight_toRightOf="@id/line_49v9"
         app:layout_constraintBottom_toBottomOf="@id/line_59h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/u"
         android:text="@string/u"
         style="@style/KeyboardButton"
@@ -387,7 +387,7 @@
         app:layout_constraintRight_toRightOf="@id/line_62v4"
         app:layout_constraintBottom_toBottomOf="@id/line_59h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/f"
         android:text="@string/f"
         style="@style/KeyboardButton"
@@ -396,7 +396,7 @@
         app:layout_constraintRight_toRightOf="@id/line_74v9"
         app:layout_constraintBottom_toBottomOf="@id/line_59h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/h"
         android:text="@string/h"
         style="@style/KeyboardButton"
@@ -405,7 +405,7 @@
         app:layout_constraintRight_toRightOf="@id/line_87v4"
         app:layout_constraintBottom_toBottomOf="@id/line_59h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/c"
         android:text="@string/c"
         style="@style/KeyboardButton"
@@ -418,7 +418,7 @@
 
     <!-- Четвёртый ряд кнопок -->
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/cha"
         android:text="@string/cha"
         style="@style/KeyboardButton"
@@ -427,7 +427,7 @@
         app:layout_constraintRight_toRightOf="@id/line_12v4"
         app:layout_constraintBottom_toBottomOf="@id/line_79h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/sha"
         android:text="@string/sha"
         style="@style/KeyboardButton"
@@ -436,7 +436,7 @@
         app:layout_constraintRight_toRightOf="@id/line_24v9"
         app:layout_constraintBottom_toBottomOf="@id/line_79h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/shcha"
         android:text="@string/shcha"
         style="@style/KeyboardButton"
@@ -445,7 +445,7 @@
         app:layout_constraintRight_toRightOf="@id/line_37v4"
         app:layout_constraintBottom_toBottomOf="@id/line_79h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/soft"
         android:text="@string/soft"
         style="@style/KeyboardButton"
@@ -454,7 +454,7 @@
         app:layout_constraintRight_toRightOf="@id/line_49v9"
         app:layout_constraintBottom_toBottomOf="@id/line_79h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/iii"
         android:text="@string/iii"
         style="@style/KeyboardButton"
@@ -463,7 +463,7 @@
         app:layout_constraintRight_toRightOf="@id/line_62v4"
         app:layout_constraintBottom_toBottomOf="@id/line_79h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/hard"
         android:text="@string/hard"
         style="@style/KeyboardButton"
@@ -472,7 +472,7 @@
         app:layout_constraintRight_toRightOf="@id/line_74v9"
         app:layout_constraintBottom_toBottomOf="@id/line_79h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/eee"
         android:text="@string/eee"
         style="@style/KeyboardButton"
@@ -481,7 +481,7 @@
         app:layout_constraintRight_toRightOf="@id/line_87v4"
         app:layout_constraintBottom_toBottomOf="@id/line_79h9" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/yu"
         android:text="@string/yu"
         style="@style/KeyboardButton"
@@ -494,7 +494,7 @@
     
     <!-- Пятый ряд кнопок -->
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/ya"
         android:text="@string/ya"
         style="@style/KeyboardButton"
@@ -503,21 +503,30 @@
         app:layout_constraintRight_toRightOf="@id/line_12v4"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
+        android:id="@+id/back"
+        android:text="@string/back"
+        style="@style/DarkButton"
+        app:layout_constraintTop_toTopOf="@id/line_80h1"
+        app:layout_constraintLeft_toLeftOf="@id/line_12v6"
+        app:layout_constraintRight_toRightOf="@id/line_37v4"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/delete"
         android:text="@string/delete"
         style="@style/DarkButton"
         app:layout_constraintTop_toTopOf="@id/line_80h1"
-        app:layout_constraintLeft_toLeftOf="@id/line_12v6"
-        app:layout_constraintRight_toRightOf="@id/line_62v4"
+        app:layout_constraintLeft_toLeftOf="@id/line_37v6"
+        app:layout_constraintRight_toRightOf="@id/line_74v9"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <Button
+    <com.openyogaland.denis.balda.Cell
         android:id="@+id/done"
         android:text="@string/done"
         style="@style/DarkButton"
         app:layout_constraintTop_toTopOf="@id/line_80h1"
-        app:layout_constraintLeft_toLeftOf="@id/line_62v6"
+        app:layout_constraintLeft_toLeftOf="@id/line_75v1"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 

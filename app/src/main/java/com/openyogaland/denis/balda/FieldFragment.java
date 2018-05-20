@@ -16,14 +16,13 @@ public class FieldFragment extends Fragment implements OnClickListener
   private static final int    NUM_OF_ROWS            = 5;
   private static final int    NUM_OF_COLUMNS         = 5;
   
-  private final Button[][] cell   = new Button[NUM_OF_ROWS][NUM_OF_COLUMNS];
-  private final String[][] matrix = new String[NUM_OF_ROWS][NUM_OF_COLUMNS];
+  private final Cell[][]   fieldCell = new Cell[NUM_OF_ROWS][NUM_OF_COLUMNS];
+  private final String[][] matrix    = new String[NUM_OF_ROWS][NUM_OF_COLUMNS];
   
   private static final int    INITIAL_WORD_ROW_INDEX = 2;
   private static final String INITIAL_WORD           = "балда";
   
   private OnCellPressedListener onCellPressedListener;
-  private GameState gameState;
   
   @Override
   public void onCreate(Bundle savedInstanceState)
@@ -49,23 +48,23 @@ public class FieldFragment extends Fragment implements OnClickListener
           String idResourceType = getString(R.string.id);
           String cellNamePrefix = getString(R.string.cell_name_prefix);
           
-          int cellId = getResources().getIdentifier(cellNamePrefix + cellIndex,
-              idResourceType, getContext().getPackageName());
-          cell[row][column] = view.findViewById(cellId);
-          cell[row][column].setOnClickListener(this);
+          int cellId = getResources().getIdentifier(cellNamePrefix + cellIndex, idResourceType,
+              getContext().getPackageName());
+          fieldCell[row][column] = view.findViewById(cellId);
+          fieldCell[row][column].setOnClickListener(this);
         }
         
-        // TODO check
         if (row == INITIAL_WORD_ROW_INDEX)
         {
+          // TODO write initial word
           writeInitialWord(column);
         }
         
-        String cellText = cell[row][column].getText().toString();
+        String cellText = fieldCell[row][column].getText().toString();
         if(cellText.isEmpty())
         {
           // restore saved value
-          cell[row][column].setText(matrix[row][column]);
+          fieldCell[row][column].setText(matrix[row][column]);
         }
         else
         {
@@ -83,7 +82,7 @@ public class FieldFragment extends Fragment implements OnClickListener
     // TODO get a random word from dictionary
     
     String letterToWrite = INITIAL_WORD.substring(column, column + 1);
-    Button currentCell = cell[INITIAL_WORD_ROW_INDEX][column];
+    Button currentCell   = fieldCell[INITIAL_WORD_ROW_INDEX][column];
     currentCell.setText(letterToWrite);
     // disableButton(currentCell);
   }
@@ -91,23 +90,15 @@ public class FieldFragment extends Fragment implements OnClickListener
   @Override
   public void onClick(View view)
   {
-    if(gameState.hasPlayerSelectedCell())
+    // if player has not selected fieldCell yet
+    if(view instanceof Button)
     {
-    
+      Button cellPressed = (Button) view;
+      cellPressed.setSelected(true);
+      int cellPressedId = cellPressed.getId();
+      onCellPressedListener.onCellPressed(cellPressedId);
     }
-    // if player has not selected cell yet
-    else
-    {
-      if(view instanceof Button)
-      {
-        Button cellPressed   = (Button) view;
-        cellPressed.setSelected(true);
-        gameState.setPlayerSelectedCell(true);
-        int    cellPressedId = cellPressed.getId();
-        onCellPressedListener.onCellPressed(cellPressedId);
-      }
-      // TODO disable all other cells
-    }
+    // TODO disable all other cells
   }
   
   /**
@@ -126,15 +117,6 @@ public class FieldFragment extends Fragment implements OnClickListener
     catch(ClassCastException e)
     {
       throw new ClassCastException(e + context.toString() + getString(R.string.on_cell_pressed_listener_warning));
-    }
-  
-    try
-    {
-      gameState = (GameState) context;
-    }
-    catch(ClassCastException e)
-    {
-      throw new ClassCastException(e + context.toString() + getString(R.string.game_state_warning));
     }
   }
 }

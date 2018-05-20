@@ -421,12 +421,21 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
+        android:id="@+id/back"
+        android:text="@string/back"
+        style="@style/DarkButton"
+        app:layout_constraintTop_toTopOf="@id/line_75h1"
+        app:layout_constraintLeft_toLeftOf="@id/line_25v1"
+        app:layout_constraintRight_toRightOf="@id/line_49v9"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
         android:id="@+id/delete"
         android:text="@string/delete"
         style="@style/DarkButton"
         app:layout_constraintTop_toTopOf="@id/line_75h1"
-        app:layout_constraintLeft_toLeftOf="@id/line_25v1"
-        app:layout_constraintRight_toRightOf="@id/line_62v4"
+        app:layout_constraintLeft_toLeftOf="@id/line_50v1"
+        app:layout_constraintRight_toRightOf="@id/line_74v9"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
@@ -434,7 +443,7 @@
         android:text="@string/done"
         style="@style/DarkButton"
         app:layout_constraintTop_toTopOf="@id/line_75h1"
-        app:layout_constraintLeft_toLeftOf="@id/line_62v6"
+        app:layout_constraintLeft_toLeftOf="@id/line_75v1"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
