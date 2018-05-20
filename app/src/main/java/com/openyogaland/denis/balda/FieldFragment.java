@@ -17,7 +17,6 @@ public class FieldFragment extends Fragment implements OnClickListener
   private static final int    NUM_OF_COLUMNS         = 5;
   
   private final Cell[][]   fieldCell = new Cell[NUM_OF_ROWS][NUM_OF_COLUMNS];
-  private final String[][] matrix    = new String[NUM_OF_ROWS][NUM_OF_COLUMNS];
   
   private static final int    INITIAL_WORD_ROW_INDEX = 2;
   private static final String INITIAL_WORD           = "балда";
@@ -52,24 +51,25 @@ public class FieldFragment extends Fragment implements OnClickListener
               getContext().getPackageName());
           fieldCell[row][column] = view.findViewById(cellId);
           fieldCell[row][column].setOnClickListener(this);
+          // set flags
+          fieldCell[row][column].setInitialCell();
         }
         
         if (row == INITIAL_WORD_ROW_INDEX)
         {
-          // TODO write initial word
           writeInitialWord(column);
         }
         
         String cellText = fieldCell[row][column].getText().toString();
         if(cellText.isEmpty())
         {
-          // restore saved value
-          fieldCell[row][column].setText(matrix[row][column]);
+          // show saved value
+          fieldCell[row][column].setText(fieldCell[row][column].getLetter());
         }
         else
         {
           // save value
-          matrix[row][column] = cellText;
+          fieldCell[row][column].setLetter(cellText);
         }
       }
     }
@@ -78,13 +78,18 @@ public class FieldFragment extends Fragment implements OnClickListener
   
   private void writeInitialWord(int column)
   {
-    // TODO check language
-    // TODO get a random word from dictionary
-    
+    // TODO write initial word
     String letterToWrite = INITIAL_WORD.substring(column, column + 1);
-    Button currentCell   = fieldCell[INITIAL_WORD_ROW_INDEX][column];
+    Cell currentCell     = fieldCell[INITIAL_WORD_ROW_INDEX][column];
+    // show letter
     currentCell.setText(letterToWrite);
-    // disableButton(currentCell);
+    // set letter
+    currentCell.setLetter(letterToWrite);
+    // set flags
+    currentCell.setLetterChoosed();
+    currentCell.setLetterEntered();
+    currentCell.setWordChoosed();
+    currentCell.setWordEntered();
   }
   
   @Override
@@ -98,7 +103,6 @@ public class FieldFragment extends Fragment implements OnClickListener
       int cellPressedId = cellPressed.getId();
       onCellPressedListener.onCellPressed(cellPressedId);
     }
-    // TODO disable all other cells
   }
   
   /**

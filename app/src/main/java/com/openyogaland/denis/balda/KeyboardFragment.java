@@ -33,8 +33,8 @@ public class KeyboardFragment extends Fragment implements OnClickListener, Inter
     View view = inflater.inflate(R.layout.keyboard_fragment, container, false);
     
     keyZoomAnimation    = AnimationUtils.loadAnimation(getContext(), R.anim.animate_key_zoom);
-    keyColorAnimatorSet = (AnimatorSet)
-        AnimatorInflater.loadAnimator(getContext(), R.animator.animate_key_color);
+    keyColorAnimatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(getContext(),
+        R.animator.animate_key_color);
   
     String[] keyIDs = getResources().getStringArray(R.array.key_ids);
     
@@ -46,7 +46,6 @@ public class KeyboardFragment extends Fragment implements OnClickListener, Inter
         key.setOnClickListener(this);
       }
     }
-  
     return view;
   }
   

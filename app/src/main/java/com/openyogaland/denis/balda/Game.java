@@ -139,16 +139,14 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   @Override
   public void onKeyPressed(int keyPressedId)
   {
-    Button cell = findViewById(cellPressedId);
-    
-    // check if pressed field cell is not null
+    Cell cell = findViewById(cellPressedId);
     if (cell != null)
     {
+      // TODO check cell state
+      
       // if the user pressed delete
       if(keyPressedId == R.id.delete)
       {
-        // TODO клетка не была уже занята до этого
-        
         // empty cell text
         cell.setText("");
         // очищаем id
