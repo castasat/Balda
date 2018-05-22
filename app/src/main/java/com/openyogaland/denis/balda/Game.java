@@ -81,19 +81,17 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
               openSkipTurnDialog();
               clearCell(cell);
               hideKeyboard();
-              state = PLAYER_CHOOSING_LETTER;
               break;
             }
             case R.id.delete:
             {
               clearCell(cell);
-              state = PLAYER_CHOOSING_LETTER;
               break;
             }
             case R.id.done:
             {
-              hideKeyboard();
               state = PLAYER_CHOOSING_WORD;
+              hideKeyboard();
               break;
             }
             default:
@@ -104,6 +102,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
               cell.setText(cell.getLetter());
               cell.setSelected(true);
               cell.setState(Cell.LETTER_ENTERED);
+              previousCellId = cellPressedId;
               // TODO protect other cells from entering letter
               break;
             }
@@ -141,6 +140,17 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
         if(cell.getState() != Cell.WORD_ENTERED)
         {
           this.cellPressedId = cellPressedId;
+          
+          // check if another cell was pressed after previous one
+          if(previousCellId != cellPressedId)
+          {
+            Cell previousCell = findViewById(previousCellId);
+            
+            if (previousCell != null)
+            {
+              clearCell(previousCell);
+            }
+          }
           showKeyboard();
         }
         else
@@ -171,6 +181,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     cell.setLetter("");
     cell.setSelected(false);
     cell.setState(Cell.INITIAL_STATE);
+    state = PLAYER_CHOOSING_LETTER;
   }
   
   private void playerSkipsHisTurn()
