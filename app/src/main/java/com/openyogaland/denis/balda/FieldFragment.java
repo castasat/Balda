@@ -52,7 +52,7 @@ public class FieldFragment extends Fragment implements OnClickListener
           fieldCell[row][column] = view.findViewById(cellId);
           fieldCell[row][column].setOnClickListener(this);
           // set flags
-          fieldCell[row][column].setInitialCell();
+          fieldCell[row][column].setState(Cell.INITIAL_STATE);
         }
         
         if (row == INITIAL_WORD_ROW_INDEX)
@@ -86,10 +86,7 @@ public class FieldFragment extends Fragment implements OnClickListener
     // set letter
     currentCell.setLetter(letterToWrite);
     // set flags
-    currentCell.setLetterChoosed();
-    currentCell.setLetterEntered();
-    currentCell.setWordChoosed();
-    currentCell.setWordEntered();
+    currentCell.setState(Cell.WORD_ENTERED);
   }
   
   @Override

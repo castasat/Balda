@@ -35,4 +35,7 @@
     <string name="opponent_image">изображение противника</string>
     <string name="player_label">Игрок</string>
     <string name="opponent">Оппонент</string>
+    <string name="skip_turn_dialog_message">Вы хотите пропустить свой ход?</string>
+    <string name="skip_turn_yes">Да</string>
+    <string name="skip_turn_no">Нет</string>
 </resources>

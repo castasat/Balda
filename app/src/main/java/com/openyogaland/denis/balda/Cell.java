@@ -10,23 +10,24 @@ class Cell extends AppCompatButton
   /**
    * constants
    */
-  final static byte INITIAL_CELL_MASK        = 0b00000000;
-  final static byte LETTER_CHOOSED_CELL_MASK = 0b00000001;
-  final static byte LETTER_ENTERED_CELL_MASK = 0b00000010;
-  final static byte WORD_CHOOSED_CELL_MASK   = 0b00000100;
-  final static byte WORD_ENTERED_CELL_MASK   = 0b00001000;
+  final static int INITIAL_STATE  = 0;
+  final static int LETTER_CHOOSED = 1;
+  final static int LETTER_ENTERED = 2;
+  final static int WORD_CHOOSED   = 3;
+  final static int WORD_ENTERED   = 4;
   
   /**
    * fields
    */
-  private byte   state  = INITIAL_CELL_MASK;
-  private String letter = "";
+  private Context context;
+  private int     state  = INITIAL_STATE;
+  private String  letter = "";
   
   /**
    * getter
    * @return state - bit flags of cell state
    */
-  public byte getState()
+  public int getState()
   {
     return state;
   }
@@ -35,9 +36,16 @@ class Cell extends AppCompatButton
    * setter
    * @param state - bit flags of cell state
    */
-  public void setState(byte state)
+  public void setState(int state) throws IllegalArgumentException
   {
-    this.state = state;
+    if (INITIAL_STATE <= state && state <= WORD_ENTERED)
+    {
+      this.state = state;
+    }
+    else
+    {
+      throw new IllegalArgumentException(context.getString(R.string.check_range_exception_message));
+    }
   }
   
   /**
@@ -59,97 +67,13 @@ class Cell extends AppCompatButton
   }
   
   /**
-   * set bit INITIAL_CELL_MASK
-   */
-  void setInitialCell()
-  {
-    state = INITIAL_CELL_MASK;
-  }
-  
-  /**
-   * set bit LETTER_CHOOSED_CELL_MASK
-   */
-  void setLetterChoosed()
-  {
-    state = (byte) (state | LETTER_CHOOSED_CELL_MASK);
-  }
-  
-  /**
-   * set bit LETTER_ENTERED_CELL_MASK
-   */
-  void setLetterEntered()
-  {
-    state = (byte) (state | LETTER_ENTERED_CELL_MASK);
-  }
-  
-  /**
-   * set bit WORD_CHOOSED_CELL_MASK
-   */
-  void setWordChoosed()
-  {
-    state = (byte) (state | WORD_CHOOSED_CELL_MASK);
-  }
-  
-  /**
-   * set bit WORD_ENTERED_CELL_MASK
-   */
-  void setWordEntered()
-  {
-    state = (byte) (state | WORD_ENTERED_CELL_MASK);
-  }
-  
-  /**
-   * check bit
-   * @return state has bit INITIAL_CELL_MASK
-   */
-  boolean isCellInitial()
-  {
-    return (state == INITIAL_CELL_MASK);
-  }
-  
-  /**
-   * check bit
-   * @return state has bit LETTER_CHOOSED_CELL_MASK
-   */
-  boolean isLetterChoosed()
-  {
-    return (state & LETTER_CHOOSED_CELL_MASK) > 0;
-  }
-  
-  /**
-   * check bit
-   * @return state has bit LETTER_ENTERED_CELL_MASK
-   */
-  boolean isLetterEnterd()
-  {
-    return (state & LETTER_ENTERED_CELL_MASK) > 0;
-  }
-  
-  /**
-   * check bit
-   * @return state has bit WORD_CHOOSED_CELL_MASK
-   */
-  boolean isWordChoosed()
-  {
-    return (state & WORD_CHOOSED_CELL_MASK) > 0;
-  }
-  
-  /**
-   * check bit
-   * @return state has bit WORD_ENTERED_CELL_MASK
-   */
-  boolean isWordEntered()
-  {
-    return (state & WORD_ENTERED_CELL_MASK) > 0;
-  }
-  
-  /**
    * constructor
    * @param context - context in which this cell occurs
    */
   public Cell(Context context)
   {
     super(context);
+    this.context = context;
   }
   
   /**
@@ -160,6 +84,7 @@ class Cell extends AppCompatButton
   public Cell(Context context, AttributeSet attrs)
   {
     super(context, attrs);
+    this.context = context;
   }
   
   /**
@@ -171,5 +96,6 @@ class Cell extends AppCompatButton
   public Cell(Context context, AttributeSet attrs, int defStyleAttr)
   {
     super(context, attrs, defStyleAttr);
+    this.context = context;
   }
 }
