@@ -4,10 +4,14 @@ import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.widget.Button;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Main activity class Game
@@ -29,9 +33,11 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   private AlertDialog skipTurnDialog = null;
   /** fragment transaction **/
   private FragmentTransaction transaction;
-  /** cell pressed in FieldFragment id **/
+  /** id of cell pressed in FieldFragment **/
   private int cellPressedId;
-  /**  **/
+  /** id of previous pressed cell**/
+  private int previousCellId;
+  /** game state **/
   private int state = PLAYER_CHOOSING_LETTER;
   
   @Override
@@ -55,7 +61,6 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
       // start player's turn
       state = PLAYER_CHOOSING_LETTER;
     }
-    
     // TODO save and restore saved instance state
   }
   
@@ -65,12 +70,107 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     Cell cell = findViewById(cellPressedId);
     if (cell != null)
     {
+      switch (state)
+      {
+        case PLAYER_CHOOSING_LETTER:
+        {
+          switch(keyPressedId)
+          {
+            case R.id.back:
+            {
+              openSkipTurnDialog();
+              clearCell(cell);
+              hideKeyboard();
+              state = PLAYER_CHOOSING_LETTER;
+              break;
+            }
+            case R.id.delete:
+            {
+              clearCell(cell);
+              state = PLAYER_CHOOSING_LETTER;
+              break;
+            }
+            case R.id.done:
+            {
+              hideKeyboard();
+              state = PLAYER_CHOOSING_WORD;
+              break;
+            }
+            default:
+            {
+              Button key    = findViewById(keyPressedId);
+              String letter = key.getText().toString();
+              cell.setLetter(letter);
+              cell.setText(cell.getLetter());
+              cell.setSelected(true);
+              cell.setState(Cell.LETTER_ENTERED);
+              // TODO protect other cells from entering letter
+              break;
+            }
+          }
+          break;
+        }
+        case PLAYER_CHOOSING_WORD:
+        {
+          // TODO choose word
+          cell.setState(Cell.WORD_ENTERED);
+          break;
+        }
+        case OPPONENT_TURN:
+        default:
+        {
+          break;
+        }
+      }
     }
   }
   
   private void opponentTurn()
   {
-    // TODO
+    // TODO opponent turn
+  }
+  
+  @Override
+  public void onCellPressed(int cellPressedId)
+  {
+    Cell cell = findViewById(cellPressedId);
+    switch(state)
+    {
+      case PLAYER_CHOOSING_LETTER:
+      {
+        if(cell.getState() != Cell.WORD_ENTERED)
+        {
+          this.cellPressedId = cellPressedId;
+          showKeyboard();
+        }
+        else
+        {
+          cell.setSelected(false);
+        }
+        break;
+      }
+      case PLAYER_CHOOSING_WORD:
+      {
+        // TODO check
+        this.cellPressedId = cellPressedId;
+        showKeyboard();
+        break;
+      }
+      case OPPONENT_TURN:
+      default:
+      {
+        // TODO check
+        break;
+      }
+    }
+  }
+  
+  private void clearCell(@NonNull @NotNull Cell cell)
+  {
+    cell.setText("");
+    cell.setLetter("");
+    cell.setSelected(false);
+    cell.setState(Cell.INITIAL_STATE);
   }
   
   private void playerSkipsHisTurn()
@@ -106,26 +206,6 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
       else if(which == DialogInterface.BUTTON_NEGATIVE)
       {
         dialogInstance.dismiss();
-      }
-    }
-  }
-  
-  @Override
-  public void onCellPressed(int cellPressedId)
-  {
-    switch(state)
-    {
-      case PLAYER_CHOOSING_LETTER:
-      case PLAYER_CHOOSING_WORD:
-      {
-        this.cellPressedId = cellPressedId;
-        showKeyboard();
-        break;
-      }
-      case OPPONENT_TURN:
-      default:
-      {
-        break;
       }
     }
   }

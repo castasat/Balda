@@ -11,10 +11,8 @@ class Cell extends AppCompatButton
    * constants
    */
   final static int INITIAL_STATE  = 0;
-  final static int LETTER_CHOOSED = 1;
-  final static int LETTER_ENTERED = 2;
-  final static int WORD_CHOOSED   = 3;
-  final static int WORD_ENTERED   = 4;
+  final static int LETTER_ENTERED = 1;
+  final static int WORD_ENTERED   = 2;
   
   /**
    * fields
