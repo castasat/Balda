@@ -103,7 +103,6 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
               cell.setSelected(true);
               cell.setState(Cell.LETTER_ENTERED);
               previousCellId = cellPressedId;
-              // TODO protect other cells from entering letter
               break;
             }
           }
@@ -112,12 +111,29 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
         case PLAYER_CHOOSING_WORD:
         {
           // TODO choose word
-          cell.setState(Cell.WORD_ENTERED);
+          switch (keyPressedId)
+          {
+            case R.id.back:
+              // TODO back pressed while choosing word
+              break;
+            case R.id.delete:
+              // TODO delete pressed while choosing word
+              break;
+            case R.id.done:
+              // TODO done pressed while choosing word
+              state = OPPONENT_TURN;
+              break;
+            default:
+              // TODO default behaviour while choosing word
+              break;
+          }
           break;
         }
         case OPPONENT_TURN:
+          // TODO behaviour while opponent turn
         default:
         {
+          // TODO default behaviour while key pressed
           break;
         }
       }
