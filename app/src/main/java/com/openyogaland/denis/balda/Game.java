@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.Button;
+import android.widget.Toast;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -34,9 +35,9 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   /** fragment transaction **/
   private FragmentTransaction transaction;
   /** id of cell pressed in FieldFragment **/
-  private int cellPressedId;
+  private int cellPressedId  = 0;
   /** id of previous pressed cell**/
-  private int previousCellId;
+  private int previousCellId = 0;
   /** game state **/
   private int state = PLAYER_CHOOSING_LETTER;
   
@@ -102,7 +103,6 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
               cell.setText(cell.getLetter());
               cell.setSelected(true);
               cell.setState(Cell.LETTER_ENTERED);
-              previousCellId = cellPressedId;
               break;
             }
           }
@@ -140,36 +140,34 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     }
   }
   
-  private void opponentTurn()
-  {
-    // TODO opponent turn
-  }
-  
   @Override
   public void onCellPressed(int cellPressedId)
   {
     Cell cell = findViewById(cellPressedId);
     switch(state)
     {
+      default:
       case PLAYER_CHOOSING_LETTER:
       {
+        Toast.makeText(this, "CHOOSE A LETTER", Toast.LENGTH_SHORT).show();
         if(cell.getState() != Cell.WORD_ENTERED)
         {
-          this.cellPressedId = cellPressedId;
+          this.cellPressedId  = cellPressedId;
           
-          // check if another cell was pressed after previous one
-          if(previousCellId != cellPressedId)
+          // if the cell was pressed after previous one
+          if((previousCellId != 0) && (previousCellId != cellPressedId))
           {
             Cell previousCell = findViewById(previousCellId);
-            
-            if (previousCell != null)
+            if(previousCell != null)
             {
               clearCell(previousCell);
             }
           }
+          previousCellId = cellPressedId;
+          cell.setSelected(true);
           showKeyboard();
         }
-        else
+        else // cell.getState() == Cell.WORD_ENTERED
         {
           cell.setSelected(false);
         }
@@ -178,17 +176,24 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
       case PLAYER_CHOOSING_WORD:
       {
         // TODO check
+        Toast.makeText(this, "CHOOSE A WORD", Toast.LENGTH_SHORT).show();
         this.cellPressedId = cellPressedId;
         showKeyboard();
         break;
       }
       case OPPONENT_TURN:
-      default:
       {
         // TODO check
+        Toast.makeText(this, "OPPONENT TURN", Toast.LENGTH_SHORT).show();
         break;
       }
     }
+  }
+  
+  private void opponentTurn()
+  {
+    Toast.makeText(this, "OPPONENT TURN", Toast.LENGTH_SHORT).show();
+    // TODO opponent turn
   }
   
   private void clearCell(@NonNull @NotNull Cell cell)
@@ -204,37 +209,6 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   {
     state = OPPONENT_TURN;
     opponentTurn();
-  }
-  
-  @Override
-  public void onClick(DialogInterface dialogInstance, int which)
-  {
-    // back on phone pressed
-    if((quitDialog != null) && (quitDialog == dialogInstance))
-    {
-      if(which == DialogInterface.BUTTON_POSITIVE)
-      {
-        finish();
-      }
-      else if(which == DialogInterface.BUTTON_NEGATIVE)
-      {
-        dialogInstance.dismiss();
-      }
-    }
-    
-    // back in keyboard fragment pressed
-    if((skipTurnDialog != null) && (skipTurnDialog == dialogInstance))
-    {
-      if(which == DialogInterface.BUTTON_POSITIVE)
-      {
-        dialogInstance.dismiss();
-        playerSkipsHisTurn();
-      }
-      else if(which == DialogInterface.BUTTON_NEGATIVE)
-      {
-        dialogInstance.dismiss();
-      }
-    }
   }
   
   private void showKeyboard()
@@ -291,6 +265,37 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     skipTurnDialogBuilder.setNegativeButton(R.string.skip_turn_no, this);
     skipTurnDialog = skipTurnDialogBuilder.create();
     skipTurnDialog.show();
+  }
+  
+  @Override
+  public void onClick(DialogInterface dialogInstance, int which)
+  {
+    // back on phone pressed
+    if((quitDialog != null) && (quitDialog == dialogInstance))
+    {
+      if(which == DialogInterface.BUTTON_POSITIVE)
+      {
+        finish();
+      }
+      else if(which == DialogInterface.BUTTON_NEGATIVE)
+      {
+        dialogInstance.dismiss();
+      }
+    }
+    
+    // back in keyboard fragment pressed
+    if((skipTurnDialog != null) && (skipTurnDialog == dialogInstance))
+    {
+      if(which == DialogInterface.BUTTON_POSITIVE)
+      {
+        dialogInstance.dismiss();
+        playerSkipsHisTurn();
+      }
+      else if(which == DialogInterface.BUTTON_NEGATIVE)
+      {
+        dialogInstance.dismiss();
+      }
+    }
   }
   
   @Override

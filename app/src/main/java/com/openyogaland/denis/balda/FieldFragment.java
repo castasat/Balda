@@ -93,10 +93,9 @@ public class FieldFragment extends Fragment implements OnClickListener
   public void onClick(View view)
   {
     // if player has not selected fieldCell yet
-    if(view instanceof Button)
+    if(view instanceof Cell)
     {
-      Button cellPressed = (Button) view;
-      cellPressed.setSelected(true);
+      Cell cellPressed = (Cell) view;
       int cellPressedId = cellPressed.getId();
       onCellPressedListener.onCellPressed(cellPressedId);
     }
