@@ -38,4 +38,10 @@
     <string name="skip_turn_dialog_message">Вы хотите пропустить свой ход?</string>
     <string name="skip_turn_yes">Да</string>
     <string name="skip_turn_no">Нет</string>
+    <string name="clear_word_dialog_message">Вы хотите стереть введённое слово?</string>
+    <string name="clear_word_yes">Да</string>
+    <string name="clear_word_no">Нет</string>
+    <string name="word_fragment_message">Выберите слово</string>
+    <string name="clear_word_button">Удалить</string>
+    <string name="enter_word_button">Ввести</string>
 </resources>

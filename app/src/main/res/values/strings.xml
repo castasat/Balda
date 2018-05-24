@@ -65,4 +65,10 @@
     <string name="skip_turn_yes">Yes</string>
     <string name="skip_turn_no">No</string>
     <string name="check_range_exception_message" translatable="false">The int state value should be in range 0..4 inclusive</string>
+    <string name="clear_word_dialog_message">Do you want to clear the word?</string>
+    <string name="clear_word_yes">Yes</string>
+    <string name="clear_word_no">No</string>
+    <string name="word_fragment_message">Choose the word</string>
+    <string name="clear_word_button">Clear</string>
+    <string name="enter_word_button">Enter</string>
 </resources>

@@ -24,14 +24,16 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   private static final String TAG_FIELD    = "field_fragment_tag";
   private static final String TAG_KEYBOARD = "keyboard_fragment_tag";
   private static final String TAG_SCORE    = "score_fragment_tag";
+  private static final String TAG_WORD     = "word_fragment_tag";
   
   static final int PLAYER_CHOOSING_LETTER = 0;
   static final int PLAYER_CHOOSING_WORD   = 1;
   static final int OPPONENT_TURN          = 2;
   
   /** alert dialogs **/
-  private AlertDialog quitDialog     = null;
-  private AlertDialog skipTurnDialog = null;
+  private AlertDialog quitDialog      = null;
+  private AlertDialog skipTurnDialog  = null;
+  private AlertDialog clearWordDialog = null;
   /** fragment transaction **/
   private FragmentTransaction transaction;
   /** id of cell pressed in FieldFragment **/
@@ -71,69 +73,35 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     Cell cell = findViewById(cellPressedId);
     if (cell != null)
     {
-      switch (state)
+      switch(keyPressedId)
       {
-        case PLAYER_CHOOSING_LETTER:
+        case R.id.back:
         {
-          switch(keyPressedId)
-          {
-            case R.id.back:
-            {
-              openSkipTurnDialog();
-              clearCell(cell);
-              hideKeyboard();
-              break;
-            }
-            case R.id.delete:
-            {
-              clearCell(cell);
-              break;
-            }
-            case R.id.done:
-            {
-              state = PLAYER_CHOOSING_WORD;
-              hideKeyboard();
-              break;
-            }
-            default:
-            {
-              Button key    = findViewById(keyPressedId);
-              String letter = key.getText().toString();
-              cell.setLetter(letter);
-              cell.setText(cell.getLetter());
-              cell.setSelected(true);
-              cell.setState(Cell.LETTER_ENTERED);
-              break;
-            }
-          }
+          openSkipTurnDialog();
+          clearCell(cell);
+          hideKeyboardFragment();
           break;
         }
-        case PLAYER_CHOOSING_WORD:
+        case R.id.delete:
         {
-          // TODO choose word
-          switch (keyPressedId)
-          {
-            case R.id.back:
-              // TODO back pressed while choosing word
-              break;
-            case R.id.delete:
-              // TODO delete pressed while choosing word
-              break;
-            case R.id.done:
-              // TODO done pressed while choosing word
-              state = OPPONENT_TURN;
-              break;
-            default:
-              // TODO default behaviour while choosing word
-              break;
-          }
+          clearCell(cell);
           break;
         }
-        case OPPONENT_TURN:
-          // TODO behaviour while opponent turn
+        case R.id.done:
+        {
+          state = PLAYER_CHOOSING_WORD;
+          hideKeyboardFragment();
+          showWordFragment();
+          break;
+        }
         default:
         {
-          // TODO default behaviour while key pressed
+          Button key    = findViewById(keyPressedId);
+          String letter = key.getText().toString();
+          cell.setLetter(letter);
+          cell.setText(cell.getLetter());
+          cell.setSelected(true);
+          cell.setState(Cell.LETTER_ENTERED);
           break;
         }
       }
@@ -149,7 +117,6 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
       default:
       case PLAYER_CHOOSING_LETTER:
       {
-        Toast.makeText(this, "CHOOSE A LETTER", Toast.LENGTH_SHORT).show();
         if(cell.getState() != Cell.WORD_ENTERED)
         {
           this.cellPressedId  = cellPressedId;
@@ -165,7 +132,8 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
           }
           previousCellId = cellPressedId;
           cell.setSelected(true);
-          showKeyboard();
+          Toast.makeText(this, "CHOOSE A LETTER", Toast.LENGTH_SHORT).show();
+          showKeyboardFragment();
         }
         else // cell.getState() == Cell.WORD_ENTERED
         {
@@ -175,16 +143,15 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
       }
       case PLAYER_CHOOSING_WORD:
       {
-        // TODO check
+        // TODO player choosing word
         Toast.makeText(this, "CHOOSE A WORD", Toast.LENGTH_SHORT).show();
         this.cellPressedId = cellPressedId;
-        showKeyboard();
+        showWordFragment();
         break;
       }
       case OPPONENT_TURN:
       {
-        // TODO check
-        Toast.makeText(this, "OPPONENT TURN", Toast.LENGTH_SHORT).show();
+        opponentTurn();
         break;
       }
     }
@@ -194,6 +161,11 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   {
     Toast.makeText(this, "OPPONENT TURN", Toast.LENGTH_SHORT).show();
     // TODO opponent turn
+  }
+  
+  private void clearWord()
+  {
+    // TODO clearWord();
   }
   
   private void clearCell(@NonNull @NotNull Cell cell)
@@ -211,7 +183,20 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     opponentTurn();
   }
   
-  private void showKeyboard()
+  private void showWordFragment()
+  {
+    WordFragment wordFragment = (WordFragment) getSupportFragmentManager().findFragmentByTag(TAG_WORD);
+    
+    if(wordFragment == null)
+    {
+      WordFragment fragment = new WordFragment();
+      transaction = getSupportFragmentManager().beginTransaction();
+      transaction.replace(R.id.switchableFragmentFrame, fragment, TAG_WORD);
+      transaction.commit();
+    }
+  }
+  
+  private void showKeyboardFragment()
   {
     KeyboardFragment keyboardFragment = (KeyboardFragment) getSupportFragmentManager().findFragmentByTag(TAG_KEYBOARD);
     
@@ -224,7 +209,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     }
   }
   
-  private void hideKeyboard()
+  private void hideKeyboardFragment()
   {
     ScoreFragment    scoreFragment    = (ScoreFragment)    getSupportFragmentManager().findFragmentByTag(TAG_SCORE);
     KeyboardFragment keyboardFragment = (KeyboardFragment) getSupportFragmentManager().findFragmentByTag(TAG_KEYBOARD);
@@ -267,10 +252,20 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     skipTurnDialog.show();
   }
   
+  private void openClearWordDialog()
+  {
+    Builder clearWordDialogBuilder = new Builder(this);
+    clearWordDialogBuilder.setTitle(R.string.clear_word_dialog_message);
+    clearWordDialogBuilder.setPositiveButton(R.string.clear_word_yes, this);
+    clearWordDialogBuilder.setNegativeButton(R.string.clear_word_no, this);
+    clearWordDialog = clearWordDialogBuilder.create();
+    clearWordDialog.show();
+  }
+  
   @Override
   public void onClick(DialogInterface dialogInstance, int which)
   {
-    // back on phone pressed
+    // quit dialog
     if((quitDialog != null) && (quitDialog == dialogInstance))
     {
       if(which == DialogInterface.BUTTON_POSITIVE)
@@ -283,13 +278,27 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
       }
     }
     
-    // back in keyboard fragment pressed
+    // skip turn dialog
     if((skipTurnDialog != null) && (skipTurnDialog == dialogInstance))
     {
       if(which == DialogInterface.BUTTON_POSITIVE)
       {
         dialogInstance.dismiss();
         playerSkipsHisTurn();
+      }
+      else if(which == DialogInterface.BUTTON_NEGATIVE)
+      {
+        dialogInstance.dismiss();
+      }
+    }
+    
+    // clear word dialog
+    if((clearWordDialog != null) && (clearWordDialog == dialogInstance))
+    {
+      if(which == DialogInterface.BUTTON_POSITIVE)
+      {
+        dialogInstance.dismiss();
+        clearWord();
       }
       else if(which == DialogInterface.BUTTON_NEGATIVE)
       {
