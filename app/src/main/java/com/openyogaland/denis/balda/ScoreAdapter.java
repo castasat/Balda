@@ -131,8 +131,8 @@ class ScoreAdapter extends Adapter<ScoreViewHolder>
     
     // get formatted string
     String word = context.getString(R.string.word_formatted, position + 1, scoreItem.getWord());
+    // set text 
     scoreViewHolder.wordTextView.setText(word);
-    
     scoreViewHolder.wordScoreTextView.setText(scoreItem.getScoreString());
   
     // set color depending on parameter

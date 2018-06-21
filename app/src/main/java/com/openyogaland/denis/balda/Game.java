@@ -90,6 +90,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
         case R.id.done:
         {
           state = PLAYER_CHOOSING_WORD;
+          Toast.makeText(this, "CHOOSE A WORD", Toast.LENGTH_SHORT).show();
           hideKeyboardFragment();
           showWordFragment();
           break;
@@ -143,10 +144,10 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
       }
       case PLAYER_CHOOSING_WORD:
       {
-        // TODO player choosing word
-        Toast.makeText(this, "CHOOSE A WORD", Toast.LENGTH_SHORT).show();
         this.cellPressedId = cellPressedId;
         showWordFragment();
+        // TODO update choosing word
+        // onWordUpdateListener.onWordUpdate(cell.getText());
         break;
       }
       case OPPONENT_TURN:
@@ -166,6 +167,7 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   private void clearWord()
   {
     // TODO clearWord();
+    Toast.makeText(this, "CLEARING WORD", Toast.LENGTH_SHORT).show();
   }
   
   private void clearCell(@NonNull @NotNull Cell cell)

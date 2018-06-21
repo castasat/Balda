@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 public class FieldFragment extends Fragment implements OnClickListener
 {
@@ -97,6 +96,7 @@ public class FieldFragment extends Fragment implements OnClickListener
     {
       Cell cellPressed = (Cell) view;
       int cellPressedId = cellPressed.getId();
+      // TODO выбранная клетка должна быть рядом с уже занятыми клетками
       onCellPressedListener.onCellPressed(cellPressedId);
     }
   }
