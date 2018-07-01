@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 
 public class FieldFragment extends Fragment implements OnClickListener
 {
-  private static final int    NUM_OF_ROWS            = 5;
-  private static final int    NUM_OF_COLUMNS         = 5;
+  public static final int    NUM_OF_ROWS            = 5;
+  public static final int    NUM_OF_COLUMNS         = 5;
   
   private final Cell[][]   fieldCell = new Cell[NUM_OF_ROWS][NUM_OF_COLUMNS];
   

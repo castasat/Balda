@@ -30,18 +30,27 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   static final int PLAYER_CHOOSING_WORD   = 1;
   static final int OPPONENT_TURN          = 2;
   
+  /** game state **/
+  private int state = PLAYER_CHOOSING_LETTER;
+  
   /** alert dialogs **/
   private AlertDialog quitDialog      = null;
   private AlertDialog skipTurnDialog  = null;
   private AlertDialog clearWordDialog = null;
+  
   /** fragment transaction **/
   private FragmentTransaction transaction;
+  
   /** id of cell pressed in FieldFragment **/
   private int cellPressedId  = 0;
   /** id of previous pressed cell**/
   private int previousCellId = 0;
-  /** game state **/
-  private int state = PLAYER_CHOOSING_LETTER;
+  
+  /** player's word **/
+  private StringBuffer wordBuffer;
+  
+  /** listeners **/
+  private OnWordUpdateListener onWordUpdateListener;
   
   @Override
   protected void onCreate(Bundle savedInstanceState)
@@ -62,7 +71,8 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
       transaction.commit();
       
       // start player's turn
-      state = PLAYER_CHOOSING_LETTER;
+      state      = PLAYER_CHOOSING_LETTER;
+      wordBuffer = new StringBuffer();
     }
     // TODO save and restore saved instance state
   }
@@ -146,8 +156,11 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
       {
         this.cellPressedId = cellPressedId;
         showWordFragment();
-        // TODO update choosing word
-        // onWordUpdateListener.onWordUpdate(cell.getText());
+        
+        wordBuffer.append(cell.getLetter());
+        onWordUpdateListener.onWordUpdate(wordBuffer.toString());
+        
+        
         break;
       }
       case OPPONENT_TURN:
@@ -191,11 +204,12 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
     
     if(wordFragment == null)
     {
-      WordFragment fragment = new WordFragment();
-      transaction = getSupportFragmentManager().beginTransaction();
-      transaction.replace(R.id.switchableFragmentFrame, fragment, TAG_WORD);
+      wordFragment = new WordFragment();
+      transaction  = getSupportFragmentManager().beginTransaction();
+      transaction.replace(R.id.switchableFragmentFrame, wordFragment, TAG_WORD);
       transaction.commit();
     }
+    setOnWordUpdateListener(wordFragment);
   }
   
   private void showKeyboardFragment()
@@ -329,4 +343,18 @@ public class Game extends AppCompatActivity implements OnClickListener, OnCellPr
   {
     openQuitDialog();
   }
+  
+  /**
+   * setter
+   * @param onWordUpdateListener - on word update listener
+   */
+  public void setOnWordUpdateListener(OnWordUpdateListener onWordUpdateListener)
+  {
+    this.onWordUpdateListener = onWordUpdateListener;
+  }
+}
+
+interface OnWordUpdateListener
+{
+  void onWordUpdate(@NonNull @NotNull String word);
 }

@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class WordFragment extends DialogFragment implements OnClickListener
+import org.jetbrains.annotations.NotNull;
+
+public class WordFragment extends DialogFragment implements OnClickListener, OnWordUpdateListener
 {
   /**
    * fields
@@ -77,6 +79,15 @@ public class WordFragment extends DialogFragment implements OnClickListener
           // TODO enter word
           break;
       }
+    }
+  }
+  
+  @Override
+  public void onWordUpdate(@NonNull @NotNull String word)
+  {
+    if (!word.isEmpty())
+    {
+      choosedWordTextView.setText(word);
     }
   }
 }
